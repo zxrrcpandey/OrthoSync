@@ -8,7 +8,7 @@ import { Colors, FontSize, Spacing } from '../theme';
 // Placeholder screens - will be replaced with actual screens
 import DashboardScreen from '../screens/main/DashboardScreen';
 import PatientsNavigator from './PatientsNavigator';
-import CalendarScreen from '../screens/main/CalendarScreen';
+import CalendarNavigator from './CalendarNavigator';
 import BillingNavigator from './BillingNavigator';
 import MoreNavigator from './MoreNavigator';
 
@@ -49,7 +49,7 @@ export default function MainTabNavigator() {
     >
       <Tab.Screen name="Dashboard" component={DashboardScreen} />
       <Tab.Screen name="Patients" component={PatientsNavigator} />
-      <Tab.Screen name="Calendar" component={CalendarScreen} />
+      <Tab.Screen name="Calendar" component={CalendarNavigator} />
       <Tab.Screen name="Billing" component={BillingNavigator} />
       <Tab.Screen name="More" component={MoreNavigator} />
     </Tab.Navigator>
