@@ -118,6 +118,7 @@ export default function BillingScreen() {
         {[
           { emoji: '📋', title: t('billing.feesMaster'), subtitle: 'Manage treatment rates & costs', onPress: () => navigation.navigate('FeesMaster') },
           { emoji: '💳', title: t('billing.createBill'), subtitle: 'Generate new bill for patient', onPress: () => navigation.navigate('CreateBill', {}) },
+          { emoji: '🏦', title: t('commission.commission'), subtitle: 'Track clinic owner commissions', onPress: () => navigation.navigate('CommissionDashboard') },
         ].map((item, index) => (
           <TouchableOpacity
             key={index}
