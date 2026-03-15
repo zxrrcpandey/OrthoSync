@@ -9,7 +9,7 @@ import { Colors, FontSize, Spacing } from '../theme';
 import DashboardScreen from '../screens/main/DashboardScreen';
 import PatientsNavigator from './PatientsNavigator';
 import CalendarScreen from '../screens/main/CalendarScreen';
-import BillingScreen from '../screens/main/BillingScreen';
+import BillingNavigator from './BillingNavigator';
 import MoreNavigator from './MoreNavigator';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
@@ -50,7 +50,7 @@ export default function MainTabNavigator() {
       <Tab.Screen name="Dashboard" component={DashboardScreen} />
       <Tab.Screen name="Patients" component={PatientsNavigator} />
       <Tab.Screen name="Calendar" component={CalendarScreen} />
-      <Tab.Screen name="Billing" component={BillingScreen} />
+      <Tab.Screen name="Billing" component={BillingNavigator} />
       <Tab.Screen name="More" component={MoreNavigator} />
     </Tab.Navigator>
   );
