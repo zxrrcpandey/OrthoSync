@@ -54,7 +54,7 @@ export default function MoreScreen() {
         <MenuItem emoji="🏥" title={t('location.locations')} subtitle="Manage hospitals & clinics" onPress={() => navigation.navigate('Locations')} />
         <MenuItem emoji="🦷" title={t('treatment.treatments')} subtitle="Configure treatment types" onPress={() => {}} />
         <MenuItem emoji="🔔" title={t('notification.notifications')} subtitle="View all notifications" onPress={() => navigation.navigate('Notifications')} />
-        <MenuItem emoji="📊" title={t('reports.reports')} subtitle="Analytics & exports" onPress={() => {}} />
+        <MenuItem emoji="📊" title={t('reports.reports')} subtitle="Analytics & exports" onPress={() => navigation.navigate('Reports')} />
 
         <Text style={styles.sectionTitle}>Account</Text>
         <MenuItem emoji="⚙️" title={t('doctor.settings')} subtitle="App preferences" onPress={() => navigation.navigate('Settings')} />
