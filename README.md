@@ -564,9 +564,7 @@ copies or substantial portions of the Software.
 **Built by [Dr. Pooja Gangare](https://github.com/zxrrcpandey)**
 *Orthodontics & Dentofacial Orthopaedics*
 
-🤖 Powered by **Claude Opus 4.6** (1M context) by Anthropic
-
----
+**Developed by Rahul Pandey**
 
 ### Technologies That Make OrthoSync Possible
 
