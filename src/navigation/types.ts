@@ -54,6 +54,7 @@ export type MoreStackParamList = {
   LocationDetail: { locationId: string };
   Treatments: undefined;
   Notifications: undefined;
+  SendNotification: undefined;
   Reports: undefined;
   Settings: undefined;
   Subscription: undefined;

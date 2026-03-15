@@ -6,3 +6,4 @@ export { useTreatmentStore } from './treatmentStore';
 export { useBillingStore } from './billingStore';
 export { useCommissionStore } from './commissionStore';
 export { useAppointmentStore } from './appointmentStore';
+export { useNotificationStore } from './notificationStore';

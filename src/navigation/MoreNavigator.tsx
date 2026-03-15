@@ -6,6 +6,8 @@ import DoctorProfileScreen from '../screens/doctor/DoctorProfileScreen';
 import LocationsListScreen from '../screens/location/LocationsListScreen';
 import AddLocationScreen from '../screens/location/AddLocationScreen';
 import LocationDetailScreen from '../screens/location/LocationDetailScreen';
+import NotificationsScreen from '../screens/notification/NotificationsScreen';
+import SendNotificationScreen from '../screens/notification/SendNotificationScreen';
 
 const Stack = createNativeStackNavigator<MoreStackParamList>();
 
@@ -22,6 +24,8 @@ export default function MoreNavigator() {
       <Stack.Screen name="Locations" component={LocationsListScreen} />
       <Stack.Screen name="AddLocation" component={AddLocationScreen} />
       <Stack.Screen name="LocationDetail" component={LocationDetailScreen} />
+      <Stack.Screen name="Notifications" component={NotificationsScreen} />
+      <Stack.Screen name="SendNotification" component={SendNotificationScreen} />
     </Stack.Navigator>
   );
 }
