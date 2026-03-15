@@ -25,6 +25,7 @@ export type PatientsStackParamList = {
   PatientsList: undefined;
   AddPatient: undefined;
   PatientDetail: { patientId: string };
+  AddTreatment: { patientId: string };
   TreatmentDetail: { treatmentId: string; patientId: string };
   AddTreatmentVisit: { treatmentId: string; patientId: string };
 };
