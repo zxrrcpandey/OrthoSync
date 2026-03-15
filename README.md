@@ -26,17 +26,25 @@
 
 ## 📸 Screenshots
 
-> 📷 *Screenshots coming soon — the app features a beautiful green glassmorphism UI theme*
+> 📷 *Screenshots coming soon — the app features a beautiful **green glassmorphism** UI theme*
 
-| 🔐 Login | 📊 Dashboard | 📅 Calendar | 💰 Billing |
-|:---------:|:------------:|:----------:|:---------:|
-| ![Login](https://via.placeholder.com/200x400/2D6A4F/FFFFFF?text=Login) | ![Dashboard](https://via.placeholder.com/200x400/2D6A4F/FFFFFF?text=Dashboard) | ![Calendar](https://via.placeholder.com/200x400/2D6A4F/FFFFFF?text=Calendar) | ![Billing](https://via.placeholder.com/200x400/2D6A4F/FFFFFF?text=Billing) |
-| Email, Phone & OTP Auth | Real-time stats & activity | Multi-location scheduling | Fees, bills & installments |
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│                        🦷 OrthoSync App                             │
+├─────────────┬─────────────┬─────────────┬──────────────────────────┤
+│  🔐 Login   │ 📊 Dashboard│ 📅 Calendar │     💰 Billing           │
+│             │             │             │                          │
+│ Email/Phone │ Real-time   │ Multi-loc   │  Fees, Bills             │
+│ OTP Auth    │ Stats       │ Scheduling  │  Installments            │
+├─────────────┼─────────────┼─────────────┼──────────────────────────┤
+│  👤 Patients│ 🏥 Locations│ 📈 Reports  │     🖥️ Web Panel        │
+│             │             │             │                          │
+│ Dental      │ Hospital &  │ Revenue     │  Full Admin              │
+│ Photos      │ Clinic Mgmt │ Analytics   │  Dashboard               │
+└─────────────┴─────────────┴─────────────┴──────────────────────────┘
+```
 
-| 👤 Patients | 🏥 Locations | 📈 Reports | 🖥️ Web Panel |
-|:-----------:|:----------:|:---------:|:-----------:|
-| ![Patients](https://via.placeholder.com/200x400/2D6A4F/FFFFFF?text=Patients) | ![Locations](https://via.placeholder.com/200x400/2D6A4F/FFFFFF?text=Locations) | ![Reports](https://via.placeholder.com/200x400/2D6A4F/FFFFFF?text=Reports) | ![Web](https://via.placeholder.com/200x400/2D6A4F/FFFFFF?text=Web+Panel) |
-| Dental photos & records | Hospital & clinic mgmt | Revenue analytics | Full admin dashboard |
+> 💡 **Theme:** Dark green gradient background + frosted glass cards + white text = Premium dental app look
 
 ---
 
@@ -49,7 +57,8 @@ OrthoSync is packed with everything a dental practice needs. Click any feature t
 > Secure, multi-method authentication with admin-verified doctor onboarding.
 
 <details>
-<summary>🔽 View all sub-features</summary>
+<summary><b>▶ View all sub-features</b></summary>
+<br/>
 
 - ✅ Email + Password login
 - ✅ Phone + OTP login (6-digit, auto-focus)
@@ -68,7 +77,8 @@ OrthoSync is packed with everything a dental practice needs. Click any feature t
 > Complete patient records with 6 categories of dental photography.
 
 <details>
-<summary>🔽 View all sub-features</summary>
+<summary><b>▶ View all sub-features</b></summary>
+<br/>
 
 - ✅ Patient registration with auto-generated IDs (`PAT-0001` format)
 - ✅ Personal info: name, age, gender, phone, email, address
@@ -95,7 +105,8 @@ OrthoSync is packed with everything a dental practice needs. Click any feature t
 > Track every treatment from consultation to completion with a visual timeline.
 
 <details>
-<summary>🔽 View all sub-features</summary>
+<summary><b>▶ View all sub-features</b></summary>
+<br/>
 
 - ✅ **12 default treatments** pre-loaded (English + Hindi names):
   - Metal Braces, Ceramic Braces, Clear Aligners, Retainer
@@ -118,7 +129,8 @@ OrthoSync is packed with everything a dental practice needs. Click any feature t
 > Comprehensive billing with GST, partial payments, EMI, and shareable receipts.
 
 <details>
-<summary>🔽 View all sub-features</summary>
+<summary><b>▶ View all sub-features</b></summary>
+<br/>
 
 - ✅ **Fees Master:** inline editing of treatment rates & equipment costs
 - ✅ Category-wise treatment filtering (8 categories)
@@ -146,7 +158,8 @@ OrthoSync is packed with everything a dental practice needs. Click any feature t
 > Smart commission tracking for multi-location practices — a unique feature of OrthoSync.
 
 <details>
-<summary>🔽 View all sub-features</summary>
+<summary><b>▶ View all sub-features</b></summary>
+<br/>
 
 - ✅ Auto-commission calculation per location per month
 - ✅ **4 commission models** (see [Commission Models](#-commission-models) below)
@@ -169,7 +182,8 @@ OrthoSync is packed with everything a dental practice needs. Click any feature t
 > Custom-built calendar with recurring appointments and multi-location support.
 
 <details>
-<summary>🔽 View all sub-features</summary>
+<summary><b>▶ View all sub-features</b></summary>
+<br/>
 
 - ✅ Custom-built month calendar grid (zero external dependencies)
 - ✅ Appointment dots per location on calendar days
@@ -193,7 +207,8 @@ OrthoSync is packed with everything a dental practice needs. Click any feature t
 > Multi-channel patient communication with smart reminders.
 
 <details>
-<summary>🔽 View all sub-features</summary>
+<summary><b>▶ View all sub-features</b></summary>
+<br/>
 
 - ✅ In-app notification center with filter tabs (All, Reminders, Missed, Payments, Custom)
 - ✅ Unread count badge on notification bell
@@ -217,7 +232,8 @@ OrthoSync is packed with everything a dental practice needs. Click any feature t
 > Comprehensive business intelligence with shareable reports.
 
 <details>
-<summary>🔽 View all sub-features</summary>
+<summary><b>▶ View all sub-features</b></summary>
+<br/>
 
 - ✅ Period selector: Today, This Week, This Month, This Year, All Time
 - ✅ Overview stats: Total Revenue, Total Patients, Appointments, Pending Payments
@@ -240,7 +256,8 @@ OrthoSync is packed with everything a dental practice needs. Click any feature t
 > Full offline capability — never lose data, even without internet.
 
 <details>
-<summary>🔽 View all sub-features</summary>
+<summary><b>▶ View all sub-features</b></summary>
+<br/>
 
 - ✅ Sync service with operation queue (create/update/delete)
 - ✅ AsyncStorage-based queue persistence
@@ -261,7 +278,8 @@ OrthoSync is packed with everything a dental practice needs. Click any feature t
 > A full-featured desktop dashboard — same codebase, different experience.
 
 <details>
-<summary>🔽 View all sub-features</summary>
+<summary><b>▶ View all sub-features</b></summary>
+<br/>
 
 - ✅ Platform detection: web → admin panel, mobile → patient-facing app
 - ✅ Sidebar navigation (10 sections)
@@ -286,7 +304,8 @@ OrthoSync is packed with everything a dental practice needs. Click any feature t
 > Full internationalization support for Hindi-speaking regions.
 
 <details>
-<summary>🔽 View all sub-features</summary>
+<summary><b>▶ View all sub-features</b></summary>
+<br/>
 
 - ✅ Complete English translations
 - ✅ Complete Hindi (हिन्दी) translations
@@ -523,7 +542,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 ```
 MIT License
 
-Copyright (c) 2025 Dr. Pooja Gangare
+Copyright (c) 2026 Dr. Pooja Gangare
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -575,6 +594,6 @@ copies or substantial portions of the Software.
 
 ---
 
-<sub>Made in 🇮🇳 India | © 2025 Dr. Pooja Gangare | All Rights Reserved</sub>
+<sub>Made in 🇮🇳 India | © 2026 Dr. Pooja Gangare | All Rights Reserved</sub>
 
 </div>
