@@ -306,13 +306,14 @@ const themes = [
     name: 'Glass White',
     emoji: '🤍',
     desc: 'Clean frosted glass with soft neutrals — DEFAULT',
-    gradient: ['#E8EAF0','#DEE2E8','#D5DAE1'],
-    accent: '#26C6DA',
-    glassBorder: 'rgba(255,255,255,0.50)',
-    glassBg: 'rgba(255,255,255,0.60)',
+    gradient: ['#BCC5D3','#C8CFD9','#D5DAE1'],
+    accent: '#0097A7',
+    glassBorder: 'rgba(0,0,0,0.08)',
+    glassBg: 'rgba(255,255,255,0.72)',
     text: ['#1A1A2E','rgba(26,26,46,0.65)','rgba(26,26,46,0.45)'],
-    tabBg: 'rgba(255,255,255,0.85)',
-    tabActive: '#00ACC1',
+    tabBar: 'rgba(255,255,255,0.92)',
+    tabActive: '#00838F',
+    inputBg: 'rgba(255,255,255,0.85)',
     isDefault: true,
   },
   {
@@ -406,7 +407,7 @@ function tabBar(t, activeIdx) {
 function loginScreen(t) {
   const inputClass = t.isLight ? 'login-input dark-input' : 'login-input';
   const inputBorder = t.isLight ? 'rgba(0,0,0,0.12)' : t.glassBorder;
-  const inputBg = t.isLight ? 'rgba(255,255,255,0.45)' : 'rgba(255,255,255,0.08)';
+  const inputBg = t.inputBg ? t.inputBg : (t.isLight ? 'rgba(255,255,255,0.45)' : 'rgba(255,255,255,0.08)');
   const inputColor = t.isLight ? 'rgba(27,94,32,0.5)' : 'rgba(255,255,255,0.5)';
   const notchBg = t.isLight ? t.gradient[0] : '#000';
 

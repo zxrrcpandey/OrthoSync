@@ -6,105 +6,105 @@
 <title>OrthoSync — iOS Mockups</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;color:#fff;padding:20px}
+body{background:linear-gradient(135deg,#BCC5D3,#C8CFD9,#D5DAE1);min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;color:#1a1a1a;padding:20px}
 .page-title{text-align:center;padding:40px 20px 10px;font-size:36px;font-weight:700;letter-spacing:-0.5px}
-.page-sub{text-align:center;color:rgba(255,255,255,0.7);font-size:16px;margin-bottom:40px}
-.row-label{max-width:1320px;margin:30px auto 15px;font-size:18px;font-weight:600;color:rgba(255,255,255,0.85);padding-left:12px;border-left:3px solid #00E676}
+.page-sub{text-align:center;color:rgba(0,0,0,0.5);font-size:16px;margin-bottom:40px}
+.row-label{max-width:1320px;margin:30px auto 15px;font-size:18px;font-weight:600;color:rgba(0,0,0,0.75);padding-left:12px;border-left:3px solid #0097A7}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;max-width:1320px;margin:0 auto 30px;padding:0 10px}
 @media(max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.grid{grid-template-columns:1fr}}
 .mc{display:flex;flex-direction:column;align-items:center}
-.mc-title{margin-top:12px;font-size:14px;font-weight:600;color:rgba(255,255,255,0.8);text-align:center}
+.mc-title{margin-top:12px;font-size:14px;font-weight:600;color:rgba(0,0,0,0.7);text-align:center}
 /* iPhone Frame */
-.iphone{width:375px;height:812px;border-radius:44px;border:4px solid #111;background:linear-gradient(180deg,#0A3D0A,#1B5E20);position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5),inset 0 0 0 2px rgba(255,255,255,0.05)}
+.iphone{width:375px;height:812px;border-radius:44px;border:4px solid #111;background:linear-gradient(180deg,#BCC5D3,#C8CFD9,#D5DAE1);position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.25),inset 0 0 0 2px rgba(0,0,0,0.05)}
 .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:150px;height:30px;background:#111;border-radius:0 0 18px 18px;z-index:10}
-.sb{display:flex;justify-content:space-between;padding:12px 24px 0;font-size:12px;font-weight:600;height:44px}
+.sb{display:flex;justify-content:space-between;padding:12px 24px 0;font-size:12px;font-weight:600;height:44px;color:#1a1a1a}
 .sc{padding:0 16px;overflow:hidden;height:calc(100% - 44px);position:relative}
 /* Glass */
-.g{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:16px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:14px;margin-bottom:10px}
-.gs{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:10px;margin-bottom:8px}
-.gi{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:11px 14px;font-size:14px;width:100%;margin-bottom:8px;color:#fff}
-.gi-label{font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:2px}
-.gi-val{font-size:14px;color:#fff}
-.btn{background:linear-gradient(135deg,#4CAF50,#00E676);border-radius:14px;padding:14px;width:100%;color:#fff;font-size:16px;font-weight:600;text-align:center;border:none}
-.btn-out{background:transparent;border:1px solid rgba(255,255,255,0.3);border-radius:14px;padding:14px;width:100%;color:#fff;font-size:16px;font-weight:600;text-align:center}
-.sec{color:rgba(255,255,255,0.7);font-size:13px}
-.sm{color:rgba(255,255,255,0.5);font-size:11px}
+.g{background:rgba(255,255,255,0.72);border:1px solid rgba(0,0,0,0.08);border-radius:16px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:14px;margin-bottom:10px}
+.gs{background:rgba(255,255,255,0.65);border:1px solid rgba(0,0,0,0.08);border-radius:12px;padding:10px;margin-bottom:8px}
+.gi{background:rgba(255,255,255,0.85);border:1px solid rgba(0,0,0,0.08);border-radius:12px;padding:11px 14px;font-size:14px;width:100%;margin-bottom:8px;color:#1a1a1a}
+.gi-label{font-size:11px;color:rgba(0,0,0,0.45);margin-bottom:2px}
+.gi-val{font-size:14px;color:#1a1a1a}
+.btn{background:linear-gradient(135deg,#0097A7,#00838F);border-radius:14px;padding:14px;width:100%;color:#fff;font-size:16px;font-weight:600;text-align:center;border:none}
+.btn-out{background:transparent;border:1px solid rgba(0,0,0,0.15);border-radius:14px;padding:14px;width:100%;color:#1a1a1a;font-size:16px;font-weight:600;text-align:center}
+.sec{color:rgba(0,0,0,0.55);font-size:13px}
+.sm{color:rgba(0,0,0,0.45);font-size:11px}
 .center{text-align:center}
 /* Tab Bar */
-.tab-bar{position:absolute;bottom:0;left:0;right:0;height:80px;background:rgba(10,61,10,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-around;align-items:flex-start;padding-top:8px;z-index:20}
-.tab{display:flex;flex-direction:column;align-items:center;font-size:10px;color:rgba(255,255,255,0.5);gap:2px}
-.tab.a{color:#00E676}
+.tab-bar{position:absolute;bottom:0;left:0;right:0;height:80px;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(0,0,0,0.08);display:flex;justify-content:space-around;align-items:flex-start;padding-top:8px;z-index:20}
+.tab{display:flex;flex-direction:column;align-items:center;font-size:10px;color:rgba(0,0,0,0.4);gap:2px}
+.tab.a{color:#00838F}
 .tab em{font-style:normal;font-size:20px}
 /* Badges */
 .badge{display:inline-block;padding:2px 8px;border-radius:8px;font-size:10px;font-weight:600}
-.bg{background:rgba(0,230,118,0.2);color:#00E676}
-.bc{background:rgba(0,188,212,0.2);color:#00BCD4}
+.bg{background:rgba(0,151,167,0.15);color:#0097A7}
+.bc{background:rgba(0,131,143,0.15);color:#00838F}
 .bo{background:rgba(255,152,0,0.2);color:#FF9800}
 .br{background:rgba(244,67,54,0.2);color:#F44336}
 .bb{background:rgba(33,150,243,0.2);color:#2196F3}
 /* Chips */
-.chip{display:inline-block;padding:5px 12px;border-radius:20px;font-size:12px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);margin:2px}
-.chip.a{background:rgba(0,230,118,0.2);border-color:#00E676;color:#00E676}
+.chip{display:inline-block;padding:5px 12px;border-radius:20px;font-size:12px;background:rgba(255,255,255,0.65);border:1px solid rgba(0,0,0,0.08);color:rgba(0,0,0,0.6);margin:2px}
+.chip.a{background:rgba(0,151,167,0.15);border-color:#0097A7;color:#0097A7}
 /* Avatar */
-.av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#4CAF50,#00E676);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex-shrink:0}
-.av-lg{width:68px;height:68px;font-size:26px;border-radius:50%;background:linear-gradient(135deg,#4CAF50,#00E676);display:flex;align-items:center;justify-content:center;font-weight:700}
+.av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#0097A7,#00838F);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex-shrink:0;color:#fff}
+.av-lg{width:68px;height:68px;font-size:26px;border-radius:50%;background:linear-gradient(135deg,#0097A7,#00838F);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
 /* Stat Grid */
 .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
-.stat{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:10px;backdrop-filter:blur(12px)}
+.stat{background:rgba(255,255,255,0.72);border:1px solid rgba(0,0,0,0.08);border-radius:14px;padding:10px;backdrop-filter:blur(12px)}
 .stat .num{font-size:20px;font-weight:700;margin-top:2px}
-.stat .lbl{font-size:11px;color:rgba(255,255,255,0.5)}
+.stat .lbl{font-size:11px;color:rgba(0,0,0,0.45)}
 /* Progress */
-.pb{height:5px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;margin-top:5px}
+.pb{height:5px;background:rgba(0,0,0,0.08);border-radius:3px;overflow:hidden;margin-top:5px}
 .pf{height:100%;border-radius:3px}
-.pfg{background:linear-gradient(90deg,#4CAF50,#00E676)}
-.pfc{background:#00BCD4}
+.pfg{background:linear-gradient(90deg,#0097A7,#00838F)}
+.pfc{background:#00838F}
 .pfo{background:#FF9800}
 /* Search */
-.search{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:8px;margin-bottom:10px;color:rgba(255,255,255,0.4);font-size:14px}
+.search{background:rgba(255,255,255,0.85);border:1px solid rgba(0,0,0,0.08);border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:8px;margin-bottom:10px;color:rgba(0,0,0,0.4);font-size:14px}
 /* Type Card */
-.tc{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:12px;text-align:center;flex:1}
-.tc.sel{border-color:#00E676;background:rgba(0,230,118,0.1)}
+.tc{background:rgba(255,255,255,0.65);border:1px solid rgba(0,0,0,0.08);border-radius:14px;padding:12px;text-align:center;flex:1}
+.tc.sel{border-color:#0097A7;background:rgba(0,151,167,0.1)}
 /* Calendar */
 .cg{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;text-align:center;font-size:13px;margin-bottom:10px}
-.cg .h{color:rgba(255,255,255,0.5);font-size:11px;padding:4px 0}
+.cg .h{color:rgba(0,0,0,0.45);font-size:11px;padding:4px 0}
 .cg .d{padding:7px 0}
-.cg .d.today{background:#00E676;color:#000;font-weight:700;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;margin:0 auto}
+.cg .d.today{background:#0097A7;color:#fff;font-weight:700;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;margin:0 auto}
 /* Photo Grid */
 .photo-g{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.photo-t{aspect-ratio:1;background:rgba(255,255,255,0.06);border:1px dashed rgba(255,255,255,0.2);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;color:rgba(255,255,255,0.4);gap:2px}
-.photo-t.has{border-style:solid;background:rgba(76,175,80,0.15);border-color:rgba(255,255,255,0.15)}
+.photo-t{aspect-ratio:1;background:rgba(255,255,255,0.5);border:1px dashed rgba(0,0,0,0.12);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;color:rgba(0,0,0,0.4);gap:2px}
+.photo-t.has{border-style:solid;background:rgba(0,151,167,0.1);border-color:rgba(0,0,0,0.08)}
 /* OTP */
 .otp-row{display:flex;gap:8px;justify-content:center;margin:14px 0}
-.otp-box{width:42px;height:50px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700}
-.otp-box.f{border-color:#00E676;background:rgba(0,230,118,0.1)}
+.otp-box{width:42px;height:50px;background:rgba(255,255,255,0.85);border:1px solid rgba(0,0,0,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700}
+.otp-box.f{border-color:#0097A7;background:rgba(0,151,167,0.1)}
 /* Steps */
 .steps{display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-.step-dot{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;background:rgba(255,255,255,0.1);border:2px solid rgba(255,255,255,0.2)}
-.step-dot.a{background:rgba(0,230,118,0.2);border-color:#00E676;color:#00E676}
-.step-dot.done{background:#4CAF50;border-color:#4CAF50}
-.step-line{width:36px;height:2px;background:rgba(255,255,255,0.15)}
-.step-line.done{background:#4CAF50}
+.step-dot{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;background:rgba(255,255,255,0.65);border:2px solid rgba(0,0,0,0.1)}
+.step-dot.a{background:rgba(0,151,167,0.15);border-color:#0097A7;color:#0097A7}
+.step-dot.done{background:#0097A7;border-color:#0097A7;color:#fff}
+.step-line{width:36px;height:2px;background:rgba(0,0,0,0.1)}
+.step-line.done{background:#0097A7}
 /* Stepper */
 .stp{padding-left:16px}
-.stp .st{position:relative;padding:0 0 16px 20px;border-left:2px solid rgba(255,255,255,0.15)}
+.stp .st{position:relative;padding:0 0 16px 20px;border-left:2px solid rgba(0,0,0,0.1)}
 .stp .st:last-child{border-left:none;padding-bottom:0}
-.stp .st::before{content:'';width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.15);position:absolute;left:-7px;top:2px}
-.stp .st.done::before{background:#4CAF50}
-.stp .st.done{border-left-color:#4CAF50}
-.stp .st.cur::before{background:#00BCD4;box-shadow:0 0 6px #00BCD4}
+.stp .st::before{content:'';width:12px;height:12px;border-radius:50%;background:rgba(0,0,0,0.1);position:absolute;left:-7px;top:2px}
+.stp .st.done::before{background:#0097A7}
+.stp .st.done{border-left-color:#0097A7}
+.stp .st.cur::before{background:#00838F;box-shadow:0 0 6px #00838F}
 /* Toggle */
-.tg{width:42px;height:24px;border-radius:12px;background:rgba(255,255,255,0.2);position:relative;display:inline-block;vertical-align:middle}
-.tg.on{background:#4CAF50}
+.tg{width:42px;height:24px;border-radius:12px;background:rgba(0,0,0,0.12);position:relative;display:inline-block;vertical-align:middle}
+.tg.on{background:#0097A7}
 .tg .k{width:20px;height:20px;border-radius:50%;background:#fff;position:absolute;top:2px;left:2px}
 .tg.on .k{left:20px}
 /* Notification */
-.nc{padding:10px 12px;border-radius:14px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);margin-bottom:8px}
-.nc.ur{border-left:3px solid #00E676;background:rgba(0,230,118,0.05)}
+.nc{padding:10px 12px;border-radius:14px;background:rgba(255,255,255,0.65);border:1px solid rgba(0,0,0,0.08);margin-bottom:8px}
+.nc.ur{border-left:3px solid #0097A7;background:rgba(0,151,167,0.06)}
 /* Menu */
-.menu-i{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px}
+.menu-i{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:14px}
 /* List Item */
-.li{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.li{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06)}
 .li:last-child{border-bottom:none}
 /* Helpers */
 .flex{display:flex;align-items:center;gap:10px}
@@ -135,15 +135,15 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div style="margin-top:30px">
 <div class="g">
 <div style="display:flex;margin-bottom:14px">
-<div style="flex:1;text-align:center;padding:8px;border-bottom:2px solid #00E676;color:#00E676;font-weight:600;font-size:14px">Email</div>
-<div style="flex:1;text-align:center;padding:8px;border-bottom:2px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);font-size:14px">Phone</div>
+<div style="flex:1;text-align:center;padding:8px;border-bottom:2px solid #0097A7;color:#0097A7;font-weight:600;font-size:14px">Email</div>
+<div style="flex:1;text-align:center;padding:8px;border-bottom:2px solid rgba(0,0,0,0.08);color:rgba(0,0,0,0.4);font-size:14px">Phone</div>
 </div>
-<div class="gi"><span style="color:rgba(255,255,255,0.4)">dr.pooja@example.com</span></div>
-<div class="gi"><span style="color:rgba(255,255,255,0.4)">Password</span><span style="color:rgba(255,255,255,0.3)">&#128065;</span></div>
-<div style="text-align:right;margin-bottom:14px"><span class="sm" style="color:#00E676">Forgot Password?</span></div>
+<div class="gi"><span style="color:rgba(0,0,0,0.35)">dr.pooja@example.com</span></div>
+<div class="gi"><span style="color:rgba(0,0,0,0.35)">Password</span><span style="color:rgba(0,0,0,0.25)">&#128065;</span></div>
+<div style="text-align:right;margin-bottom:14px"><span class="sm" style="color:#0097A7">Forgot Password?</span></div>
 <div class="btn">Login</div>
 </div>
-<div class="sec mt12">Don't have an account? <span style="color:#00E676;font-weight:600">Register</span></div>
+<div class="sec mt12">Don't have an account? <span style="color:#0097A7;font-weight:600">Register</span></div>
 </div>
 </div>
 </div></div><div class="mc-title">1. Login Screen</div></div>
@@ -151,21 +151,21 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <!-- 2. Register -->
 <div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
 <div style="padding-top:50px">
-<div style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:4px">&#8592; Back</div>
+<div style="font-size:14px;color:rgba(0,0,0,0.5);margin-bottom:4px">&#8592; Back</div>
 <div class="f24 fw7 mb8">Create Account</div>
 <div class="sec mb12">Join OrthoSync today</div>
 <div class="g">
 <div class="gi"><div class="gi-label">Full Name</div><div class="gi-val">Dr. Pooja Gangare</div></div>
-<div class="gi"><div class="gi-label">Email</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">email@example.com</div></div>
-<div class="gi" style="display:flex;gap:8px;align-items:center"><span style="color:rgba(255,255,255,0.5)">+91</span> <span style="color:rgba(255,255,255,0.4)">Phone Number</span></div>
-<div class="gi"><div class="gi-label">Password</div><div style="color:rgba(255,255,255,0.4)">&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;</div></div>
-<div class="gi"><div class="gi-label">Confirm Password</div><div style="color:rgba(255,255,255,0.4)">&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;</div></div>
+<div class="gi"><div class="gi-label">Email</div><div class="gi-val" style="color:rgba(0,0,0,0.35)">email@example.com</div></div>
+<div class="gi" style="display:flex;gap:8px;align-items:center"><span style="color:rgba(0,0,0,0.4)">+91</span> <span style="color:rgba(0,0,0,0.35)">Phone Number</span></div>
+<div class="gi"><div class="gi-label">Password</div><div style="color:rgba(0,0,0,0.35)">&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;</div></div>
+<div class="gi"><div class="gi-label">Confirm Password</div><div style="color:rgba(0,0,0,0.35)">&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;</div></div>
 <div class="gi"><div class="gi-label">Specialization</div><div class="gi-val">Orthodontics &#9662;</div></div>
-<div class="gi"><div class="gi-label">Degree</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">BDS, MDS</div></div>
-<div class="gi"><div class="gi-label">Registration Number</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">MH-12345</div></div>
+<div class="gi"><div class="gi-label">Degree</div><div class="gi-val" style="color:rgba(0,0,0,0.35)">BDS, MDS</div></div>
+<div class="gi"><div class="gi-label">Registration Number</div><div class="gi-val" style="color:rgba(0,0,0,0.35)">MH-12345</div></div>
 <div class="btn mt8">Register</div>
 </div>
-<div class="sec center mt8">Already have an account? <span style="color:#00E676;font-weight:600">Login</span></div>
+<div class="sec center mt8">Already have an account? <span style="color:#0097A7;font-weight:600">Login</span></div>
 </div>
 </div></div><div class="mc-title">2. Register Screen</div></div>
 
@@ -174,7 +174,7 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div style="padding-top:100px;text-align:center">
 <div style="font-size:48px">&#128737;</div>
 <div class="f24 fw7 mt8">Verify OTP</div>
-<div class="sec mt8" style="padding:0 20px">Enter the OTP sent to<br><span style="color:#fff;font-weight:600">+91 98XXX XXXXX</span></div>
+<div class="sec mt8" style="padding:0 20px">Enter the OTP sent to<br><span style="color:#1a1a1a;font-weight:600">+91 98XXX XXXXX</span></div>
 <div class="otp-row">
 <div class="otp-box f">4</div>
 <div class="otp-box f">8</div>
@@ -184,7 +184,7 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="otp-box"></div>
 </div>
 <div style="padding:0 30px"><div class="btn">Verify</div></div>
-<div class="sec mt12">Resend OTP in <span style="color:#00E676;font-weight:600">24s</span></div>
+<div class="sec mt12">Resend OTP in <span style="color:#0097A7;font-weight:600">24s</span></div>
 </div>
 </div></div><div class="mc-title">3. OTP Verification</div></div>
 
@@ -196,10 +196,10 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="sec mt8 mb12" style="padding:0 20px">Enter your email and we'll send you a link to reset your password</div>
 <div style="padding:0 10px">
 <div class="g">
-<div class="gi"><div class="gi-label">Email Address</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">dr.pooja@example.com</div></div>
+<div class="gi"><div class="gi-label">Email Address</div><div class="gi-val" style="color:rgba(0,0,0,0.35)">dr.pooja@example.com</div></div>
 <div class="btn mt8">Send Reset Link</div>
 </div>
-<div class="sec mt12">&#8592; Back to <span style="color:#00E676;font-weight:600">Login</span></div>
+<div class="sec mt12">&#8592; Back to <span style="color:#0097A7;font-weight:600">Login</span></div>
 </div>
 </div>
 </div></div><div class="mc-title">4. Forgot Password</div></div>
@@ -220,7 +220,7 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 </div>
 <div class="f20 fw7 center mb12">Setup Your Profile</div>
 <div style="text-align:center;margin-bottom:16px">
-<div class="av-lg" style="margin:0 auto;position:relative">PG<div style="position:absolute;bottom:0;right:0;background:#00E676;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px">&#128247;</div></div>
+<div class="av-lg" style="margin:0 auto;position:relative">PG<div style="position:absolute;bottom:0;right:0;background:#0097A7;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px">&#128247;</div></div>
 </div>
 <div class="g">
 <div class="gi"><div class="gi-label">Full Name</div><div class="gi-val">Dr. Pooja Gangare</div></div>
@@ -247,10 +247,10 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="tc"><div style="font-size:22px">&#128204;</div><div class="f12 mt4">Other's Clinic</div></div>
 </div>
 <div class="g">
-<div class="gi"><div class="gi-label">Location Name</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">SmileCare Clinic</div></div>
-<div class="gi"><div class="gi-label">Address</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">123 MG Road, Pune</div></div>
-<div class="gi"><div class="gi-label">City</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">Pune</div></div>
-<div class="gi"><div class="gi-label">Pin Code</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">411001</div></div>
+<div class="gi"><div class="gi-label">Location Name</div><div class="gi-val" style="color:rgba(0,0,0,0.35)">SmileCare Clinic</div></div>
+<div class="gi"><div class="gi-label">Address</div><div class="gi-val" style="color:rgba(0,0,0,0.35)">123 MG Road, Pune</div></div>
+<div class="gi"><div class="gi-label">City</div><div class="gi-val" style="color:rgba(0,0,0,0.35)">Pune</div></div>
+<div class="gi"><div class="gi-label">Pin Code</div><div class="gi-val" style="color:rgba(0,0,0,0.35)">411001</div></div>
 </div>
 <div class="btn">Continue &#8594;</div>
 </div>
@@ -266,14 +266,14 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 </div>
 <div class="f20 fw7 center mb12">Select Treatments</div>
 <div class="g">
-<div class="li"><span style="color:#00E676">&#9745;</span> <span>Metal Braces</span><span class="sm" style="margin-left:auto">&#8377;35,000</span></div>
-<div class="li"><span style="color:#00E676">&#9745;</span> <span>Ceramic Braces</span><span class="sm" style="margin-left:auto">&#8377;45,000</span></div>
-<div class="li"><span style="color:#00E676">&#9745;</span> <span>Clear Aligners</span><span class="sm" style="margin-left:auto">&#8377;1,50,000</span></div>
-<div class="li"><span style="color:rgba(255,255,255,0.3)">&#9744;</span> <span>Lingual Braces</span><span class="sm" style="margin-left:auto">&#8377;80,000</span></div>
-<div class="li"><span style="color:rgba(255,255,255,0.3)">&#9744;</span> <span>Self-Ligating Braces</span><span class="sm" style="margin-left:auto">&#8377;55,000</span></div>
-<div class="li"><span style="color:#00E676">&#9745;</span> <span>Scaling</span><span class="sm" style="margin-left:auto">&#8377;1,500</span></div>
-<div class="li"><span style="color:rgba(255,255,255,0.3)">&#9744;</span> <span>Teeth Whitening</span><span class="sm" style="margin-left:auto">&#8377;8,000</span></div>
-<div class="li"><span style="color:#00E676">&#9745;</span> <span>Retainers</span><span class="sm" style="margin-left:auto">&#8377;5,000</span></div>
+<div class="li"><span style="color:#0097A7">&#9745;</span> <span>Metal Braces</span><span class="sm" style="margin-left:auto">&#8377;35,000</span></div>
+<div class="li"><span style="color:#0097A7">&#9745;</span> <span>Ceramic Braces</span><span class="sm" style="margin-left:auto">&#8377;45,000</span></div>
+<div class="li"><span style="color:#0097A7">&#9745;</span> <span>Clear Aligners</span><span class="sm" style="margin-left:auto">&#8377;1,50,000</span></div>
+<div class="li"><span style="color:rgba(0,0,0,0.25)">&#9744;</span> <span>Lingual Braces</span><span class="sm" style="margin-left:auto">&#8377;80,000</span></div>
+<div class="li"><span style="color:rgba(0,0,0,0.25)">&#9744;</span> <span>Self-Ligating Braces</span><span class="sm" style="margin-left:auto">&#8377;55,000</span></div>
+<div class="li"><span style="color:#0097A7">&#9745;</span> <span>Scaling</span><span class="sm" style="margin-left:auto">&#8377;1,500</span></div>
+<div class="li"><span style="color:rgba(0,0,0,0.25)">&#9744;</span> <span>Teeth Whitening</span><span class="sm" style="margin-left:auto">&#8377;8,000</span></div>
+<div class="li"><span style="color:#0097A7">&#9745;</span> <span>Retainers</span><span class="sm" style="margin-left:auto">&#8377;5,000</span></div>
 </div>
 <div class="btn">Get Started &#128640;</div>
 </div>
@@ -282,7 +282,7 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <!-- 8. Doctor Profile -->
 <div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
 <div style="padding-top:50px">
-<div style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:8px">&#8592; Back</div>
+<div style="font-size:14px;color:rgba(0,0,0,0.5);margin-bottom:8px">&#8592; Back</div>
 <div class="f20 fw7 mb12">My Profile</div>
 <div style="text-align:center;margin-bottom:14px"><div class="av-lg" style="margin:0 auto">PG</div><div class="fw6 mt4">Dr. Pooja Gangare</div><div class="sm">Orthodontist &bull; MH-12345</div></div>
 <div class="g">
@@ -317,7 +317,7 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 </div>
 <div class="stat-grid mt8">
 <div class="stat"><div class="lbl">Total Patients</div><div class="num">156</div></div>
-<div class="stat"><div class="lbl">Today's Appts</div><div class="num" style="color:#00E676">8</div></div>
+<div class="stat"><div class="lbl">Today's Appts</div><div class="num" style="color:#0097A7">8</div></div>
 <div class="stat"><div class="lbl">Pending</div><div class="num" style="color:#FF9800">&#8377;45K</div></div>
 <div class="stat"><div class="lbl">Monthly Revenue</div><div class="num">&#8377;2.35L</div></div>
 </div>
@@ -343,7 +343,7 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <!-- 10. Patients List -->
 <div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
 <div style="padding-top:8px">
-<div class="flex-b mb8"><div><div class="f24 fw7">Patients</div><div class="sm">156 total patients</div></div><div style="width:40px;height:40px;background:linear-gradient(135deg,#4CAF50,#00E676);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px">+</div></div>
+<div class="flex-b mb8"><div><div class="f24 fw7">Patients</div><div class="sm">156 total patients</div></div><div style="width:40px;height:40px;background:linear-gradient(135deg,#0097A7,#00838F);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px">+</div></div>
 <div class="search">&#128269; Search patients...</div>
 <div class="g">
 <div class="li"><div class="av">RS</div><div style="flex:1"><div class="flex-b"><span class="fw6">Rahul Sharma</span><span class="sm">&#128247; 12</span></div><div class="sm">PAT-0001 &bull; 28y Male</div><div style="margin-top:3px"><span class="badge bc">Metal Braces - In Progress</span></div></div></div>
@@ -366,15 +366,15 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="h">S</div><div class="h">M</div><div class="h">T</div><div class="h">W</div><div class="h">T</div><div class="h">F</div><div class="h">S</div>
 <div class="d today">15</div><div class="d">16</div><div class="d">17</div><div class="d">18</div><div class="d">19</div><div class="d">20</div><div class="d">21</div>
 <div class="d">22</div><div class="d">23</div><div class="d">24</div><div class="d">25</div><div class="d">26</div><div class="d">27</div><div class="d">28</div>
-<div class="d">29</div><div class="d">30</div><div class="d">31</div><div class="d" style="color:rgba(255,255,255,0.2)">1</div><div class="d" style="color:rgba(255,255,255,0.2)">2</div><div class="d" style="color:rgba(255,255,255,0.2)">3</div><div class="d" style="color:rgba(255,255,255,0.2)">4</div>
+<div class="d">29</div><div class="d">30</div><div class="d">31</div><div class="d" style="color:rgba(0,0,0,0.2)">1</div><div class="d" style="color:rgba(0,0,0,0.2)">2</div><div class="d" style="color:rgba(0,0,0,0.2)">3</div><div class="d" style="color:rgba(0,0,0,0.2)">4</div>
 </div>
 </div>
 <div style="margin-bottom:8px"><span class="chip a">All</span><span class="chip">SmileCare</span><span class="chip">City Hospital</span></div>
 <div class="f14 fw6 mb4">Today's Schedule</div>
-<div class="gs"><div class="flex gap8"><div style="width:3px;border-radius:2px;background:#00E676;align-self:stretch"></div><div><div class="f13 fw6">10:00 - Rahul Sharma</div><div class="sm">City Hospital &bull; Metal Braces</div><span class="badge bb">Scheduled</span></div></div></div>
-<div class="gs"><div class="flex gap8"><div style="width:3px;border-radius:2px;background:#00BCD4;align-self:stretch"></div><div><div class="f13 fw6">11:30 - Priya Patel</div><div class="sm">SmileCare Clinic &bull; Clear Aligners</div><span class="badge bg">Confirmed</span></div></div></div>
+<div class="gs"><div class="flex gap8"><div style="width:3px;border-radius:2px;background:#0097A7;align-self:stretch"></div><div><div class="f13 fw6">10:00 - Rahul Sharma</div><div class="sm">City Hospital &bull; Metal Braces</div><span class="badge bb">Scheduled</span></div></div></div>
+<div class="gs"><div class="flex gap8"><div style="width:3px;border-radius:2px;background:#00838F;align-self:stretch"></div><div><div class="f13 fw6">11:30 - Priya Patel</div><div class="sm">SmileCare Clinic &bull; Clear Aligners</div><span class="badge bg">Confirmed</span></div></div></div>
 <div class="gs"><div class="flex gap8"><div style="width:3px;border-radius:2px;background:#FF9800;align-self:stretch"></div><div><div class="f13 fw6">14:00 - Amit Kumar</div><div class="sm">City Hospital &bull; Ceramic Braces</div><span class="badge bo">Pending</span></div></div></div>
-<div class="gs"><div class="flex gap8"><div style="width:3px;border-radius:2px;background:#4CAF50;align-self:stretch"></div><div><div class="f13 fw6">16:00 - Neha Joshi</div><div class="sm">SmileCare &bull; Scaling</div><span class="badge bg">Confirmed</span></div></div></div>
+<div class="gs"><div class="flex gap8"><div style="width:3px;border-radius:2px;background:#0097A7;align-self:stretch"></div><div><div class="f13 fw6">16:00 - Neha Joshi</div><div class="sm">SmileCare &bull; Scaling</div><span class="badge bg">Confirmed</span></div></div></div>
 </div>
 <div class="tab-bar"><div class="tab"><em>&#127968;</em>Dashboard</div><div class="tab"><em>&#128101;</em>Patients</div><div class="tab a"><em>&#128197;</em>Calendar</div><div class="tab"><em>&#128176;</em>Billing</div><div class="tab"><em>&#9776;</em>More</div></div>
 </div></div><div class="mc-title">11. Calendar</div></div>
@@ -384,13 +384,13 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div style="padding-top:8px">
 <div class="f24 fw7 mb8">Billing</div>
 <div class="g">
-<div class="flex-b"><div><div class="sm">Total Collected</div><div class="f20 fw7" style="color:#00E676">&#8377;4,50,000</div></div><div><div class="sm">Balance Due</div><div class="f20 fw7" style="color:#FF9800">&#8377;78,000</div></div></div>
+<div class="flex-b"><div><div class="sm">Total Collected</div><div class="f20 fw7" style="color:#0097A7">&#8377;4,50,000</div></div><div><div class="sm">Balance Due</div><div class="f20 fw7" style="color:#FF9800">&#8377;78,000</div></div></div>
 <div class="pb mt8"><div class="pf pfg" style="width:85%"></div></div>
 <div class="sm mt4">85% collected</div>
 </div>
 <div class="stat-grid">
 <div class="stat"><div class="lbl">Total Bills</div><div class="num">89</div></div>
-<div class="stat"><div class="lbl">Paid</div><div class="num" style="color:#00E676">65</div></div>
+<div class="stat"><div class="lbl">Paid</div><div class="num" style="color:#0097A7">65</div></div>
 <div class="stat"><div class="lbl">Pending</div><div class="num" style="color:#FF9800">24</div></div>
 <div class="stat"><div class="lbl">Overdue</div><div class="num" style="color:#F44336">5</div></div>
 </div>
@@ -416,14 +416,14 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div style="text-align:center;margin-bottom:12px"><div class="av-lg" style="margin:0 auto">&#128247;</div></div>
 <div class="g">
 <div class="f13 fw6 mb4">Personal Info</div>
-<div class="gi"><div class="gi-label">Full Name</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">Patient Name</div></div>
-<div class="gi"><div class="gi-label">Age</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">25</div></div>
-<div class="f12 mb4" style="color:rgba(255,255,255,0.6)">Gender</div>
+<div class="gi"><div class="gi-label">Full Name</div><div class="gi-val" style="color:rgba(0,0,0,0.35)">Patient Name</div></div>
+<div class="gi"><div class="gi-label">Age</div><div class="gi-val" style="color:rgba(0,0,0,0.35)">25</div></div>
+<div class="f12 mb4" style="color:rgba(0,0,0,0.5)">Gender</div>
 <div class="mb8"><span class="chip">M</span><span class="chip a">F</span><span class="chip">O</span></div>
 </div>
 <div class="g">
 <div class="f13 fw6 mb4">Medical Info</div>
-<div class="f12 mb4" style="color:rgba(255,255,255,0.6)">Blood Group</div>
+<div class="f12 mb4" style="color:rgba(0,0,0,0.5)">Blood Group</div>
 <div class="mb8"><span class="chip">A+</span><span class="chip">A-</span><span class="chip a">B+</span><span class="chip">B-</span><span class="chip">O+</span><span class="chip">O-</span><span class="chip">AB+</span><span class="chip">AB-</span></div>
 </div>
 <div class="g">
@@ -446,11 +446,11 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div style="padding-top:8px">
 <div class="sec mb8">&#8592; Back</div>
 <div style="text-align:center;margin-bottom:12px"><div class="av-lg" style="margin:0 auto">RS</div><div class="f18 fw7 mt4">Rahul Sharma</div><div class="sm">PAT-0001 &bull; 28y Male</div></div>
-<div style="display:flex;margin-bottom:12px;background:rgba(255,255,255,0.06);border-radius:12px;overflow:hidden">
-<div style="flex:1;text-align:center;padding:10px;background:rgba(0,230,118,0.15);color:#00E676;font-size:13px;font-weight:600">Overview</div>
-<div style="flex:1;text-align:center;padding:10px;color:rgba(255,255,255,0.5);font-size:13px">Photos</div>
-<div style="flex:1;text-align:center;padding:10px;color:rgba(255,255,255,0.5);font-size:13px">Treatments</div>
-<div style="flex:1;text-align:center;padding:10px;color:rgba(255,255,255,0.5);font-size:13px">Billing</div>
+<div style="display:flex;margin-bottom:12px;background:rgba(255,255,255,0.5);border-radius:12px;overflow:hidden">
+<div style="flex:1;text-align:center;padding:10px;background:rgba(0,151,167,0.12);color:#0097A7;font-size:13px;font-weight:600">Overview</div>
+<div style="flex:1;text-align:center;padding:10px;color:rgba(0,0,0,0.4);font-size:13px">Photos</div>
+<div style="flex:1;text-align:center;padding:10px;color:rgba(0,0,0,0.4);font-size:13px">Treatments</div>
+<div style="flex:1;text-align:center;padding:10px;color:rgba(0,0,0,0.4);font-size:13px">Billing</div>
 </div>
 <div class="g">
 <div class="f13 fw6 mb4">Contact Info</div>
@@ -477,11 +477,11 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div style="padding-top:8px">
 <div class="sec mb8">&#8592; Back</div>
 <div style="text-align:center;margin-bottom:12px"><div class="av-lg" style="margin:0 auto">RS</div><div class="f18 fw7 mt4">Rahul Sharma</div><div class="sm">PAT-0001 &bull; 28y Male</div></div>
-<div style="display:flex;margin-bottom:12px;background:rgba(255,255,255,0.06);border-radius:12px;overflow:hidden">
-<div style="flex:1;text-align:center;padding:10px;color:rgba(255,255,255,0.5);font-size:13px">Overview</div>
-<div style="flex:1;text-align:center;padding:10px;background:rgba(0,230,118,0.15);color:#00E676;font-size:13px;font-weight:600">Photos</div>
-<div style="flex:1;text-align:center;padding:10px;color:rgba(255,255,255,0.5);font-size:13px">Treatments</div>
-<div style="flex:1;text-align:center;padding:10px;color:rgba(255,255,255,0.5);font-size:13px">Billing</div>
+<div style="display:flex;margin-bottom:12px;background:rgba(255,255,255,0.5);border-radius:12px;overflow:hidden">
+<div style="flex:1;text-align:center;padding:10px;color:rgba(0,0,0,0.4);font-size:13px">Overview</div>
+<div style="flex:1;text-align:center;padding:10px;background:rgba(0,151,167,0.12);color:#0097A7;font-size:13px;font-weight:600">Photos</div>
+<div style="flex:1;text-align:center;padding:10px;color:rgba(0,0,0,0.4);font-size:13px">Treatments</div>
+<div style="flex:1;text-align:center;padding:10px;color:rgba(0,0,0,0.4);font-size:13px">Billing</div>
 </div>
 <div class="mb8"><span class="chip a">All (12)</span><span class="chip">Extraoral</span><span class="chip">Intraoral</span><span class="chip">X-Ray</span></div>
 <div class="photo-g">
@@ -496,7 +496,7 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="photo-t has" style="height:100px">&#128247;<div class="sm">Ceph X-Ray</div></div>
 </div>
 </div>
-<div style="position:absolute;bottom:24px;right:24px;width:52px;height:52px;background:linear-gradient(135deg,#4CAF50,#00E676);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(0,230,118,0.4);z-index:5">+</div>
+<div style="position:absolute;bottom:24px;right:24px;width:52px;height:52px;background:linear-gradient(135deg,#0097A7,#00838F);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(0,151,167,0.3);z-index:5">+</div>
 </div></div><div class="mc-title">15. Patient Detail - Photos</div></div>
 
 <!-- 16. Patient Detail - Treatments -->
@@ -504,16 +504,16 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div style="padding-top:8px">
 <div class="sec mb8">&#8592; Back</div>
 <div style="text-align:center;margin-bottom:12px"><div class="av-lg" style="margin:0 auto">RS</div><div class="f18 fw7 mt4">Rahul Sharma</div><div class="sm">PAT-0001 &bull; 28y Male</div></div>
-<div style="display:flex;margin-bottom:12px;background:rgba(255,255,255,0.06);border-radius:12px;overflow:hidden">
-<div style="flex:1;text-align:center;padding:10px;color:rgba(255,255,255,0.5);font-size:13px">Overview</div>
-<div style="flex:1;text-align:center;padding:10px;color:rgba(255,255,255,0.5);font-size:13px">Photos</div>
-<div style="flex:1;text-align:center;padding:10px;background:rgba(0,230,118,0.15);color:#00E676;font-size:13px;font-weight:600">Treatments</div>
-<div style="flex:1;text-align:center;padding:10px;color:rgba(255,255,255,0.5);font-size:13px">Billing</div>
+<div style="display:flex;margin-bottom:12px;background:rgba(255,255,255,0.5);border-radius:12px;overflow:hidden">
+<div style="flex:1;text-align:center;padding:10px;color:rgba(0,0,0,0.4);font-size:13px">Overview</div>
+<div style="flex:1;text-align:center;padding:10px;color:rgba(0,0,0,0.4);font-size:13px">Photos</div>
+<div style="flex:1;text-align:center;padding:10px;background:rgba(0,151,167,0.12);color:#0097A7;font-size:13px;font-weight:600">Treatments</div>
+<div style="flex:1;text-align:center;padding:10px;color:rgba(0,0,0,0.4);font-size:13px">Billing</div>
 </div>
 <div class="g">
 <div class="flex-b mb4"><span class="f16 fw6">Metal Braces</span><span class="badge bc">In Progress</span></div>
 <div class="sm mb4">Started: 15 Jan 2026 &bull; City Hospital</div>
-<div class="flex-b"><span class="sm">Stage Progress</span><span class="sm" style="color:#00BCD4">60%</span></div>
+<div class="flex-b"><span class="sm">Stage Progress</span><span class="sm" style="color:#00838F">60%</span></div>
 <div class="pb"><div class="pf pfc" style="width:60%"></div></div>
 <div class="mt8">
 <div class="stp">
@@ -542,10 +542,10 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <!-- 17. Locations List -->
 <div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
 <div style="padding-top:8px">
-<div class="flex-b mb8"><span class="f24 fw7">Locations</span><div style="width:36px;height:36px;background:linear-gradient(135deg,#4CAF50,#00E676);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px">+</div></div>
+<div class="flex-b mb8"><span class="f24 fw7">Locations</span><div style="width:36px;height:36px;background:linear-gradient(135deg,#0097A7,#00838F);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px">+</div></div>
 <div class="stat-grid">
 <div class="stat"><div class="lbl">Total</div><div class="num">5</div></div>
-<div class="stat"><div class="lbl">Active</div><div class="num" style="color:#00E676">4</div></div>
+<div class="stat"><div class="lbl">Active</div><div class="num" style="color:#0097A7">4</div></div>
 </div>
 <div class="mb8"><span class="chip a">All</span><span class="chip">Own (2)</span><span class="chip">Hospital (2)</span><span class="chip">Other's (1)</span></div>
 <div class="search">&#128269; Search locations...</div>
@@ -595,7 +595,7 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="g">
 <div class="f13 fw6 mb4">Commission</div>
 <div class="mb4"><span class="chip a">Percentage</span><span class="chip">Fixed</span></div>
-<div class="gi"><div class="gi-label">Commission Rate</div><div class="gi-val" style="color:#00E676">30%</div></div>
+<div class="gi"><div class="gi-label">Commission Rate</div><div class="gi-val" style="color:#0097A7">30%</div></div>
 <div class="sm">Calculated on Total Fee &bull; Monthly settlement</div>
 </div>
 <div class="btn">Save Location</div>
@@ -619,12 +619,12 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 </div>
 <div class="g">
 <div class="f13 fw6 mb4">Schedule</div>
-<div class="flex-b mb4"><span class="f13">Mon</span><span class="sec">09:00 - 17:00</span><span style="color:#00E676">&#9679;</span></div>
-<div class="flex-b mb4"><span class="f13">Tue</span><span class="sec" style="color:rgba(255,255,255,0.3)">Closed</span><span style="color:rgba(255,255,255,0.2)">&#9675;</span></div>
-<div class="flex-b mb4"><span class="f13">Wed</span><span class="sec">09:00 - 17:00</span><span style="color:#00E676">&#9679;</span></div>
-<div class="flex-b mb4"><span class="f13">Fri</span><span class="sec">09:00 - 17:00</span><span style="color:#00E676">&#9679;</span></div>
-<div class="flex-b mb4"><span class="f13">Sat</span><span class="sec">10:00 - 14:00</span><span style="color:#00E676">&#9679;</span></div>
-<div class="flex-b mb4"><span class="f13">Sun</span><span class="sec" style="color:rgba(255,255,255,0.3)">Closed</span><span style="color:rgba(255,255,255,0.2)">&#9675;</span></div>
+<div class="flex-b mb4"><span class="f13">Mon</span><span class="sec">09:00 - 17:00</span><span style="color:#0097A7">&#9679;</span></div>
+<div class="flex-b mb4"><span class="f13">Tue</span><span class="sec" style="color:rgba(0,0,0,0.25)">Closed</span><span style="color:rgba(0,0,0,0.2)">&#9675;</span></div>
+<div class="flex-b mb4"><span class="f13">Wed</span><span class="sec">09:00 - 17:00</span><span style="color:#0097A7">&#9679;</span></div>
+<div class="flex-b mb4"><span class="f13">Fri</span><span class="sec">09:00 - 17:00</span><span style="color:#0097A7">&#9679;</span></div>
+<div class="flex-b mb4"><span class="f13">Sat</span><span class="sec">10:00 - 14:00</span><span style="color:#0097A7">&#9679;</span></div>
+<div class="flex-b mb4"><span class="f13">Sun</span><span class="sec" style="color:rgba(0,0,0,0.25)">Closed</span><span style="color:rgba(0,0,0,0.2)">&#9675;</span></div>
 </div>
 <div class="g">
 <div class="f13 fw6 mb4">Commission Model</div>
@@ -650,7 +650,7 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div style="padding-top:8px">
 <div class="flex-b mb8"><span class="sec">&#8592;</span><span class="f18 fw7">Start Treatment</span><span style="width:30px"></span></div>
 <div class="search">&#128269; Search treatments...</div>
-<div class="g" style="border-color:#00E676;background:rgba(0,230,118,0.08)">
+<div class="g" style="border-color:#0097A7;background:rgba(0,151,167,0.08)">
 <div class="flex-b"><span class="f14 fw6">Metal Braces</span><span class="badge bg">Selected</span></div>
 <div class="sm mt4">Fee: &#8377;35,000 &bull; Equipment: &#8377;8,000</div>
 </div>
@@ -661,7 +661,7 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="gi"><div class="gi-label">Fee</div><div class="gi-val">&#8377;35,000</div></div>
 <div class="gi"><div class="gi-label">Equipment Cost</div><div class="gi-val">&#8377;8,000</div></div>
 <div class="flex-b mb4"><span class="gi-label">Start Date</span><span class="f13">15 Mar 2026</span></div>
-<div class="f12 mb4" style="color:rgba(255,255,255,0.5)">Location</div>
+<div class="f12 mb4" style="color:rgba(0,0,0,0.4)">Location</div>
 <div class="mb8"><span class="chip a">City Hospital</span><span class="chip">SmileCare</span></div>
 </div>
 <div class="g">
@@ -686,7 +686,7 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="sm mb8">Rahul Sharma &bull; City Hospital</div>
 <div class="g">
 <div class="flex-b"><span class="sec">Fee</span><span class="f16 fw7">&#8377;35,000</span></div>
-<div class="flex-b mt4"><span class="sec">Progress</span><span class="f13" style="color:#00BCD4">40%</span></div>
+<div class="flex-b mt4"><span class="sec">Progress</span><span class="f13" style="color:#00838F">40%</span></div>
 <div class="pb"><div class="pf pfc" style="width:40%"></div></div>
 </div>
 <div class="g">
@@ -704,8 +704,8 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="btn-out" style="flex:1;font-size:13px;padding:10px;border:1px solid rgba(255,152,0,0.4);color:#FF9800;border-radius:14px;text-align:center">&#9208; Hold</div>
 </div>
 <div class="f13 fw6 mb4">Visit Timeline</div>
-<div class="gs"><div class="sm" style="color:#00E676">10 Mar 2026</div><div class="f13">Wire change - 0.018 NiTi</div><div class="sm">Monthly adjustment visit</div></div>
-<div class="gs"><div class="sm" style="color:#00E676">10 Feb 2026</div><div class="f13">Wire change - 0.016 NiTi</div><div class="sm">Good progress noted</div></div>
+<div class="gs"><div class="sm" style="color:#0097A7">10 Mar 2026</div><div class="f13">Wire change - 0.018 NiTi</div><div class="sm">Monthly adjustment visit</div></div>
+<div class="gs"><div class="sm" style="color:#0097A7">10 Feb 2026</div><div class="f13">Wire change - 0.016 NiTi</div><div class="sm">Good progress noted</div></div>
 </div>
 </div></div><div class="mc-title">21. Treatment Detail</div></div>
 
@@ -716,9 +716,9 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="g">
 <div class="gi"><div class="gi-label">Date</div><div class="gi-val">15 March 2026</div></div>
 <div class="gi"><div class="gi-label">Procedure</div><div class="gi-val">Wire change - 0.019x0.025 SS</div></div>
-<div class="f12 mb4" style="color:rgba(255,255,255,0.5)">Stage</div>
+<div class="f12 mb4" style="color:rgba(0,0,0,0.4)">Stage</div>
 <div class="mb8"><span class="chip">Consultation</span><span class="chip">Bonding</span><span class="chip a">Adjustment</span><span class="chip">Debonding</span></div>
-<div class="gi" style="height:80px;align-items:flex-start"><div><div class="gi-label">Notes</div><div class="gi-val" style="color:rgba(255,255,255,0.6);margin-top:4px">Patient reports mild discomfort. Elastic wear good. Next appointment in 4 weeks.</div></div></div>
+<div class="gi" style="height:80px;align-items:flex-start"><div><div class="gi-label">Notes</div><div class="gi-val" style="color:rgba(0,0,0,0.5);margin-top:4px">Patient reports mild discomfort. Elastic wear good. Next appointment in 4 weeks.</div></div></div>
 </div>
 <div class="g">
 <div class="f13 fw6 mb4">Visit Photos</div>
@@ -741,31 +741,31 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <!-- 23. Fees Master -->
 <div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
 <div style="padding-top:8px">
-<div class="flex-b mb8"><span class="sec">&#8592;</span><span class="f18 fw7">Fees Master</span><span style="width:36px;height:36px;background:linear-gradient(135deg,#4CAF50,#00E676);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px">+</span></div>
+<div class="flex-b mb8"><span class="sec">&#8592;</span><span class="f18 fw7">Fees Master</span><span style="width:36px;height:36px;background:linear-gradient(135deg,#0097A7,#00838F);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px">+</span></div>
 <div class="mb8"><span class="chip a">All</span><span class="chip">Orthodontics</span><span class="chip">General</span><span class="chip">Cosmetic</span></div>
 <div class="g">
-<div class="flex-b mb4"><div><div class="f14 fw6">Metal Braces</div><div class="sm">Orthodontics</div></div><div class="flex gap4" style="gap:6px"><span class="badge bg">Active</span><span style="color:rgba(255,255,255,0.4)">&#9998;</span></div></div>
+<div class="flex-b mb4"><div><div class="f14 fw6">Metal Braces</div><div class="sm">Orthodontics</div></div><div class="flex gap4" style="gap:6px"><span class="badge bg">Active</span><span style="color:rgba(0,0,0,0.35)">&#9998;</span></div></div>
 <div class="flex-b mt4"><span class="sm">Fee</span><span class="f13 fw6">&#8377;35,000</span></div>
 <div class="flex-b"><span class="sm">Equipment</span><span class="f13">&#8377;8,000</span></div>
-<div class="flex-b"><span class="sm">Profit</span><span class="f13" style="color:#00E676">&#8377;27,000</span></div>
+<div class="flex-b"><span class="sm">Profit</span><span class="f13" style="color:#0097A7">&#8377;27,000</span></div>
 </div>
 <div class="g">
-<div class="flex-b mb4"><div><div class="f14 fw6">Ceramic Braces</div><div class="sm">Orthodontics</div></div><div class="flex gap4" style="gap:6px"><span class="badge bg">Active</span><span style="color:rgba(255,255,255,0.4)">&#9998;</span></div></div>
+<div class="flex-b mb4"><div><div class="f14 fw6">Ceramic Braces</div><div class="sm">Orthodontics</div></div><div class="flex gap4" style="gap:6px"><span class="badge bg">Active</span><span style="color:rgba(0,0,0,0.35)">&#9998;</span></div></div>
 <div class="flex-b mt4"><span class="sm">Fee</span><span class="f13 fw6">&#8377;45,000</span></div>
 <div class="flex-b"><span class="sm">Equipment</span><span class="f13">&#8377;12,000</span></div>
-<div class="flex-b"><span class="sm">Profit</span><span class="f13" style="color:#00E676">&#8377;33,000</span></div>
+<div class="flex-b"><span class="sm">Profit</span><span class="f13" style="color:#0097A7">&#8377;33,000</span></div>
 </div>
 <div class="g">
-<div class="flex-b mb4"><div><div class="f14 fw6">Clear Aligners</div><div class="sm">Orthodontics</div></div><div class="flex gap4" style="gap:6px"><span class="badge bg">Active</span><span style="color:rgba(255,255,255,0.4)">&#9998;</span></div></div>
+<div class="flex-b mb4"><div><div class="f14 fw6">Clear Aligners</div><div class="sm">Orthodontics</div></div><div class="flex gap4" style="gap:6px"><span class="badge bg">Active</span><span style="color:rgba(0,0,0,0.35)">&#9998;</span></div></div>
 <div class="flex-b mt4"><span class="sm">Fee</span><span class="f13 fw6">&#8377;1,50,000</span></div>
 <div class="flex-b"><span class="sm">Equipment</span><span class="f13">&#8377;60,000</span></div>
-<div class="flex-b"><span class="sm">Profit</span><span class="f13" style="color:#00E676">&#8377;90,000</span></div>
+<div class="flex-b"><span class="sm">Profit</span><span class="f13" style="color:#0097A7">&#8377;90,000</span></div>
 </div>
 <div class="g">
-<div class="flex-b mb4"><div><div class="f14 fw6">Scaling</div><div class="sm">General</div></div><div class="flex gap4" style="gap:6px"><span class="badge bg">Active</span><span style="color:rgba(255,255,255,0.4)">&#9998;</span></div></div>
+<div class="flex-b mb4"><div><div class="f14 fw6">Scaling</div><div class="sm">General</div></div><div class="flex gap4" style="gap:6px"><span class="badge bg">Active</span><span style="color:rgba(0,0,0,0.35)">&#9998;</span></div></div>
 <div class="flex-b mt4"><span class="sm">Fee</span><span class="f13 fw6">&#8377;1,500</span></div>
 <div class="flex-b"><span class="sm">Equipment</span><span class="f13">&#8377;200</span></div>
-<div class="flex-b"><span class="sm">Profit</span><span class="f13" style="color:#00E676">&#8377;1,300</span></div>
+<div class="flex-b"><span class="sm">Profit</span><span class="f13" style="color:#0097A7">&#8377;1,300</span></div>
 </div>
 </div>
 </div></div><div class="mc-title">23. Fees Master</div></div>
@@ -780,15 +780,15 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="g">
 <div class="f13 fw6 mb4">Bill Items</div>
 <div class="flex-b mb4"><span class="f13">Metal Braces</span><span class="f13 fw6">&#8377;35,000</span></div>
-<div class="flex-b mb4" style="border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:6px"><span class="f13">Scaling</span><span class="f13 fw6">&#8377;1,500</span></div>
-<div class="f12 mb4" style="color:rgba(255,255,255,0.5)">Location</div>
+<div class="flex-b mb4" style="border-bottom:1px solid rgba(0,0,0,0.06);padding-bottom:6px"><span class="f13">Scaling</span><span class="f13 fw6">&#8377;1,500</span></div>
+<div class="f12 mb4" style="color:rgba(0,0,0,0.4)">Location</div>
 <div class="mb4"><span class="chip a">City Hospital</span><span class="chip">SmileCare</span></div>
 </div>
 <div class="g">
 <div class="f13 fw6 mb4">Summary</div>
 <div class="flex-b mb4"><span class="sec">Subtotal</span><span class="f13">&#8377;36,500</span></div>
 <div class="flex-b mb4"><span class="sec">GST (18%)</span><span class="f13">&#8377;6,570</span></div>
-<div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:8px" class="flex-b"><span class="f14 fw6">Grand Total</span><span class="f18 fw7" style="color:#00E676">&#8377;43,070</span></div>
+<div style="border-top:1px solid rgba(0,0,0,0.08);padding-top:8px" class="flex-b"><span class="f14 fw6">Grand Total</span><span class="f18 fw7" style="color:#0097A7">&#8377;43,070</span></div>
 </div>
 <div class="g">
 <div class="f13 fw6 mb4">Payment Mode</div>
@@ -810,22 +810,22 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="flex-b mb4"><span class="f13">Metal Braces</span><span class="f13">&#8377;35,000</span></div>
 <div class="flex-b mb4"><span class="f13">Scaling</span><span class="f13">&#8377;1,500</span></div>
 <div class="flex-b mb4"><span class="sm">GST 18%</span><span class="f13">&#8377;6,570</span></div>
-<div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:6px" class="flex-b"><span class="fw6">Grand Total</span><span class="f16 fw7">&#8377;43,070</span></div>
+<div style="border-top:1px solid rgba(0,0,0,0.08);padding-top:6px" class="flex-b"><span class="fw6">Grand Total</span><span class="f16 fw7">&#8377;43,070</span></div>
 </div>
 <div class="stat-grid">
-<div class="stat"><div class="lbl">Paid</div><div class="num" style="color:#00E676">&#8377;25,000</div></div>
+<div class="stat"><div class="lbl">Paid</div><div class="num" style="color:#0097A7">&#8377;25,000</div></div>
 <div class="stat"><div class="lbl">Balance</div><div class="num" style="color:#FF9800">&#8377;18,070</div></div>
 </div>
 <div style="display:flex;gap:8px;margin-bottom:10px">
 <div class="btn" style="flex:1;font-size:13px;padding:10px">Record Payment</div>
-<div class="btn-out" style="flex:1;font-size:13px;padding:10px;border:1px solid rgba(255,255,255,0.3);border-radius:14px;text-align:center">Send Reminder</div>
+<div class="btn-out" style="flex:1;font-size:13px;padding:10px;border:1px solid rgba(0,0,0,0.12);border-radius:14px;text-align:center">Send Reminder</div>
 </div>
 <div class="g">
 <div class="f13 fw6 mb4">Installments</div>
-<div class="flex-b mb4"><div class="flex gap8"><span style="color:#4CAF50">&#9745;</span><span class="f13">EMI 1 - &#8377;14,357</span></div><span class="badge bg">Paid</span></div>
-<div class="flex-b mb4"><div class="flex gap8"><span style="color:#4CAF50">&#9745;</span><span class="f13">EMI 2 - &#8377;10,643</span></div><span class="badge bg">Paid</span></div>
-<div class="flex-b mb4"><div class="flex gap8"><span style="color:rgba(255,255,255,0.3)">&#9744;</span><span class="f13">EMI 3 - &#8377;14,357</span></div><span class="badge bo">Pending</span></div>
-<div class="flex-b"><div class="flex gap8"><span style="color:rgba(255,255,255,0.3)">&#9744;</span><span class="f13">EMI 4 - &#8377;3,713</span></div><span class="badge br">Overdue</span></div>
+<div class="flex-b mb4"><div class="flex gap8"><span style="color:#0097A7">&#9745;</span><span class="f13">EMI 1 - &#8377;14,357</span></div><span class="badge bg">Paid</span></div>
+<div class="flex-b mb4"><div class="flex gap8"><span style="color:#0097A7">&#9745;</span><span class="f13">EMI 2 - &#8377;10,643</span></div><span class="badge bg">Paid</span></div>
+<div class="flex-b mb4"><div class="flex gap8"><span style="color:rgba(0,0,0,0.25)">&#9744;</span><span class="f13">EMI 3 - &#8377;14,357</span></div><span class="badge bo">Pending</span></div>
+<div class="flex-b"><div class="flex gap8"><span style="color:rgba(0,0,0,0.25)">&#9744;</span><span class="f13">EMI 4 - &#8377;3,713</span></div><span class="badge br">Overdue</span></div>
 </div>
 <div class="btn" style="background:linear-gradient(135deg,#2196F3,#42A5F5)">&#128228; Share Receipt</div>
 </div>
@@ -844,7 +844,7 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="g">
 <div style="display:flex;justify-content:space-around;text-align:center">
 <div><div class="sm">Total</div><div class="f18 fw7">&#8377;1,05,000</div></div>
-<div><div class="sm">Paid</div><div class="f18 fw7" style="color:#00E676">&#8377;80,000</div></div>
+<div><div class="sm">Paid</div><div class="f18 fw7" style="color:#0097A7">&#8377;80,000</div></div>
 <div><div class="sm">Pending</div><div class="f18 fw7" style="color:#FF9800">&#8377;25,000</div></div>
 </div>
 </div>
@@ -853,16 +853,16 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="flex-b mb4"><div><div class="f14 fw6">&#127973; City Hospital</div><div class="sm">Commission Rate: 30%</div></div></div>
 <div class="flex-b mt4"><span class="sm">Revenue</span><span class="f13">&#8377;3,50,000</span></div>
 <div class="flex-b"><span class="sm">Commission</span><span class="f13" style="color:#FF9800">&#8377;1,05,000</span></div>
-<div class="flex-b"><span class="sm">Doctor Net</span><span class="f13 fw6" style="color:#00E676">&#8377;2,00,000</span></div>
+<div class="flex-b"><span class="sm">Doctor Net</span><span class="f13 fw6" style="color:#0097A7">&#8377;2,00,000</span></div>
 <div class="pb mt4"><div class="pf pfg" style="width:76%"></div></div>
 <div class="sm mt4">76% settled</div>
-<div class="mt8" style="text-align:center"><span style="color:#00E676;font-size:13px;font-weight:600">View Details &#8250;</span></div>
+<div class="mt8" style="text-align:center"><span style="color:#0097A7;font-size:13px;font-weight:600">View Details &#8250;</span></div>
 </div>
 <div class="g">
 <div class="flex-b mb4"><div><div class="f14 fw6">&#127973; Wellness Hospital</div><div class="sm">Commission Rate: 25%</div></div></div>
 <div class="flex-b mt4"><span class="sm">Revenue</span><span class="f13">&#8377;1,80,000</span></div>
 <div class="flex-b"><span class="sm">Commission</span><span class="f13" style="color:#FF9800">&#8377;45,000</span></div>
-<div class="flex-b"><span class="sm">Doctor Net</span><span class="f13 fw6" style="color:#00E676">&#8377;1,15,000</span></div>
+<div class="flex-b"><span class="sm">Doctor Net</span><span class="f13 fw6" style="color:#0097A7">&#8377;1,15,000</span></div>
 <div class="pb mt4"><div class="pf pfg" style="width:100%"></div></div>
 <div class="sm mt4">100% settled</div>
 </div>
@@ -880,13 +880,13 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="flex-b mb4"><span class="sec">Total Revenue</span><span class="f14 fw6">&#8377;3,50,000</span></div>
 <div class="flex-b mb4"><span class="sec">Material Cost</span><span class="f14" style="color:#F44336">- &#8377;45,000</span></div>
 <div class="flex-b mb4"><span class="sec">Net Revenue</span><span class="f14">&#8377;3,05,000</span></div>
-<div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:6px">
+<div style="border-top:1px solid rgba(0,0,0,0.08);padding-top:6px">
 <div class="flex-b mb4"><span class="sec">Commission (30%)</span><span class="f14" style="color:#FF9800">&#8377;1,05,000</span></div>
-<div class="flex-b"><span class="fw6">Doctor's Net</span><span class="f18 fw7" style="color:#00E676">&#8377;2,00,000</span></div>
+<div class="flex-b"><span class="fw6">Doctor's Net</span><span class="f18 fw7" style="color:#0097A7">&#8377;2,00,000</span></div>
 </div>
 </div>
 <div class="g">
-<div class="flex-b mb4"><span class="f13 fw6">Settlement Progress</span><span class="f13" style="color:#00E676">76%</span></div>
+<div class="flex-b mb4"><span class="f13 fw6">Settlement Progress</span><span class="f13" style="color:#0097A7">76%</span></div>
 <div class="pb"><div class="pf pfg" style="width:76%"></div></div>
 <div class="flex-b mt4"><span class="sm">Paid: &#8377;80,000</span><span class="sm">Remaining: &#8377;25,000</span></div>
 </div>
@@ -907,11 +907,11 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="sm mt4">City Hospital &bull; March 2026</div>
 </div>
 <div class="g">
-<div class="gi"><div class="gi-label">Amount</div><div class="gi-val" style="color:#00E676;font-size:20px;font-weight:700">&#8377;25,000</div></div>
-<div class="f12 mb4" style="color:rgba(255,255,255,0.5)">Payment Mode</div>
+<div class="gi"><div class="gi-label">Amount</div><div class="gi-val" style="color:#0097A7;font-size:20px;font-weight:700">&#8377;25,000</div></div>
+<div class="f12 mb4" style="color:rgba(0,0,0,0.4)">Payment Mode</div>
 <div class="mb8"><span class="chip">Cash</span><span class="chip a">UPI</span><span class="chip">Bank Transfer</span><span class="chip">Cheque</span></div>
 <div class="gi"><div class="gi-label">Date</div><div class="gi-val">15 March 2026</div></div>
-<div class="gi" style="height:60px;align-items:flex-start"><div><div class="gi-label">Notes</div><div class="gi-val" style="color:rgba(255,255,255,0.5);margin-top:4px">Final settlement for March 2026</div></div></div>
+<div class="gi" style="height:60px;align-items:flex-start"><div><div class="gi-label">Notes</div><div class="gi-val" style="color:rgba(0,0,0,0.4);margin-top:4px">Final settlement for March 2026</div></div></div>
 </div>
 <div class="btn">Record Settlement</div>
 </div>
@@ -927,19 +927,19 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
 <div style="padding-top:8px">
 <div class="flex-b mb8"><span class="sec">&#8592;</span><span class="f18 fw7">Schedule Appointment</span><span style="width:30px"></span></div>
-<div class="search">&#128269; Rahul<span style="margin-left:auto;color:#fff">&#10005;</span></div>
-<div class="gs" style="border-color:#00E676;background:rgba(0,230,118,0.05)"><div class="flex gap8"><div class="av" style="width:32px;height:32px;font-size:11px">RS</div><div><div class="f13 fw6">Rahul Sharma</div><div class="sm">PAT-0001</div></div></div></div>
+<div class="search">&#128269; Rahul<span style="margin-left:auto;color:#1a1a1a">&#10005;</span></div>
+<div class="gs" style="border-color:#0097A7;background:rgba(0,151,167,0.06)"><div class="flex gap8"><div class="av" style="width:32px;height:32px;font-size:11px">RS</div><div><div class="f13 fw6">Rahul Sharma</div><div class="sm">PAT-0001</div></div></div></div>
 <div class="g">
 <div class="f13 fw6 mb4">Date &amp; Time</div>
 <div class="gi"><div class="gi-label">Date</div><div class="gi-val">Saturday, 15 March 2026</div></div>
 <div class="gi"><div class="gi-label">Time</div><div class="gi-val">10:00 AM</div></div>
-<div class="f12 mb4" style="color:rgba(255,255,255,0.5)">Duration</div>
+<div class="f12 mb4" style="color:rgba(0,0,0,0.4)">Duration</div>
 <div class="mb8"><span class="chip">15 min</span><span class="chip a">30 min</span><span class="chip">45 min</span><span class="chip">60 min</span></div>
 </div>
 <div class="g">
-<div class="f12 mb4" style="color:rgba(255,255,255,0.5)">Location</div>
+<div class="f12 mb4" style="color:rgba(0,0,0,0.4)">Location</div>
 <div class="mb4"><span class="chip a">City Hospital</span><span class="chip">SmileCare</span></div>
-<div class="f12 mb4 mt4" style="color:rgba(255,255,255,0.5)">Link Treatment</div>
+<div class="f12 mb4 mt4" style="color:rgba(0,0,0,0.4)">Link Treatment</div>
 <div class="mb4"><span class="chip a">Metal Braces</span></div>
 </div>
 <div class="g">
@@ -956,13 +956,13 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="sec mb4">&#8592; Back</div>
 <div style="text-align:center;margin-bottom:16px">
 <span class="badge bb" style="font-size:13px;padding:6px 16px">SCHEDULED</span>
-<div class="f14 mt8" style="color:rgba(255,255,255,0.7)">Saturday, 15 March 2026</div>
+<div class="f14 mt8" style="color:rgba(0,0,0,0.55)">Saturday, 15 March 2026</div>
 <div class="f24 fw7 mt4">10:00 - 10:30</div>
 <div class="sec mt4">30 minutes</div>
 </div>
 <div class="g" style="display:flex;align-items:center;gap:12px">
 <div class="av">RS</div>
-<div><div class="f14 fw6">Rahul Sharma</div><div class="sm">PAT-0001 &bull; 28y Male</div><div class="sm" style="color:#00BCD4">Metal Braces - In Progress</div></div>
+<div><div class="f14 fw6">Rahul Sharma</div><div class="sm">PAT-0001 &bull; 28y Male</div><div class="sm" style="color:#00838F">Metal Braces - In Progress</div></div>
 </div>
 <div class="g">
 <div class="flex gap8"><span style="font-size:18px">&#127973;</span><div><div class="f14 fw6">City Hospital</div><div class="sm">456 Station Rd, Pune</div></div></div>
@@ -972,7 +972,7 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="btn" style="font-size:13px;padding:12px">&#10003; Complete</div>
 <div style="background:rgba(244,67,54,0.15);border:1px solid rgba(244,67,54,0.3);border-radius:14px;padding:12px;text-align:center;color:#F44336;font-size:13px;font-weight:600">&#10005; Missed</div>
 <div style="background:rgba(255,152,0,0.15);border:1px solid rgba(255,152,0,0.3);border-radius:14px;padding:12px;text-align:center;color:#FF9800;font-size:13px;font-weight:600">&#9208; Hold</div>
-<div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:12px;text-align:center;color:rgba(255,255,255,0.7);font-size:13px;font-weight:600">Cancel</div>
+<div style="background:rgba(255,255,255,0.65);border:1px solid rgba(0,0,0,0.08);border-radius:14px;padding:12px;text-align:center;color:rgba(0,0,0,0.55);font-size:13px;font-weight:600">Cancel</div>
 </div>
 <div class="g mt12">
 <div class="f13 fw6 mb4">Notes</div>
@@ -1022,7 +1022,7 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 </div>
 <div style="display:flex;gap:8px;margin-top:10px">
 <div class="btn" style="flex:1;font-size:12px;padding:10px">Send</div>
-<div class="btn-out" style="flex:1;font-size:12px;padding:10px;border:1px solid rgba(255,255,255,0.2);border-radius:14px;text-align:center">Generate</div>
+<div class="btn-out" style="flex:1;font-size:12px;padding:10px;border:1px solid rgba(0,0,0,0.1);border-radius:14px;text-align:center">Generate</div>
 <div style="flex:1;font-size:12px;padding:10px;border:1px solid rgba(244,67,54,0.3);border-radius:14px;text-align:center;color:#F44336;font-weight:600">Clear All</div>
 </div>
 </div>
@@ -1041,11 +1041,11 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="g">
 <div class="f13 fw6 mb4">Select Patient</div>
 <div class="search">&#128269; Search patients...</div>
-<div class="gs" style="display:flex;align-items:center;gap:8px"><div class="av" style="width:28px;height:28px;font-size:10px">RS</div><span class="f13">Rahul Sharma</span><span style="margin-left:auto;color:#00E676">&#10003;</span></div>
+<div class="gs" style="display:flex;align-items:center;gap:8px"><div class="av" style="width:28px;height:28px;font-size:10px">RS</div><span class="f13">Rahul Sharma</span><span style="margin-left:auto;color:#0097A7">&#10003;</span></div>
 </div>
 <div class="g">
 <div class="f13 fw6 mb4">Message Preview</div>
-<div class="gs" style="background:rgba(0,230,118,0.05);border-color:rgba(0,230,118,0.2)">
+<div class="gs" style="background:rgba(0,151,167,0.06);border-color:rgba(0,151,167,0.15)">
 <div class="sec">Dear Rahul, this is a reminder for your appointment tomorrow (16 Mar 2026) at 10:00 AM at City Hospital. - Dr. Pooja Gangare, OrthoSync</div>
 </div>
 </div>
@@ -1067,14 +1067,14 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="f24 fw7 mb8">Reports</div>
 <div class="mb8"><span class="chip">This Week</span><span class="chip a">This Month</span><span class="chip">This Year</span></div>
 <div class="stat-grid">
-<div class="stat"><div class="lbl">Revenue</div><div class="num" style="color:#00E676">&#8377;2.35L</div></div>
+<div class="stat"><div class="lbl">Revenue</div><div class="num" style="color:#0097A7">&#8377;2.35L</div></div>
 <div class="stat"><div class="lbl">Patients</div><div class="num">28</div></div>
 <div class="stat"><div class="lbl">Appointments</div><div class="num">64</div></div>
 <div class="stat"><div class="lbl">Treatments</div><div class="num">12</div></div>
 </div>
 <div class="g">
 <div class="f13 fw6 mb4">Revenue Summary</div>
-<div class="flex-b mb4"><span class="sec">Collected (85%)</span><span class="f13" style="color:#00E676">&#8377;2,00,000</span></div>
+<div class="flex-b mb4"><span class="sec">Collected (85%)</span><span class="f13" style="color:#0097A7">&#8377;2,00,000</span></div>
 <div class="pb"><div class="pf pfg" style="width:85%"></div></div>
 <div class="flex-b mt8 mb4"><span class="sec">Pending (15%)</span><span class="f13" style="color:#FF9800">&#8377;35,000</span></div>
 <div class="pb"><div class="pf pfo" style="width:15%"></div></div>
@@ -1112,7 +1112,7 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 <div class="f24 fw7 mb12">More</div>
 <div class="g" style="display:flex;align-items:center;gap:14px">
 <div class="av-lg" style="width:56px;height:56px;font-size:22px">PG</div>
-<div><div class="f16 fw7">Dr. Pooja Gangare</div><div class="sm">Orthodontist &bull; Free Plan</div><div class="sec mt4" style="color:#00E676">View Profile &#8250;</div></div>
+<div><div class="f16 fw7">Dr. Pooja Gangare</div><div class="sm">Orthodontist &bull; Free Plan</div><div class="sec mt4" style="color:#0097A7">View Profile &#8250;</div></div>
 </div>
 <div class="g" style="padding:4px 14px">
 <div class="menu-i"><span style="font-size:18px;width:28px;text-align:center">&#127973;</span><span style="flex:1">Locations</span><span class="sec">5 &#8250;</span></div>
@@ -1132,9 +1132,9 @@ body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-fa
 
 </div>
 
-<div style="text-align:center;padding:40px;color:rgba(255,255,255,0.4);font-size:13px">
+<div style="text-align:center;padding:40px;color:rgba(0,0,0,0.35);font-size:13px">
 OrthoSync iOS Mockups &bull; 34 Screens &bull; Built by Dr. Pooja Gangare<br>
-Green Glassmorphism Theme &bull; -apple-system Font
+Glass White Theme &bull; -apple-system Font
 </div>
 
 </body>
