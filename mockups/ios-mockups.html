@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>OrthoSync — iOS Mockups</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:linear-gradient(135deg,#0A3D0A,#1B5E20);min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;color:#fff;padding:20px}
+.page-title{text-align:center;padding:40px 20px 10px;font-size:36px;font-weight:700;letter-spacing:-0.5px}
+.page-sub{text-align:center;color:rgba(255,255,255,0.7);font-size:16px;margin-bottom:40px}
+.row-label{max-width:1320px;margin:30px auto 15px;font-size:18px;font-weight:600;color:rgba(255,255,255,0.85);padding-left:12px;border-left:3px solid #00E676}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;max-width:1320px;margin:0 auto 30px;padding:0 10px}
+@media(max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+.mc{display:flex;flex-direction:column;align-items:center}
+.mc-title{margin-top:12px;font-size:14px;font-weight:600;color:rgba(255,255,255,0.8);text-align:center}
+/* iPhone Frame */
+.iphone{width:375px;height:812px;border-radius:44px;border:4px solid #111;background:linear-gradient(180deg,#0A3D0A,#1B5E20);position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5),inset 0 0 0 2px rgba(255,255,255,0.05)}
+.notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:150px;height:30px;background:#111;border-radius:0 0 18px 18px;z-index:10}
+.sb{display:flex;justify-content:space-between;padding:12px 24px 0;font-size:12px;font-weight:600;height:44px}
+.sc{padding:0 16px;overflow:hidden;height:calc(100% - 44px);position:relative}
+/* Glass */
+.g{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:16px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:14px;margin-bottom:10px}
+.gs{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:10px;margin-bottom:8px}
+.gi{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:11px 14px;font-size:14px;width:100%;margin-bottom:8px;color:#fff}
+.gi-label{font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:2px}
+.gi-val{font-size:14px;color:#fff}
+.btn{background:linear-gradient(135deg,#4CAF50,#00E676);border-radius:14px;padding:14px;width:100%;color:#fff;font-size:16px;font-weight:600;text-align:center;border:none}
+.btn-out{background:transparent;border:1px solid rgba(255,255,255,0.3);border-radius:14px;padding:14px;width:100%;color:#fff;font-size:16px;font-weight:600;text-align:center}
+.sec{color:rgba(255,255,255,0.7);font-size:13px}
+.sm{color:rgba(255,255,255,0.5);font-size:11px}
+.center{text-align:center}
+/* Tab Bar */
+.tab-bar{position:absolute;bottom:0;left:0;right:0;height:80px;background:rgba(10,61,10,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-around;align-items:flex-start;padding-top:8px;z-index:20}
+.tab{display:flex;flex-direction:column;align-items:center;font-size:10px;color:rgba(255,255,255,0.5);gap:2px}
+.tab.a{color:#00E676}
+.tab em{font-style:normal;font-size:20px}
+/* Badges */
+.badge{display:inline-block;padding:2px 8px;border-radius:8px;font-size:10px;font-weight:600}
+.bg{background:rgba(0,230,118,0.2);color:#00E676}
+.bc{background:rgba(0,188,212,0.2);color:#00BCD4}
+.bo{background:rgba(255,152,0,0.2);color:#FF9800}
+.br{background:rgba(244,67,54,0.2);color:#F44336}
+.bb{background:rgba(33,150,243,0.2);color:#2196F3}
+/* Chips */
+.chip{display:inline-block;padding:5px 12px;border-radius:20px;font-size:12px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);margin:2px}
+.chip.a{background:rgba(0,230,118,0.2);border-color:#00E676;color:#00E676}
+/* Avatar */
+.av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#4CAF50,#00E676);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex-shrink:0}
+.av-lg{width:68px;height:68px;font-size:26px;border-radius:50%;background:linear-gradient(135deg,#4CAF50,#00E676);display:flex;align-items:center;justify-content:center;font-weight:700}
+/* Stat Grid */
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.stat{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:10px;backdrop-filter:blur(12px)}
+.stat .num{font-size:20px;font-weight:700;margin-top:2px}
+.stat .lbl{font-size:11px;color:rgba(255,255,255,0.5)}
+/* Progress */
+.pb{height:5px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;margin-top:5px}
+.pf{height:100%;border-radius:3px}
+.pfg{background:linear-gradient(90deg,#4CAF50,#00E676)}
+.pfc{background:#00BCD4}
+.pfo{background:#FF9800}
+/* Search */
+.search{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:8px;margin-bottom:10px;color:rgba(255,255,255,0.4);font-size:14px}
+/* Type Card */
+.tc{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:12px;text-align:center;flex:1}
+.tc.sel{border-color:#00E676;background:rgba(0,230,118,0.1)}
+/* Calendar */
+.cg{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;text-align:center;font-size:13px;margin-bottom:10px}
+.cg .h{color:rgba(255,255,255,0.5);font-size:11px;padding:4px 0}
+.cg .d{padding:7px 0}
+.cg .d.today{background:#00E676;color:#000;font-weight:700;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;margin:0 auto}
+/* Photo Grid */
+.photo-g{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.photo-t{aspect-ratio:1;background:rgba(255,255,255,0.06);border:1px dashed rgba(255,255,255,0.2);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;color:rgba(255,255,255,0.4);gap:2px}
+.photo-t.has{border-style:solid;background:rgba(76,175,80,0.15);border-color:rgba(255,255,255,0.15)}
+/* OTP */
+.otp-row{display:flex;gap:8px;justify-content:center;margin:14px 0}
+.otp-box{width:42px;height:50px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700}
+.otp-box.f{border-color:#00E676;background:rgba(0,230,118,0.1)}
+/* Steps */
+.steps{display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.step-dot{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;background:rgba(255,255,255,0.1);border:2px solid rgba(255,255,255,0.2)}
+.step-dot.a{background:rgba(0,230,118,0.2);border-color:#00E676;color:#00E676}
+.step-dot.done{background:#4CAF50;border-color:#4CAF50}
+.step-line{width:36px;height:2px;background:rgba(255,255,255,0.15)}
+.step-line.done{background:#4CAF50}
+/* Stepper */
+.stp{padding-left:16px}
+.stp .st{position:relative;padding:0 0 16px 20px;border-left:2px solid rgba(255,255,255,0.15)}
+.stp .st:last-child{border-left:none;padding-bottom:0}
+.stp .st::before{content:'';width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.15);position:absolute;left:-7px;top:2px}
+.stp .st.done::before{background:#4CAF50}
+.stp .st.done{border-left-color:#4CAF50}
+.stp .st.cur::before{background:#00BCD4;box-shadow:0 0 6px #00BCD4}
+/* Toggle */
+.tg{width:42px;height:24px;border-radius:12px;background:rgba(255,255,255,0.2);position:relative;display:inline-block;vertical-align:middle}
+.tg.on{background:#4CAF50}
+.tg .k{width:20px;height:20px;border-radius:50%;background:#fff;position:absolute;top:2px;left:2px}
+.tg.on .k{left:20px}
+/* Notification */
+.nc{padding:10px 12px;border-radius:14px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);margin-bottom:8px}
+.nc.ur{border-left:3px solid #00E676;background:rgba(0,230,118,0.05)}
+/* Menu */
+.menu-i{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px}
+/* List Item */
+.li{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.li:last-child{border-bottom:none}
+/* Helpers */
+.flex{display:flex;align-items:center;gap:10px}
+.flex-b{display:flex;align-items:center;justify-content:space-between}
+.gap4{gap:4px}.gap6{gap:6px}.gap8{gap:8px}
+.mt4{margin-top:4px}.mt8{margin-top:8px}.mt12{margin-top:12px}.mb4{margin-bottom:4px}.mb8{margin-bottom:8px}.mb12{margin-bottom:12px}
+.w100{width:100%}
+.f12{font-size:12px}.f13{font-size:13px}.f14{font-size:14px}.f16{font-size:16px}.f18{font-size:18px}.f20{font-size:20px}.f24{font-size:24px}
+.fw7{font-weight:700}.fw6{font-weight:600}
+.rel{position:relative}
+.red-dot{position:absolute;top:-2px;right:-4px;width:16px;height:16px;background:#F44336;border-radius:50%;font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:700}
+</style>
+</head>
+<body>
+<div class="page-title">OrthoSync — iOS Mockups</div>
+<div class="page-sub">Complete iOS Screen Library &bull; Built by Dr. Pooja Gangare</div>
+
+<!-- ======== ROW 1: AUTH ======== -->
+<div class="row-label">Auth Screens</div>
+<div class="grid">
+
+<!-- 1. Login -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:80px;text-align:center">
+<div style="font-size:48px">&#129463;</div>
+<div class="f24 fw7" style="margin-top:8px">OrthoSync</div>
+<div class="sec mt4">Built by Dr. Pooja Gangare</div>
+<div style="margin-top:30px">
+<div class="g">
+<div style="display:flex;margin-bottom:14px">
+<div style="flex:1;text-align:center;padding:8px;border-bottom:2px solid #00E676;color:#00E676;font-weight:600;font-size:14px">Email</div>
+<div style="flex:1;text-align:center;padding:8px;border-bottom:2px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);font-size:14px">Phone</div>
+</div>
+<div class="gi"><span style="color:rgba(255,255,255,0.4)">dr.pooja@example.com</span></div>
+<div class="gi"><span style="color:rgba(255,255,255,0.4)">Password</span><span style="color:rgba(255,255,255,0.3)">&#128065;</span></div>
+<div style="text-align:right;margin-bottom:14px"><span class="sm" style="color:#00E676">Forgot Password?</span></div>
+<div class="btn">Login</div>
+</div>
+<div class="sec mt12">Don't have an account? <span style="color:#00E676;font-weight:600">Register</span></div>
+</div>
+</div>
+</div></div><div class="mc-title">1. Login Screen</div></div>
+
+<!-- 2. Register -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:50px">
+<div style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:4px">&#8592; Back</div>
+<div class="f24 fw7 mb8">Create Account</div>
+<div class="sec mb12">Join OrthoSync today</div>
+<div class="g">
+<div class="gi"><div class="gi-label">Full Name</div><div class="gi-val">Dr. Pooja Gangare</div></div>
+<div class="gi"><div class="gi-label">Email</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">email@example.com</div></div>
+<div class="gi" style="display:flex;gap:8px;align-items:center"><span style="color:rgba(255,255,255,0.5)">+91</span> <span style="color:rgba(255,255,255,0.4)">Phone Number</span></div>
+<div class="gi"><div class="gi-label">Password</div><div style="color:rgba(255,255,255,0.4)">&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;</div></div>
+<div class="gi"><div class="gi-label">Confirm Password</div><div style="color:rgba(255,255,255,0.4)">&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;</div></div>
+<div class="gi"><div class="gi-label">Specialization</div><div class="gi-val">Orthodontics &#9662;</div></div>
+<div class="gi"><div class="gi-label">Degree</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">BDS, MDS</div></div>
+<div class="gi"><div class="gi-label">Registration Number</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">MH-12345</div></div>
+<div class="btn mt8">Register</div>
+</div>
+<div class="sec center mt8">Already have an account? <span style="color:#00E676;font-weight:600">Login</span></div>
+</div>
+</div></div><div class="mc-title">2. Register Screen</div></div>
+
+<!-- 3. OTP Verification -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:100px;text-align:center">
+<div style="font-size:48px">&#128737;</div>
+<div class="f24 fw7 mt8">Verify OTP</div>
+<div class="sec mt8" style="padding:0 20px">Enter the OTP sent to<br><span style="color:#fff;font-weight:600">+91 98XXX XXXXX</span></div>
+<div class="otp-row">
+<div class="otp-box f">4</div>
+<div class="otp-box f">8</div>
+<div class="otp-box f">2</div>
+<div class="otp-box"></div>
+<div class="otp-box"></div>
+<div class="otp-box"></div>
+</div>
+<div style="padding:0 30px"><div class="btn">Verify</div></div>
+<div class="sec mt12">Resend OTP in <span style="color:#00E676;font-weight:600">24s</span></div>
+</div>
+</div></div><div class="mc-title">3. OTP Verification</div></div>
+
+<!-- 4. Forgot Password -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:100px;text-align:center">
+<div style="font-size:48px">&#128274;</div>
+<div class="f24 fw7 mt8">Reset Password</div>
+<div class="sec mt8 mb12" style="padding:0 20px">Enter your email and we'll send you a link to reset your password</div>
+<div style="padding:0 10px">
+<div class="g">
+<div class="gi"><div class="gi-label">Email Address</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">dr.pooja@example.com</div></div>
+<div class="btn mt8">Send Reset Link</div>
+</div>
+<div class="sec mt12">&#8592; Back to <span style="color:#00E676;font-weight:600">Login</span></div>
+</div>
+</div>
+</div></div><div class="mc-title">4. Forgot Password</div></div>
+
+</div>
+
+<!-- ======== ROW 2: DOCTOR SCREENS ======== -->
+<div class="row-label">Doctor Setup &amp; Profile</div>
+<div class="grid">
+
+<!-- 5. Setup Step 1 -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:50px">
+<div class="steps">
+<div class="step-dot a">1</div><div class="step-line"></div>
+<div class="step-dot">2</div><div class="step-line"></div>
+<div class="step-dot">3</div>
+</div>
+<div class="f20 fw7 center mb12">Setup Your Profile</div>
+<div style="text-align:center;margin-bottom:16px">
+<div class="av-lg" style="margin:0 auto;position:relative">PG<div style="position:absolute;bottom:0;right:0;background:#00E676;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px">&#128247;</div></div>
+</div>
+<div class="g">
+<div class="gi"><div class="gi-label">Full Name</div><div class="gi-val">Dr. Pooja Gangare</div></div>
+<div class="gi"><div class="gi-label">Email</div><div class="gi-val">dr.pooja@example.com</div></div>
+<div class="gi"><div class="gi-label">Phone</div><div class="gi-val">+91 98765 43210</div></div>
+<div class="gi"><div class="gi-label">Specialization</div><div class="gi-val">Orthodontics</div></div>
+</div>
+<div class="btn mt8">Continue &#8594;</div>
+</div>
+</div></div><div class="mc-title">5. Doctor Setup - Step 1</div></div>
+
+<!-- 6. Setup Step 2 -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:50px">
+<div class="steps">
+<div class="step-dot done">&#10003;</div><div class="step-line done"></div>
+<div class="step-dot a">2</div><div class="step-line"></div>
+<div class="step-dot">3</div>
+</div>
+<div class="f20 fw7 center mb12">Add Your First Location</div>
+<div style="display:flex;gap:8px;margin-bottom:14px">
+<div class="tc sel"><div style="font-size:22px">&#127978;</div><div class="f12 mt4">Own Clinic</div></div>
+<div class="tc"><div style="font-size:22px">&#127973;</div><div class="f12 mt4">Hospital</div></div>
+<div class="tc"><div style="font-size:22px">&#128204;</div><div class="f12 mt4">Other's Clinic</div></div>
+</div>
+<div class="g">
+<div class="gi"><div class="gi-label">Location Name</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">SmileCare Clinic</div></div>
+<div class="gi"><div class="gi-label">Address</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">123 MG Road, Pune</div></div>
+<div class="gi"><div class="gi-label">City</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">Pune</div></div>
+<div class="gi"><div class="gi-label">Pin Code</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">411001</div></div>
+</div>
+<div class="btn">Continue &#8594;</div>
+</div>
+</div></div><div class="mc-title">6. Doctor Setup - Step 2</div></div>
+
+<!-- 7. Setup Step 3 -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:50px">
+<div class="steps">
+<div class="step-dot done">&#10003;</div><div class="step-line done"></div>
+<div class="step-dot done">&#10003;</div><div class="step-line done"></div>
+<div class="step-dot a">3</div>
+</div>
+<div class="f20 fw7 center mb12">Select Treatments</div>
+<div class="g">
+<div class="li"><span style="color:#00E676">&#9745;</span> <span>Metal Braces</span><span class="sm" style="margin-left:auto">&#8377;35,000</span></div>
+<div class="li"><span style="color:#00E676">&#9745;</span> <span>Ceramic Braces</span><span class="sm" style="margin-left:auto">&#8377;45,000</span></div>
+<div class="li"><span style="color:#00E676">&#9745;</span> <span>Clear Aligners</span><span class="sm" style="margin-left:auto">&#8377;1,50,000</span></div>
+<div class="li"><span style="color:rgba(255,255,255,0.3)">&#9744;</span> <span>Lingual Braces</span><span class="sm" style="margin-left:auto">&#8377;80,000</span></div>
+<div class="li"><span style="color:rgba(255,255,255,0.3)">&#9744;</span> <span>Self-Ligating Braces</span><span class="sm" style="margin-left:auto">&#8377;55,000</span></div>
+<div class="li"><span style="color:#00E676">&#9745;</span> <span>Scaling</span><span class="sm" style="margin-left:auto">&#8377;1,500</span></div>
+<div class="li"><span style="color:rgba(255,255,255,0.3)">&#9744;</span> <span>Teeth Whitening</span><span class="sm" style="margin-left:auto">&#8377;8,000</span></div>
+<div class="li"><span style="color:#00E676">&#9745;</span> <span>Retainers</span><span class="sm" style="margin-left:auto">&#8377;5,000</span></div>
+</div>
+<div class="btn">Get Started &#128640;</div>
+</div>
+</div></div><div class="mc-title">7. Doctor Setup - Step 3</div></div>
+
+<!-- 8. Doctor Profile -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:50px">
+<div style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:8px">&#8592; Back</div>
+<div class="f20 fw7 mb12">My Profile</div>
+<div style="text-align:center;margin-bottom:14px"><div class="av-lg" style="margin:0 auto">PG</div><div class="fw6 mt4">Dr. Pooja Gangare</div><div class="sm">Orthodontist &bull; MH-12345</div></div>
+<div class="g">
+<div class="gi"><div class="gi-label">Full Name</div><div class="gi-val">Dr. Pooja Gangare</div></div>
+<div class="gi"><div class="gi-label">Email</div><div class="gi-val">dr.pooja@example.com</div></div>
+<div class="gi"><div class="gi-label">Phone</div><div class="gi-val">+91 98765 43210</div></div>
+</div>
+<div class="g">
+<div class="flex-b mb8"><span class="f14">Language</span><div><span class="chip a">EN</span><span class="chip">HI</span></div></div>
+<div class="flex-b mb8"><span class="f14">GST Enabled</span><div class="tg on"><div class="k"></div></div></div>
+</div>
+<div class="gs" style="display:flex;align-items:center;justify-content:space-between">
+<div><div class="f14 fw6">Free Plan</div><div class="sm">Basic features included</div></div>
+<span class="badge bg">Active</span>
+</div>
+<div class="btn-out mt8" style="border-color:rgba(244,67,54,0.4);color:#F44336;text-align:center;padding:12px;border-radius:14px;border:1px solid rgba(244,67,54,0.4);font-weight:600">Logout</div>
+</div>
+</div></div><div class="mc-title">8. Doctor Profile</div></div>
+
+</div>
+
+<!-- ======== ROW 3: MAIN TAB SCREENS ======== -->
+<div class="row-label">Main Tab Screens</div>
+<div class="grid">
+
+<!-- 9. Dashboard -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc" style="padding-bottom:80px">
+<div style="padding-top:8px">
+<div class="flex-b mb4">
+<div><div class="sec">Good Morning &#128075;</div><div class="f20 fw7">Dr. Pooja Gangare</div></div>
+<div class="rel" style="font-size:24px">&#128276;<div class="red-dot">3</div></div>
+</div>
+<div class="stat-grid mt8">
+<div class="stat"><div class="lbl">Total Patients</div><div class="num">156</div></div>
+<div class="stat"><div class="lbl">Today's Appts</div><div class="num" style="color:#00E676">8</div></div>
+<div class="stat"><div class="lbl">Pending</div><div class="num" style="color:#FF9800">&#8377;45K</div></div>
+<div class="stat"><div class="lbl">Monthly Revenue</div><div class="num">&#8377;2.35L</div></div>
+</div>
+<div class="f14 fw6 mb4">Today's Appointments</div>
+<div style="display:flex;gap:8px;overflow:hidden;margin-bottom:10px">
+<div class="gs" style="min-width:160px"><div class="f12 fw6">10:00 AM</div><div class="f13">Rahul Sharma</div><div class="sm">Metal Braces</div><span class="badge bb" style="margin-top:4px">Scheduled</span></div>
+<div class="gs" style="min-width:160px"><div class="f12 fw6">11:30 AM</div><div class="f13">Priya Patel</div><div class="sm">Clear Aligners</div><span class="badge bg" style="margin-top:4px">Confirmed</span></div>
+</div>
+<div class="f14 fw6 mb4">Quick Actions</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px">
+<div class="gs center" style="padding:10px 4px"><div style="font-size:20px">&#128100;</div><div class="sm mt4">Add Patient</div></div>
+<div class="gs center" style="padding:10px 4px"><div style="font-size:20px">&#128197;</div><div class="sm mt4">Schedule</div></div>
+<div class="gs center" style="padding:10px 4px"><div style="font-size:20px">&#128176;</div><div class="sm mt4">Bill</div></div>
+<div class="gs center" style="padding:10px 4px"><div style="font-size:20px">&#128202;</div><div class="sm mt4">Reports</div></div>
+</div>
+<div class="f14 fw6 mb4">Recent Activity</div>
+<div class="gs"><div class="li"><div class="av" style="width:32px;height:32px;font-size:12px">RS</div><div><div class="f13">Rahul Sharma - Payment received</div><div class="sm">&#8377;15,000 &bull; 2 hours ago</div></div></div>
+<div class="li"><div class="av" style="width:32px;height:32px;font-size:12px">PP</div><div><div class="f13">Priya Patel - Appointment booked</div><div class="sm">Tomorrow 11:30 AM &bull; 3 hours ago</div></div></div></div>
+</div>
+<div class="tab-bar"><div class="tab a"><em>&#127968;</em>Dashboard</div><div class="tab"><em>&#128101;</em>Patients</div><div class="tab"><em>&#128197;</em>Calendar</div><div class="tab"><em>&#128176;</em>Billing</div><div class="tab"><em>&#9776;</em>More</div></div>
+</div></div><div class="mc-title">9. Dashboard</div></div>
+
+<!-- 10. Patients List -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="flex-b mb8"><div><div class="f24 fw7">Patients</div><div class="sm">156 total patients</div></div><div style="width:40px;height:40px;background:linear-gradient(135deg,#4CAF50,#00E676);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px">+</div></div>
+<div class="search">&#128269; Search patients...</div>
+<div class="g">
+<div class="li"><div class="av">RS</div><div style="flex:1"><div class="flex-b"><span class="fw6">Rahul Sharma</span><span class="sm">&#128247; 12</span></div><div class="sm">PAT-0001 &bull; 28y Male</div><div style="margin-top:3px"><span class="badge bc">Metal Braces - In Progress</span></div></div></div>
+<div class="li"><div class="av">PP</div><div style="flex:1"><div class="flex-b"><span class="fw6">Priya Patel</span><span class="sm">&#128247; 8</span></div><div class="sm">PAT-0002 &bull; 22y Female</div><div style="margin-top:3px"><span class="badge bg">Clear Aligners - Completed</span></div></div></div>
+<div class="li"><div class="av">AK</div><div style="flex:1"><div class="flex-b"><span class="fw6">Amit Kumar</span><span class="sm">&#128247; 5</span></div><div class="sm">PAT-0003 &bull; 35y Male</div><div style="margin-top:3px"><span class="badge bo">Ceramic Braces - Pending</span></div></div></div>
+<div class="li"><div class="av">NJ</div><div style="flex:1"><div class="flex-b"><span class="fw6">Neha Joshi</span><span class="sm">&#128247; 3</span></div><div class="sm">PAT-0004 &bull; 19y Female</div><div style="margin-top:3px"><span class="badge bb">Scaling - Scheduled</span></div></div></div>
+<div class="li"><div class="av">VR</div><div style="flex:1"><div class="flex-b"><span class="fw6">Vikram Rao</span><span class="sm">&#128247; 6</span></div><div class="sm">PAT-0005 &bull; 31y Male</div><div style="margin-top:3px"><span class="badge bc">Self-Ligating - In Progress</span></div></div></div>
+</div>
+</div>
+<div class="tab-bar"><div class="tab"><em>&#127968;</em>Dashboard</div><div class="tab a"><em>&#128101;</em>Patients</div><div class="tab"><em>&#128197;</em>Calendar</div><div class="tab"><em>&#128176;</em>Billing</div><div class="tab"><em>&#9776;</em>More</div></div>
+</div></div><div class="mc-title">10. Patients List</div></div>
+
+<!-- 11. Calendar -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="f24 fw7 mb8">Calendar</div>
+<div class="g">
+<div class="flex-b mb8"><span>&#9664;</span><span class="fw6">March 2026</span><span>&#9654;</span></div>
+<div class="cg">
+<div class="h">S</div><div class="h">M</div><div class="h">T</div><div class="h">W</div><div class="h">T</div><div class="h">F</div><div class="h">S</div>
+<div class="d today">15</div><div class="d">16</div><div class="d">17</div><div class="d">18</div><div class="d">19</div><div class="d">20</div><div class="d">21</div>
+<div class="d">22</div><div class="d">23</div><div class="d">24</div><div class="d">25</div><div class="d">26</div><div class="d">27</div><div class="d">28</div>
+<div class="d">29</div><div class="d">30</div><div class="d">31</div><div class="d" style="color:rgba(255,255,255,0.2)">1</div><div class="d" style="color:rgba(255,255,255,0.2)">2</div><div class="d" style="color:rgba(255,255,255,0.2)">3</div><div class="d" style="color:rgba(255,255,255,0.2)">4</div>
+</div>
+</div>
+<div style="margin-bottom:8px"><span class="chip a">All</span><span class="chip">SmileCare</span><span class="chip">City Hospital</span></div>
+<div class="f14 fw6 mb4">Today's Schedule</div>
+<div class="gs"><div class="flex gap8"><div style="width:3px;border-radius:2px;background:#00E676;align-self:stretch"></div><div><div class="f13 fw6">10:00 - Rahul Sharma</div><div class="sm">City Hospital &bull; Metal Braces</div><span class="badge bb">Scheduled</span></div></div></div>
+<div class="gs"><div class="flex gap8"><div style="width:3px;border-radius:2px;background:#00BCD4;align-self:stretch"></div><div><div class="f13 fw6">11:30 - Priya Patel</div><div class="sm">SmileCare Clinic &bull; Clear Aligners</div><span class="badge bg">Confirmed</span></div></div></div>
+<div class="gs"><div class="flex gap8"><div style="width:3px;border-radius:2px;background:#FF9800;align-self:stretch"></div><div><div class="f13 fw6">14:00 - Amit Kumar</div><div class="sm">City Hospital &bull; Ceramic Braces</div><span class="badge bo">Pending</span></div></div></div>
+<div class="gs"><div class="flex gap8"><div style="width:3px;border-radius:2px;background:#4CAF50;align-self:stretch"></div><div><div class="f13 fw6">16:00 - Neha Joshi</div><div class="sm">SmileCare &bull; Scaling</div><span class="badge bg">Confirmed</span></div></div></div>
+</div>
+<div class="tab-bar"><div class="tab"><em>&#127968;</em>Dashboard</div><div class="tab"><em>&#128101;</em>Patients</div><div class="tab a"><em>&#128197;</em>Calendar</div><div class="tab"><em>&#128176;</em>Billing</div><div class="tab"><em>&#9776;</em>More</div></div>
+</div></div><div class="mc-title">11. Calendar</div></div>
+
+<!-- 12. Billing Overview -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="f24 fw7 mb8">Billing</div>
+<div class="g">
+<div class="flex-b"><div><div class="sm">Total Collected</div><div class="f20 fw7" style="color:#00E676">&#8377;4,50,000</div></div><div><div class="sm">Balance Due</div><div class="f20 fw7" style="color:#FF9800">&#8377;78,000</div></div></div>
+<div class="pb mt8"><div class="pf pfg" style="width:85%"></div></div>
+<div class="sm mt4">85% collected</div>
+</div>
+<div class="stat-grid">
+<div class="stat"><div class="lbl">Total Bills</div><div class="num">89</div></div>
+<div class="stat"><div class="lbl">Paid</div><div class="num" style="color:#00E676">65</div></div>
+<div class="stat"><div class="lbl">Pending</div><div class="num" style="color:#FF9800">24</div></div>
+<div class="stat"><div class="lbl">Overdue</div><div class="num" style="color:#F44336">5</div></div>
+</div>
+<div class="f14 fw6 mb8">Quick Access</div>
+<div class="gs"><div class="menu-i"><span style="font-size:18px">&#128176;</span><span style="flex:1">Fees Master</span><span class="sec">&#8250;</span></div></div>
+<div class="gs"><div class="menu-i"><span style="font-size:18px">&#128221;</span><span style="flex:1">Create Bill</span><span class="sec">&#8250;</span></div></div>
+<div class="gs"><div class="menu-i"><span style="font-size:18px">&#128200;</span><span style="flex:1">Commission</span><span class="sec">&#8250;</span></div></div>
+<div class="gs"><div class="menu-i"><span style="font-size:18px">&#128230;</span><span style="flex:1">Payment History</span><span class="sec">&#8250;</span></div></div>
+</div>
+<div class="tab-bar"><div class="tab"><em>&#127968;</em>Dashboard</div><div class="tab"><em>&#128101;</em>Patients</div><div class="tab"><em>&#128197;</em>Calendar</div><div class="tab a"><em>&#128176;</em>Billing</div><div class="tab"><em>&#9776;</em>More</div></div>
+</div></div><div class="mc-title">12. Billing Overview</div></div>
+
+</div>
+
+<!-- ======== ROW 4: PATIENT SCREENS ======== -->
+<div class="row-label">Patient Screens</div>
+<div class="grid">
+
+<!-- 13. Add Patient -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="flex-b mb8"><span class="sec">&#8592; Back</span><span class="f18 fw7">Add Patient</span><span style="width:40px"></span></div>
+<div style="text-align:center;margin-bottom:12px"><div class="av-lg" style="margin:0 auto">&#128247;</div></div>
+<div class="g">
+<div class="f13 fw6 mb4">Personal Info</div>
+<div class="gi"><div class="gi-label">Full Name</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">Patient Name</div></div>
+<div class="gi"><div class="gi-label">Age</div><div class="gi-val" style="color:rgba(255,255,255,0.4)">25</div></div>
+<div class="f12 mb4" style="color:rgba(255,255,255,0.6)">Gender</div>
+<div class="mb8"><span class="chip">M</span><span class="chip a">F</span><span class="chip">O</span></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Medical Info</div>
+<div class="f12 mb4" style="color:rgba(255,255,255,0.6)">Blood Group</div>
+<div class="mb8"><span class="chip">A+</span><span class="chip">A-</span><span class="chip a">B+</span><span class="chip">B-</span><span class="chip">O+</span><span class="chip">O-</span><span class="chip">AB+</span><span class="chip">AB-</span></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Dental Photos</div>
+<div class="photo-g">
+<div class="photo-t has">&#128247;<div>Front</div></div>
+<div class="photo-t has">&#128247;<div>Right</div></div>
+<div class="photo-t">&#128247;<div>Left</div></div>
+<div class="photo-t">&#128247;<div>Upper</div></div>
+<div class="photo-t">&#128247;<div>Lower</div></div>
+<div class="photo-t">&#128247;<div>X-Ray</div></div>
+</div>
+</div>
+<div class="btn">Register Patient</div>
+</div>
+</div></div><div class="mc-title">13. Add Patient</div></div>
+
+<!-- 14. Patient Detail - Overview -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="sec mb8">&#8592; Back</div>
+<div style="text-align:center;margin-bottom:12px"><div class="av-lg" style="margin:0 auto">RS</div><div class="f18 fw7 mt4">Rahul Sharma</div><div class="sm">PAT-0001 &bull; 28y Male</div></div>
+<div style="display:flex;margin-bottom:12px;background:rgba(255,255,255,0.06);border-radius:12px;overflow:hidden">
+<div style="flex:1;text-align:center;padding:10px;background:rgba(0,230,118,0.15);color:#00E676;font-size:13px;font-weight:600">Overview</div>
+<div style="flex:1;text-align:center;padding:10px;color:rgba(255,255,255,0.5);font-size:13px">Photos</div>
+<div style="flex:1;text-align:center;padding:10px;color:rgba(255,255,255,0.5);font-size:13px">Treatments</div>
+<div style="flex:1;text-align:center;padding:10px;color:rgba(255,255,255,0.5);font-size:13px">Billing</div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Contact Info</div>
+<div class="li"><span class="sm" style="width:60px">Phone</span><span class="f13">+91 98765 12345</span></div>
+<div class="li"><span class="sm" style="width:60px">Email</span><span class="f13">rahul@email.com</span></div>
+<div class="li"><span class="sm" style="width:60px">Address</span><span class="f13">Pune, Maharashtra</span></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Medical Info</div>
+<div class="flex-b"><span class="sec">Blood Group</span><span class="badge bg" style="font-size:13px;padding:4px 12px">B+</span></div>
+<div class="li"><span class="sm">Allergies</span><span class="f13" style="margin-left:auto">None</span></div>
+<div class="li"><span class="sm">Medical History</span><span class="f13" style="margin-left:auto">No conditions</span></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Registration</div>
+<div class="li"><span class="sm">Registered</span><span class="f13" style="margin-left:auto">15 Jan 2026</span></div>
+<div class="li"><span class="sm">Last Visit</span><span class="f13" style="margin-left:auto">10 Mar 2026</span></div>
+</div>
+</div>
+</div></div><div class="mc-title">14. Patient Detail - Overview</div></div>
+
+<!-- 15. Patient Detail - Photos -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="sec mb8">&#8592; Back</div>
+<div style="text-align:center;margin-bottom:12px"><div class="av-lg" style="margin:0 auto">RS</div><div class="f18 fw7 mt4">Rahul Sharma</div><div class="sm">PAT-0001 &bull; 28y Male</div></div>
+<div style="display:flex;margin-bottom:12px;background:rgba(255,255,255,0.06);border-radius:12px;overflow:hidden">
+<div style="flex:1;text-align:center;padding:10px;color:rgba(255,255,255,0.5);font-size:13px">Overview</div>
+<div style="flex:1;text-align:center;padding:10px;background:rgba(0,230,118,0.15);color:#00E676;font-size:13px;font-weight:600">Photos</div>
+<div style="flex:1;text-align:center;padding:10px;color:rgba(255,255,255,0.5);font-size:13px">Treatments</div>
+<div style="flex:1;text-align:center;padding:10px;color:rgba(255,255,255,0.5);font-size:13px">Billing</div>
+</div>
+<div class="mb8"><span class="chip a">All (12)</span><span class="chip">Extraoral</span><span class="chip">Intraoral</span><span class="chip">X-Ray</span></div>
+<div class="photo-g">
+<div class="photo-t has" style="height:100px">&#128247;<div class="sm">Front View</div></div>
+<div class="photo-t has" style="height:100px">&#128247;<div class="sm">Right Side</div></div>
+<div class="photo-t has" style="height:100px">&#128247;<div class="sm">Left Side</div></div>
+<div class="photo-t has" style="height:100px">&#128247;<div class="sm">Upper Arch</div></div>
+<div class="photo-t has" style="height:100px">&#128247;<div class="sm">Lower Arch</div></div>
+<div class="photo-t has" style="height:100px">&#128247;<div class="sm">OPG X-Ray</div></div>
+<div class="photo-t has" style="height:100px">&#128247;<div class="sm">Smile View</div></div>
+<div class="photo-t has" style="height:100px">&#128247;<div class="sm">Profile</div></div>
+<div class="photo-t has" style="height:100px">&#128247;<div class="sm">Ceph X-Ray</div></div>
+</div>
+</div>
+<div style="position:absolute;bottom:24px;right:24px;width:52px;height:52px;background:linear-gradient(135deg,#4CAF50,#00E676);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(0,230,118,0.4);z-index:5">+</div>
+</div></div><div class="mc-title">15. Patient Detail - Photos</div></div>
+
+<!-- 16. Patient Detail - Treatments -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="sec mb8">&#8592; Back</div>
+<div style="text-align:center;margin-bottom:12px"><div class="av-lg" style="margin:0 auto">RS</div><div class="f18 fw7 mt4">Rahul Sharma</div><div class="sm">PAT-0001 &bull; 28y Male</div></div>
+<div style="display:flex;margin-bottom:12px;background:rgba(255,255,255,0.06);border-radius:12px;overflow:hidden">
+<div style="flex:1;text-align:center;padding:10px;color:rgba(255,255,255,0.5);font-size:13px">Overview</div>
+<div style="flex:1;text-align:center;padding:10px;color:rgba(255,255,255,0.5);font-size:13px">Photos</div>
+<div style="flex:1;text-align:center;padding:10px;background:rgba(0,230,118,0.15);color:#00E676;font-size:13px;font-weight:600">Treatments</div>
+<div style="flex:1;text-align:center;padding:10px;color:rgba(255,255,255,0.5);font-size:13px">Billing</div>
+</div>
+<div class="g">
+<div class="flex-b mb4"><span class="f16 fw6">Metal Braces</span><span class="badge bc">In Progress</span></div>
+<div class="sm mb4">Started: 15 Jan 2026 &bull; City Hospital</div>
+<div class="flex-b"><span class="sm">Stage Progress</span><span class="sm" style="color:#00BCD4">60%</span></div>
+<div class="pb"><div class="pf pfc" style="width:60%"></div></div>
+<div class="mt8">
+<div class="stp">
+<div class="st done"><div class="f13">Consultation</div><div class="sm">15 Jan 2026</div></div>
+<div class="st done"><div class="f13">Bonding</div><div class="sm">22 Jan 2026</div></div>
+<div class="st cur"><div class="f13">Monthly Adjustments</div><div class="sm">Ongoing &bull; Visit 3/12</div></div>
+<div class="st"><div class="f13 sec">Debonding</div></div>
+<div class="st"><div class="f13 sec">Retainer</div></div>
+</div>
+</div>
+</div>
+<div class="g">
+<div class="flex-b mb4"><span class="f16 fw6">Scaling</span><span class="badge bg">Completed</span></div>
+<div class="sm mb4">10 Dec 2025 &bull; SmileCare Clinic</div>
+<div class="pb"><div class="pf pfg" style="width:100%"></div></div>
+</div>
+</div>
+</div></div><div class="mc-title">16. Patient Detail - Treatments</div></div>
+
+</div>
+
+<!-- ======== ROW 5: LOCATION SCREENS ======== -->
+<div class="row-label">Location Screens</div>
+<div class="grid">
+
+<!-- 17. Locations List -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="flex-b mb8"><span class="f24 fw7">Locations</span><div style="width:36px;height:36px;background:linear-gradient(135deg,#4CAF50,#00E676);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px">+</div></div>
+<div class="stat-grid">
+<div class="stat"><div class="lbl">Total</div><div class="num">5</div></div>
+<div class="stat"><div class="lbl">Active</div><div class="num" style="color:#00E676">4</div></div>
+</div>
+<div class="mb8"><span class="chip a">All</span><span class="chip">Own (2)</span><span class="chip">Hospital (2)</span><span class="chip">Other's (1)</span></div>
+<div class="search">&#128269; Search locations...</div>
+<div class="g">
+<div class="flex-b"><span class="f14 fw6">&#127978; SmileCare Clinic</span><span class="badge bg">Own</span></div>
+<div class="sm mt4">123 MG Road, Pune</div>
+<div class="mt4"><span class="chip a" style="font-size:10px;padding:3px 8px">M</span><span class="chip a" style="font-size:10px;padding:3px 8px">T</span><span class="chip a" style="font-size:10px;padding:3px 8px">W</span><span class="chip a" style="font-size:10px;padding:3px 8px">T</span><span class="chip a" style="font-size:10px;padding:3px 8px">F</span><span class="chip a" style="font-size:10px;padding:3px 8px">S</span><span class="chip" style="font-size:10px;padding:3px 8px">S</span></div>
+</div>
+<div class="g">
+<div class="flex-b"><span class="f14 fw6">&#127973; City Hospital</span><div><span class="badge bb">Hospital</span> <span class="badge bo">30%</span></div></div>
+<div class="sm mt4">456 Station Rd, Pune</div>
+<div class="mt4"><span class="chip a" style="font-size:10px;padding:3px 8px">M</span><span class="chip a" style="font-size:10px;padding:3px 8px">W</span><span class="chip a" style="font-size:10px;padding:3px 8px">F</span><span class="chip a" style="font-size:10px;padding:3px 8px">S</span></div>
+</div>
+<div class="g">
+<div class="flex-b"><span class="f14 fw6">&#127973; Wellness Hospital</span><div><span class="badge bb">Hospital</span> <span class="badge bo">25%</span></div></div>
+<div class="sm mt4">789 FC Road, Pune</div>
+</div>
+</div>
+</div></div><div class="mc-title">17. Locations List</div></div>
+
+<!-- 18. Add Location -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="flex-b mb8"><span class="sec">&#8592;</span><span class="f18 fw7">Add Location</span><span style="width:30px"></span></div>
+<div style="display:flex;gap:8px;margin-bottom:12px">
+<div class="tc"><div style="font-size:18px">&#127978;</div><div class="f12">Own</div></div>
+<div class="tc sel"><div style="font-size:18px">&#127973;</div><div class="f12">Hospital</div></div>
+<div class="tc"><div style="font-size:18px">&#128204;</div><div class="f12">Other's</div></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Location Details</div>
+<div class="gi"><div class="gi-label">Name</div><div class="gi-val">City Hospital</div></div>
+<div class="gi"><div class="gi-label">Address</div><div class="gi-val">456 Station Rd, Pune</div></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Owner Details</div>
+<div class="gi"><div class="gi-label">Owner Name</div><div class="gi-val">Dr. Mehta</div></div>
+<div class="gi"><div class="gi-label">Phone</div><div class="gi-val">+91 99887 76655</div></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Working Schedule</div>
+<div class="flex-b mb4"><span class="f13">Mon</span><span class="sm">09:00 - 17:00</span><div class="tg on"><div class="k"></div></div></div>
+<div class="flex-b mb4"><span class="f13">Wed</span><span class="sm">09:00 - 17:00</span><div class="tg on"><div class="k"></div></div></div>
+<div class="flex-b mb4"><span class="f13">Fri</span><span class="sm">09:00 - 17:00</span><div class="tg on"><div class="k"></div></div></div>
+<div class="flex-b mb4"><span class="f13">Sat</span><span class="sm">10:00 - 14:00</span><div class="tg on"><div class="k"></div></div></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Commission</div>
+<div class="mb4"><span class="chip a">Percentage</span><span class="chip">Fixed</span></div>
+<div class="gi"><div class="gi-label">Commission Rate</div><div class="gi-val" style="color:#00E676">30%</div></div>
+<div class="sm">Calculated on Total Fee &bull; Monthly settlement</div>
+</div>
+<div class="btn">Save Location</div>
+</div>
+</div></div><div class="mc-title">18. Add Location</div></div>
+
+<!-- 19. Location Detail -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="sec mb4">&#8592; Back</div>
+<div class="flex-b mb12"><span class="f20 fw7">City Hospital</span><span class="badge bb">Hospital</span></div>
+<div class="g">
+<div class="f13 fw6 mb4">Info</div>
+<div class="li"><span class="sm" style="width:70px">Address</span><span class="f13">456 Station Rd, Pune</span></div>
+<div class="li"><span class="sm" style="width:70px">Phone</span><span class="f13">+91 20 2567 8900</span></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Owner</div>
+<div class="li"><span class="sm" style="width:70px">Name</span><span class="f13">Dr. Mehta</span></div>
+<div class="li"><span class="sm" style="width:70px">Phone</span><span class="f13">+91 99887 76655</span></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Schedule</div>
+<div class="flex-b mb4"><span class="f13">Mon</span><span class="sec">09:00 - 17:00</span><span style="color:#00E676">&#9679;</span></div>
+<div class="flex-b mb4"><span class="f13">Tue</span><span class="sec" style="color:rgba(255,255,255,0.3)">Closed</span><span style="color:rgba(255,255,255,0.2)">&#9675;</span></div>
+<div class="flex-b mb4"><span class="f13">Wed</span><span class="sec">09:00 - 17:00</span><span style="color:#00E676">&#9679;</span></div>
+<div class="flex-b mb4"><span class="f13">Fri</span><span class="sec">09:00 - 17:00</span><span style="color:#00E676">&#9679;</span></div>
+<div class="flex-b mb4"><span class="f13">Sat</span><span class="sec">10:00 - 14:00</span><span style="color:#00E676">&#9679;</span></div>
+<div class="flex-b mb4"><span class="f13">Sun</span><span class="sec" style="color:rgba(255,255,255,0.3)">Closed</span><span style="color:rgba(255,255,255,0.2)">&#9675;</span></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Commission Model</div>
+<div class="flex-b mb4"><span class="sec">Rate</span><span class="fw6" style="color:#FF9800">30%</span></div>
+<div class="flex-b mb4"><span class="sec">Calculated On</span><span class="f13">Total Fee</span></div>
+<div class="flex-b"><span class="sec">Settlement</span><span class="f13">Monthly</span></div>
+</div>
+<div class="stat-grid">
+<div class="stat"><div class="lbl">Patients</div><div class="num">45</div></div>
+<div class="stat"><div class="lbl">Revenue</div><div class="num">&#8377;3.5L</div></div>
+</div>
+</div>
+</div></div><div class="mc-title">19. Location Detail</div></div>
+
+</div>
+
+<!-- ======== ROW 6: TREATMENT SCREENS ======== -->
+<div class="row-label">Treatment Screens</div>
+<div class="grid">
+
+<!-- 20. Add Treatment -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="flex-b mb8"><span class="sec">&#8592;</span><span class="f18 fw7">Start Treatment</span><span style="width:30px"></span></div>
+<div class="search">&#128269; Search treatments...</div>
+<div class="g" style="border-color:#00E676;background:rgba(0,230,118,0.08)">
+<div class="flex-b"><span class="f14 fw6">Metal Braces</span><span class="badge bg">Selected</span></div>
+<div class="sm mt4">Fee: &#8377;35,000 &bull; Equipment: &#8377;8,000</div>
+</div>
+<div class="gs"><div class="flex-b"><span class="f13">Ceramic Braces</span><span class="sm">&#8377;45,000</span></div></div>
+<div class="gs"><div class="flex-b"><span class="f13">Clear Aligners</span><span class="sm">&#8377;1,50,000</span></div></div>
+<div class="g mt8">
+<div class="f13 fw6 mb4">Treatment Details</div>
+<div class="gi"><div class="gi-label">Fee</div><div class="gi-val">&#8377;35,000</div></div>
+<div class="gi"><div class="gi-label">Equipment Cost</div><div class="gi-val">&#8377;8,000</div></div>
+<div class="flex-b mb4"><span class="gi-label">Start Date</span><span class="f13">15 Mar 2026</span></div>
+<div class="f12 mb4" style="color:rgba(255,255,255,0.5)">Location</div>
+<div class="mb8"><span class="chip a">City Hospital</span><span class="chip">SmileCare</span></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Stage Timeline</div>
+<div class="stp">
+<div class="st cur"><div class="f13">Consultation</div></div>
+<div class="st"><div class="f13 sec">Bonding</div></div>
+<div class="st"><div class="f13 sec">Monthly Adjustments</div></div>
+<div class="st"><div class="f13 sec">Debonding</div></div>
+<div class="st"><div class="f13 sec">Retainer</div></div>
+</div>
+</div>
+<div class="btn">Start Treatment</div>
+</div>
+</div></div><div class="mc-title">20. Add Treatment</div></div>
+
+<!-- 21. Treatment Detail -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="sec mb4">&#8592; Back</div>
+<div class="flex-b mb4"><span class="f20 fw7">Metal Braces</span><span class="badge bc">In Progress</span></div>
+<div class="sm mb8">Rahul Sharma &bull; City Hospital</div>
+<div class="g">
+<div class="flex-b"><span class="sec">Fee</span><span class="f16 fw7">&#8377;35,000</span></div>
+<div class="flex-b mt4"><span class="sec">Progress</span><span class="f13" style="color:#00BCD4">40%</span></div>
+<div class="pb"><div class="pf pfc" style="width:40%"></div></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb8">Stages</div>
+<div class="stp">
+<div class="st done"><div class="f13 fw6">Consultation</div><div class="sm">15 Jan 2026 &#10003;</div></div>
+<div class="st done"><div class="f13 fw6">Bonding</div><div class="sm">22 Jan 2026 &#10003;</div></div>
+<div class="st cur"><div class="f13 fw6">Monthly Adjustments</div><div class="sm">Visit 3 of 12 &bull; Ongoing</div></div>
+<div class="st"><div class="f13 sec">Debonding</div><div class="sm">Estimated: Dec 2026</div></div>
+<div class="st"><div class="f13 sec">Retainer</div><div class="sm">After debonding</div></div>
+</div>
+</div>
+<div style="display:flex;gap:8px;margin-bottom:10px">
+<div class="btn" style="flex:1;font-size:13px;padding:10px">&#10003; Complete</div>
+<div class="btn-out" style="flex:1;font-size:13px;padding:10px;border:1px solid rgba(255,152,0,0.4);color:#FF9800;border-radius:14px;text-align:center">&#9208; Hold</div>
+</div>
+<div class="f13 fw6 mb4">Visit Timeline</div>
+<div class="gs"><div class="sm" style="color:#00E676">10 Mar 2026</div><div class="f13">Wire change - 0.018 NiTi</div><div class="sm">Monthly adjustment visit</div></div>
+<div class="gs"><div class="sm" style="color:#00E676">10 Feb 2026</div><div class="f13">Wire change - 0.016 NiTi</div><div class="sm">Good progress noted</div></div>
+</div>
+</div></div><div class="mc-title">21. Treatment Detail</div></div>
+
+<!-- 22. Add Visit -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="flex-b mb8"><span class="sec">&#8592;</span><span class="f18 fw7">Add Visit</span><span style="width:30px"></span></div>
+<div class="g">
+<div class="gi"><div class="gi-label">Date</div><div class="gi-val">15 March 2026</div></div>
+<div class="gi"><div class="gi-label">Procedure</div><div class="gi-val">Wire change - 0.019x0.025 SS</div></div>
+<div class="f12 mb4" style="color:rgba(255,255,255,0.5)">Stage</div>
+<div class="mb8"><span class="chip">Consultation</span><span class="chip">Bonding</span><span class="chip a">Adjustment</span><span class="chip">Debonding</span></div>
+<div class="gi" style="height:80px;align-items:flex-start"><div><div class="gi-label">Notes</div><div class="gi-val" style="color:rgba(255,255,255,0.6);margin-top:4px">Patient reports mild discomfort. Elastic wear good. Next appointment in 4 weeks.</div></div></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Visit Photos</div>
+<div class="photo-g">
+<div class="photo-t has" style="height:90px">&#128247;<div>Before</div></div>
+<div class="photo-t has" style="height:90px">&#128247;<div>After</div></div>
+<div class="photo-t" style="height:90px">&#128247;<div>Add More</div></div>
+</div>
+</div>
+<div class="btn">Save Visit</div>
+</div>
+</div></div><div class="mc-title">22. Add Visit</div></div>
+
+</div>
+
+<!-- ======== ROW 7: BILLING SCREENS ======== -->
+<div class="row-label">Billing Screens</div>
+<div class="grid">
+
+<!-- 23. Fees Master -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="flex-b mb8"><span class="sec">&#8592;</span><span class="f18 fw7">Fees Master</span><span style="width:36px;height:36px;background:linear-gradient(135deg,#4CAF50,#00E676);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px">+</span></div>
+<div class="mb8"><span class="chip a">All</span><span class="chip">Orthodontics</span><span class="chip">General</span><span class="chip">Cosmetic</span></div>
+<div class="g">
+<div class="flex-b mb4"><div><div class="f14 fw6">Metal Braces</div><div class="sm">Orthodontics</div></div><div class="flex gap4" style="gap:6px"><span class="badge bg">Active</span><span style="color:rgba(255,255,255,0.4)">&#9998;</span></div></div>
+<div class="flex-b mt4"><span class="sm">Fee</span><span class="f13 fw6">&#8377;35,000</span></div>
+<div class="flex-b"><span class="sm">Equipment</span><span class="f13">&#8377;8,000</span></div>
+<div class="flex-b"><span class="sm">Profit</span><span class="f13" style="color:#00E676">&#8377;27,000</span></div>
+</div>
+<div class="g">
+<div class="flex-b mb4"><div><div class="f14 fw6">Ceramic Braces</div><div class="sm">Orthodontics</div></div><div class="flex gap4" style="gap:6px"><span class="badge bg">Active</span><span style="color:rgba(255,255,255,0.4)">&#9998;</span></div></div>
+<div class="flex-b mt4"><span class="sm">Fee</span><span class="f13 fw6">&#8377;45,000</span></div>
+<div class="flex-b"><span class="sm">Equipment</span><span class="f13">&#8377;12,000</span></div>
+<div class="flex-b"><span class="sm">Profit</span><span class="f13" style="color:#00E676">&#8377;33,000</span></div>
+</div>
+<div class="g">
+<div class="flex-b mb4"><div><div class="f14 fw6">Clear Aligners</div><div class="sm">Orthodontics</div></div><div class="flex gap4" style="gap:6px"><span class="badge bg">Active</span><span style="color:rgba(255,255,255,0.4)">&#9998;</span></div></div>
+<div class="flex-b mt4"><span class="sm">Fee</span><span class="f13 fw6">&#8377;1,50,000</span></div>
+<div class="flex-b"><span class="sm">Equipment</span><span class="f13">&#8377;60,000</span></div>
+<div class="flex-b"><span class="sm">Profit</span><span class="f13" style="color:#00E676">&#8377;90,000</span></div>
+</div>
+<div class="g">
+<div class="flex-b mb4"><div><div class="f14 fw6">Scaling</div><div class="sm">General</div></div><div class="flex gap4" style="gap:6px"><span class="badge bg">Active</span><span style="color:rgba(255,255,255,0.4)">&#9998;</span></div></div>
+<div class="flex-b mt4"><span class="sm">Fee</span><span class="f13 fw6">&#8377;1,500</span></div>
+<div class="flex-b"><span class="sm">Equipment</span><span class="f13">&#8377;200</span></div>
+<div class="flex-b"><span class="sm">Profit</span><span class="f13" style="color:#00E676">&#8377;1,300</span></div>
+</div>
+</div>
+</div></div><div class="mc-title">23. Fees Master</div></div>
+
+<!-- 24. Create Bill -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="flex-b mb8"><span class="sec">&#8592;</span><span class="f18 fw7">Create Bill</span><span style="width:30px"></span></div>
+<div class="g" style="display:flex;align-items:center;gap:10px">
+<div class="av">RS</div><div><div class="f14 fw6">Rahul Sharma</div><div class="sm">PAT-0001</div></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Bill Items</div>
+<div class="flex-b mb4"><span class="f13">Metal Braces</span><span class="f13 fw6">&#8377;35,000</span></div>
+<div class="flex-b mb4" style="border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:6px"><span class="f13">Scaling</span><span class="f13 fw6">&#8377;1,500</span></div>
+<div class="f12 mb4" style="color:rgba(255,255,255,0.5)">Location</div>
+<div class="mb4"><span class="chip a">City Hospital</span><span class="chip">SmileCare</span></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Summary</div>
+<div class="flex-b mb4"><span class="sec">Subtotal</span><span class="f13">&#8377;36,500</span></div>
+<div class="flex-b mb4"><span class="sec">GST (18%)</span><span class="f13">&#8377;6,570</span></div>
+<div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:8px" class="flex-b"><span class="f14 fw6">Grand Total</span><span class="f18 fw7" style="color:#00E676">&#8377;43,070</span></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Payment Mode</div>
+<div class="mb4"><span class="chip a">Cash</span><span class="chip">UPI</span><span class="chip">Card</span><span class="chip">Bank</span></div>
+<div class="f13 fw6 mb4 mt4">EMI Plan</div>
+<div class="sm">3 Installments of &#8377;14,357 each</div>
+</div>
+<div class="btn">Generate Bill</div>
+</div>
+</div></div><div class="mc-title">24. Create Bill</div></div>
+
+<!-- 25. Bill Detail -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="sec mb4">&#8592; Back</div>
+<div class="flex-b mb8"><span class="f18 fw7">Bill #INV-0042</span><span class="badge bo">PARTIAL</span></div>
+<div class="sm mb8">15 Mar 2026 &bull; Rahul Sharma &bull; City Hospital</div>
+<div class="g">
+<div class="flex-b mb4"><span class="f13">Metal Braces</span><span class="f13">&#8377;35,000</span></div>
+<div class="flex-b mb4"><span class="f13">Scaling</span><span class="f13">&#8377;1,500</span></div>
+<div class="flex-b mb4"><span class="sm">GST 18%</span><span class="f13">&#8377;6,570</span></div>
+<div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:6px" class="flex-b"><span class="fw6">Grand Total</span><span class="f16 fw7">&#8377;43,070</span></div>
+</div>
+<div class="stat-grid">
+<div class="stat"><div class="lbl">Paid</div><div class="num" style="color:#00E676">&#8377;25,000</div></div>
+<div class="stat"><div class="lbl">Balance</div><div class="num" style="color:#FF9800">&#8377;18,070</div></div>
+</div>
+<div style="display:flex;gap:8px;margin-bottom:10px">
+<div class="btn" style="flex:1;font-size:13px;padding:10px">Record Payment</div>
+<div class="btn-out" style="flex:1;font-size:13px;padding:10px;border:1px solid rgba(255,255,255,0.3);border-radius:14px;text-align:center">Send Reminder</div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Installments</div>
+<div class="flex-b mb4"><div class="flex gap8"><span style="color:#4CAF50">&#9745;</span><span class="f13">EMI 1 - &#8377;14,357</span></div><span class="badge bg">Paid</span></div>
+<div class="flex-b mb4"><div class="flex gap8"><span style="color:#4CAF50">&#9745;</span><span class="f13">EMI 2 - &#8377;10,643</span></div><span class="badge bg">Paid</span></div>
+<div class="flex-b mb4"><div class="flex gap8"><span style="color:rgba(255,255,255,0.3)">&#9744;</span><span class="f13">EMI 3 - &#8377;14,357</span></div><span class="badge bo">Pending</span></div>
+<div class="flex-b"><div class="flex gap8"><span style="color:rgba(255,255,255,0.3)">&#9744;</span><span class="f13">EMI 4 - &#8377;3,713</span></div><span class="badge br">Overdue</span></div>
+</div>
+<div class="btn" style="background:linear-gradient(135deg,#2196F3,#42A5F5)">&#128228; Share Receipt</div>
+</div>
+</div></div><div class="mc-title">25. Bill Detail</div></div>
+
+</div>
+
+<!-- ======== ROW 8: COMMISSION SCREENS ======== -->
+<div class="row-label">Commission Screens</div>
+<div class="grid">
+
+<!-- 26. Commission Dashboard -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="flex-b mb8"><span class="sec">&#8592;</span><span class="f18 fw7">Commission</span><span style="width:30px"></span></div>
+<div class="g">
+<div style="display:flex;justify-content:space-around;text-align:center">
+<div><div class="sm">Total</div><div class="f18 fw7">&#8377;1,05,000</div></div>
+<div><div class="sm">Paid</div><div class="f18 fw7" style="color:#00E676">&#8377;80,000</div></div>
+<div><div class="sm">Pending</div><div class="f18 fw7" style="color:#FF9800">&#8377;25,000</div></div>
+</div>
+</div>
+<div class="mb8"><span class="chip">Jan 2026</span><span class="chip">Feb 2026</span><span class="chip a">Mar 2026</span></div>
+<div class="g">
+<div class="flex-b mb4"><div><div class="f14 fw6">&#127973; City Hospital</div><div class="sm">Commission Rate: 30%</div></div></div>
+<div class="flex-b mt4"><span class="sm">Revenue</span><span class="f13">&#8377;3,50,000</span></div>
+<div class="flex-b"><span class="sm">Commission</span><span class="f13" style="color:#FF9800">&#8377;1,05,000</span></div>
+<div class="flex-b"><span class="sm">Doctor Net</span><span class="f13 fw6" style="color:#00E676">&#8377;2,00,000</span></div>
+<div class="pb mt4"><div class="pf pfg" style="width:76%"></div></div>
+<div class="sm mt4">76% settled</div>
+<div class="mt8" style="text-align:center"><span style="color:#00E676;font-size:13px;font-weight:600">View Details &#8250;</span></div>
+</div>
+<div class="g">
+<div class="flex-b mb4"><div><div class="f14 fw6">&#127973; Wellness Hospital</div><div class="sm">Commission Rate: 25%</div></div></div>
+<div class="flex-b mt4"><span class="sm">Revenue</span><span class="f13">&#8377;1,80,000</span></div>
+<div class="flex-b"><span class="sm">Commission</span><span class="f13" style="color:#FF9800">&#8377;45,000</span></div>
+<div class="flex-b"><span class="sm">Doctor Net</span><span class="f13 fw6" style="color:#00E676">&#8377;1,15,000</span></div>
+<div class="pb mt4"><div class="pf pfg" style="width:100%"></div></div>
+<div class="sm mt4">100% settled</div>
+</div>
+</div>
+</div></div><div class="mc-title">26. Commission Dashboard</div></div>
+
+<!-- 27. Commission Detail -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="sec mb4">&#8592; Back</div>
+<div class="f18 fw7 mb4">City Hospital</div>
+<div class="sm mb8">March 2026</div>
+<div class="g">
+<div class="f13 fw6 mb8">Financial Breakdown</div>
+<div class="flex-b mb4"><span class="sec">Total Revenue</span><span class="f14 fw6">&#8377;3,50,000</span></div>
+<div class="flex-b mb4"><span class="sec">Material Cost</span><span class="f14" style="color:#F44336">- &#8377;45,000</span></div>
+<div class="flex-b mb4"><span class="sec">Net Revenue</span><span class="f14">&#8377;3,05,000</span></div>
+<div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:6px">
+<div class="flex-b mb4"><span class="sec">Commission (30%)</span><span class="f14" style="color:#FF9800">&#8377;1,05,000</span></div>
+<div class="flex-b"><span class="fw6">Doctor's Net</span><span class="f18 fw7" style="color:#00E676">&#8377;2,00,000</span></div>
+</div>
+</div>
+<div class="g">
+<div class="flex-b mb4"><span class="f13 fw6">Settlement Progress</span><span class="f13" style="color:#00E676">76%</span></div>
+<div class="pb"><div class="pf pfg" style="width:76%"></div></div>
+<div class="flex-b mt4"><span class="sm">Paid: &#8377;80,000</span><span class="sm">Remaining: &#8377;25,000</span></div>
+</div>
+<div class="f13 fw6 mb4">Settlement History</div>
+<div class="gs"><div class="flex-b"><div><div class="f13">&#8377;40,000 via UPI</div><div class="sm">1 Mar 2026</div></div><span class="badge bg">Settled</span></div></div>
+<div class="gs"><div class="flex-b"><div><div class="f13">&#8377;40,000 via Bank Transfer</div><div class="sm">15 Mar 2026</div></div><span class="badge bg">Settled</span></div></div>
+<div class="btn mt8" style="background:linear-gradient(135deg,#2196F3,#42A5F5)">&#128228; Share Report</div>
+</div>
+</div></div><div class="mc-title">27. Commission Detail</div></div>
+
+<!-- 28. Add Settlement -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="flex-b mb8"><span class="sec">&#8592;</span><span class="f18 fw7">Record Settlement</span><span style="width:30px"></span></div>
+<div class="g" style="text-align:center">
+<div class="sm">Remaining Commission</div>
+<div class="f24 fw7" style="color:#FF9800">&#8377;25,000</div>
+<div class="sm mt4">City Hospital &bull; March 2026</div>
+</div>
+<div class="g">
+<div class="gi"><div class="gi-label">Amount</div><div class="gi-val" style="color:#00E676;font-size:20px;font-weight:700">&#8377;25,000</div></div>
+<div class="f12 mb4" style="color:rgba(255,255,255,0.5)">Payment Mode</div>
+<div class="mb8"><span class="chip">Cash</span><span class="chip a">UPI</span><span class="chip">Bank Transfer</span><span class="chip">Cheque</span></div>
+<div class="gi"><div class="gi-label">Date</div><div class="gi-val">15 March 2026</div></div>
+<div class="gi" style="height:60px;align-items:flex-start"><div><div class="gi-label">Notes</div><div class="gi-val" style="color:rgba(255,255,255,0.5);margin-top:4px">Final settlement for March 2026</div></div></div>
+</div>
+<div class="btn">Record Settlement</div>
+</div>
+</div></div><div class="mc-title">28. Add Settlement</div></div>
+
+</div>
+
+<!-- ======== ROW 9: CALENDAR SCREENS ======== -->
+<div class="row-label">Appointment Screens</div>
+<div class="grid">
+
+<!-- 29. Add Appointment -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="flex-b mb8"><span class="sec">&#8592;</span><span class="f18 fw7">Schedule Appointment</span><span style="width:30px"></span></div>
+<div class="search">&#128269; Rahul<span style="margin-left:auto;color:#fff">&#10005;</span></div>
+<div class="gs" style="border-color:#00E676;background:rgba(0,230,118,0.05)"><div class="flex gap8"><div class="av" style="width:32px;height:32px;font-size:11px">RS</div><div><div class="f13 fw6">Rahul Sharma</div><div class="sm">PAT-0001</div></div></div></div>
+<div class="g">
+<div class="f13 fw6 mb4">Date &amp; Time</div>
+<div class="gi"><div class="gi-label">Date</div><div class="gi-val">Saturday, 15 March 2026</div></div>
+<div class="gi"><div class="gi-label">Time</div><div class="gi-val">10:00 AM</div></div>
+<div class="f12 mb4" style="color:rgba(255,255,255,0.5)">Duration</div>
+<div class="mb8"><span class="chip">15 min</span><span class="chip a">30 min</span><span class="chip">45 min</span><span class="chip">60 min</span></div>
+</div>
+<div class="g">
+<div class="f12 mb4" style="color:rgba(255,255,255,0.5)">Location</div>
+<div class="mb4"><span class="chip a">City Hospital</span><span class="chip">SmileCare</span></div>
+<div class="f12 mb4 mt4" style="color:rgba(255,255,255,0.5)">Link Treatment</div>
+<div class="mb4"><span class="chip a">Metal Braces</span></div>
+</div>
+<div class="g">
+<div class="flex-b mb4"><span class="f13">Recurring</span><div class="tg on"><div class="k"></div></div></div>
+<div class="mb4"><span class="chip">Weekly</span><span class="chip a">Monthly</span><span class="chip">Custom</span></div>
+</div>
+<div class="btn">Schedule Appointment</div>
+</div>
+</div></div><div class="mc-title">29. Add Appointment</div></div>
+
+<!-- 30. Appointment Detail -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="sec mb4">&#8592; Back</div>
+<div style="text-align:center;margin-bottom:16px">
+<span class="badge bb" style="font-size:13px;padding:6px 16px">SCHEDULED</span>
+<div class="f14 mt8" style="color:rgba(255,255,255,0.7)">Saturday, 15 March 2026</div>
+<div class="f24 fw7 mt4">10:00 - 10:30</div>
+<div class="sec mt4">30 minutes</div>
+</div>
+<div class="g" style="display:flex;align-items:center;gap:12px">
+<div class="av">RS</div>
+<div><div class="f14 fw6">Rahul Sharma</div><div class="sm">PAT-0001 &bull; 28y Male</div><div class="sm" style="color:#00BCD4">Metal Braces - In Progress</div></div>
+</div>
+<div class="g">
+<div class="flex gap8"><span style="font-size:18px">&#127973;</span><div><div class="f14 fw6">City Hospital</div><div class="sm">456 Station Rd, Pune</div></div></div>
+</div>
+<div class="f13 fw6 mb4 mt8">Actions</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div class="btn" style="font-size:13px;padding:12px">&#10003; Complete</div>
+<div style="background:rgba(244,67,54,0.15);border:1px solid rgba(244,67,54,0.3);border-radius:14px;padding:12px;text-align:center;color:#F44336;font-size:13px;font-weight:600">&#10005; Missed</div>
+<div style="background:rgba(255,152,0,0.15);border:1px solid rgba(255,152,0,0.3);border-radius:14px;padding:12px;text-align:center;color:#FF9800;font-size:13px;font-weight:600">&#9208; Hold</div>
+<div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:12px;text-align:center;color:rgba(255,255,255,0.7);font-size:13px;font-weight:600">Cancel</div>
+</div>
+<div class="g mt12">
+<div class="f13 fw6 mb4">Notes</div>
+<div class="sec">Monthly wire adjustment. Check elastic wear compliance.</div>
+</div>
+</div>
+</div></div><div class="mc-title">30. Appointment Detail</div></div>
+
+</div>
+
+<!-- ======== ROW 10: NOTIFICATION & REPORTS ======== -->
+<div class="row-label">Notifications, Reports &amp; More</div>
+<div class="grid">
+
+<!-- 31. Notifications -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="flex-b mb8"><span class="f24 fw7">Notifications</span><span class="badge br">3 unread</span></div>
+<div class="mb8"><span class="chip a">All</span><span class="chip">Appointments</span><span class="chip">Payments</span><span class="chip">System</span></div>
+<div class="nc ur">
+<div style="position:absolute;top:12px;right:12px;width:8px;height:8px;border-radius:50%;background:#2196F3"></div>
+<div class="f14 fw6">&#128276; Appointment Reminder</div>
+<div class="sec mt4">Rahul Sharma has an appointment tomorrow at 10:00 AM at City Hospital.</div>
+<div class="sm mt4">2 minutes ago</div>
+</div>
+<div class="nc ur">
+<div style="position:absolute;top:12px;right:12px;width:8px;height:8px;border-radius:50%;background:#2196F3"></div>
+<div class="f14 fw6">&#128176; Payment Received</div>
+<div class="sec mt4">&#8377;15,000 received from Priya Patel for Clear Aligners treatment.</div>
+<div class="sm mt4">1 hour ago</div>
+</div>
+<div class="nc ur">
+<div style="position:absolute;top:12px;right:12px;width:8px;height:8px;border-radius:50%;background:#2196F3"></div>
+<div class="f14 fw6">&#10060; Missed Appointment</div>
+<div class="sec mt4">Priya Patel missed her appointment at SmileCare Clinic on 14 Mar.</div>
+<div class="sm mt4">5 hours ago</div>
+</div>
+<div class="nc" style="position:relative">
+<div class="f14 fw6">&#128197; Schedule Update</div>
+<div class="sec mt4">Your schedule for tomorrow has been updated. 3 appointments confirmed.</div>
+<div class="sm mt4">Yesterday</div>
+</div>
+<div class="nc" style="position:relative">
+<div class="f14 fw6">&#128202; Monthly Report</div>
+<div class="sec mt4">Your February 2026 report is ready. Revenue: &#8377;2,15,000.</div>
+<div class="sm mt4">2 days ago</div>
+</div>
+<div style="display:flex;gap:8px;margin-top:10px">
+<div class="btn" style="flex:1;font-size:12px;padding:10px">Send</div>
+<div class="btn-out" style="flex:1;font-size:12px;padding:10px;border:1px solid rgba(255,255,255,0.2);border-radius:14px;text-align:center">Generate</div>
+<div style="flex:1;font-size:12px;padding:10px;border:1px solid rgba(244,67,54,0.3);border-radius:14px;text-align:center;color:#F44336;font-weight:600">Clear All</div>
+</div>
+</div>
+</div></div><div class="mc-title">31. Notifications</div></div>
+
+<!-- 32. Send Notification -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="flex-b mb8"><span class="sec">&#8592;</span><span class="f18 fw7">Send Notification</span><span style="width:30px"></span></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+<div class="tc sel"><div style="font-size:20px">&#128276;</div><div class="f12 mt4">Appointment Reminder</div></div>
+<div class="tc"><div style="font-size:20px">&#128176;</div><div class="f12 mt4">Payment Reminder</div></div>
+<div class="tc"><div style="font-size:20px">&#128197;</div><div class="f12 mt4">Follow Up</div></div>
+<div class="tc"><div style="font-size:20px">&#128172;</div><div class="f12 mt4">Custom</div></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Select Patient</div>
+<div class="search">&#128269; Search patients...</div>
+<div class="gs" style="display:flex;align-items:center;gap:8px"><div class="av" style="width:28px;height:28px;font-size:10px">RS</div><span class="f13">Rahul Sharma</span><span style="margin-left:auto;color:#00E676">&#10003;</span></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Message Preview</div>
+<div class="gs" style="background:rgba(0,230,118,0.05);border-color:rgba(0,230,118,0.2)">
+<div class="sec">Dear Rahul, this is a reminder for your appointment tomorrow (16 Mar 2026) at 10:00 AM at City Hospital. - Dr. Pooja Gangare, OrthoSync</div>
+</div>
+</div>
+<div class="g">
+<div class="flex-b mb8"><span class="f13">Push Notification</span><div class="tg on"><div class="k"></div></div></div>
+<div class="flex-b mb4"><span class="f13">WhatsApp</span><div class="tg on"><div class="k"></div></div></div>
+<div class="gs mt8" style="background:rgba(37,211,102,0.08);border-color:rgba(37,211,102,0.2)">
+<div class="sm" style="color:#25D366">WhatsApp Preview</div>
+<div class="sec mt4">&#128172; "Dear Rahul, this is a reminder for your appointment tomorrow..."</div>
+</div>
+</div>
+<div class="btn">Send Notification</div>
+</div>
+</div></div><div class="mc-title">32. Send Notification</div></div>
+
+<!-- 33. Reports Dashboard -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="f24 fw7 mb8">Reports</div>
+<div class="mb8"><span class="chip">This Week</span><span class="chip a">This Month</span><span class="chip">This Year</span></div>
+<div class="stat-grid">
+<div class="stat"><div class="lbl">Revenue</div><div class="num" style="color:#00E676">&#8377;2.35L</div></div>
+<div class="stat"><div class="lbl">Patients</div><div class="num">28</div></div>
+<div class="stat"><div class="lbl">Appointments</div><div class="num">64</div></div>
+<div class="stat"><div class="lbl">Treatments</div><div class="num">12</div></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Revenue Summary</div>
+<div class="flex-b mb4"><span class="sec">Collected (85%)</span><span class="f13" style="color:#00E676">&#8377;2,00,000</span></div>
+<div class="pb"><div class="pf pfg" style="width:85%"></div></div>
+<div class="flex-b mt8 mb4"><span class="sec">Pending (15%)</span><span class="f13" style="color:#FF9800">&#8377;35,000</span></div>
+<div class="pb"><div class="pf pfo" style="width:15%"></div></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Revenue by Location</div>
+<div class="flex-b mb4"><span class="f12">SmileCare Clinic</span><span class="f12">&#8377;1,20,000</span></div>
+<div class="pb mb8"><div class="pf pfg" style="width:60%"></div></div>
+<div class="flex-b mb4"><span class="f12">City Hospital</span><span class="f12">&#8377;85,000</span></div>
+<div class="pb mb8"><div class="pf pfc" style="width:42%"></div></div>
+<div class="flex-b mb4"><span class="f12">Wellness Hospital</span><span class="f12">&#8377;30,000</span></div>
+<div class="pb"><div class="pf" style="width:15%;background:#FF9800"></div></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Treatment Revenue</div>
+<div class="flex-b mb4"><span class="f12">Metal Braces</span><span class="f12">&#8377;1,05,000</span></div>
+<div class="pb mb8"><div class="pf pfg" style="width:55%"></div></div>
+<div class="flex-b mb4"><span class="f12">Clear Aligners</span><span class="f12">&#8377;75,000</span></div>
+<div class="pb mb8"><div class="pf pfc" style="width:38%"></div></div>
+<div class="flex-b mb4"><span class="f12">Ceramic Braces</span><span class="f12">&#8377;45,000</span></div>
+<div class="pb"><div class="pf" style="width:22%;background:#FF9800"></div></div>
+</div>
+<div class="g">
+<div class="f13 fw6 mb4">Appointments</div>
+<div class="flex-b mb4"><span class="sec">Completed</span><div class="flex gap4"><span class="badge bg">48</span><span class="sm">75%</span></div></div>
+<div class="flex-b mb4"><span class="sec">Missed</span><div class="flex gap4"><span class="badge br">6</span><span class="sm">9%</span></div></div>
+<div class="flex-b"><span class="sec">Cancelled</span><div class="flex gap4"><span class="badge bo">10</span><span class="sm">16%</span></div></div>
+</div>
+</div>
+</div></div><div class="mc-title">33. Reports Dashboard</div></div>
+
+<!-- 34. More Menu -->
+<div class="mc"><div class="iphone"><div class="notch"></div><div class="sb"><span>9:41</span><span>&#x1F4F6; &#x1F50B;</span></div><div class="sc">
+<div style="padding-top:8px">
+<div class="f24 fw7 mb12">More</div>
+<div class="g" style="display:flex;align-items:center;gap:14px">
+<div class="av-lg" style="width:56px;height:56px;font-size:22px">PG</div>
+<div><div class="f16 fw7">Dr. Pooja Gangare</div><div class="sm">Orthodontist &bull; Free Plan</div><div class="sec mt4" style="color:#00E676">View Profile &#8250;</div></div>
+</div>
+<div class="g" style="padding:4px 14px">
+<div class="menu-i"><span style="font-size:18px;width:28px;text-align:center">&#127973;</span><span style="flex:1">Locations</span><span class="sec">5 &#8250;</span></div>
+<div class="menu-i"><span style="font-size:18px;width:28px;text-align:center">&#129463;</span><span style="flex:1">Treatments</span><span class="sec">8 &#8250;</span></div>
+<div class="menu-i"><span style="font-size:18px;width:28px;text-align:center">&#128276;</span><span style="flex:1">Notifications</span><span class="sec"><span style="background:#F44336;color:#fff;padding:1px 6px;border-radius:10px;font-size:10px">3</span> &#8250;</span></div>
+<div class="menu-i"><span style="font-size:18px;width:28px;text-align:center">&#128202;</span><span style="flex:1">Reports</span><span class="sec">&#8250;</span></div>
+<div class="menu-i"><span style="font-size:18px;width:28px;text-align:center">&#9881;</span><span style="flex:1">Settings</span><span class="sec">&#8250;</span></div>
+<div class="menu-i"><span style="font-size:18px;width:28px;text-align:center">&#128142;</span><span style="flex:1">Subscription</span><span class="badge bg">Free</span><span class="sec" style="margin-left:4px">&#8250;</span></div>
+<div class="menu-i"><span style="font-size:18px;width:28px;text-align:center">&#127760;</span><span style="flex:1">Language</span><span class="sec">English &#8250;</span></div>
+<div class="menu-i" style="border-bottom:none;color:#F44336"><span style="font-size:18px;width:28px;text-align:center">&#128682;</span><span style="flex:1">Logout</span></div>
+</div>
+<div class="center mt12 sm">OrthoSync v1.0.0</div>
+<div class="center sm">Made with &#10084; by Dr. Pooja Gangare</div>
+</div>
+<div class="tab-bar"><div class="tab"><em>&#127968;</em>Dashboard</div><div class="tab"><em>&#128101;</em>Patients</div><div class="tab"><em>&#128197;</em>Calendar</div><div class="tab"><em>&#128176;</em>Billing</div><div class="tab a"><em>&#9776;</em>More</div></div>
+</div></div><div class="mc-title">34. More Menu</div></div>
+
+</div>
+
+<div style="text-align:center;padding:40px;color:rgba(255,255,255,0.4);font-size:13px">
+OrthoSync iOS Mockups &bull; 34 Screens &bull; Built by Dr. Pooja Gangare<br>
+Green Glassmorphism Theme &bull; -apple-system Font
+</div>
+
+</body>
+</html>
