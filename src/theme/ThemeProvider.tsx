@@ -15,7 +15,7 @@ const ThemeContext = createContext<ThemeContextValue>({
   colors: THEMES[DEFAULT_THEME].colors,
   themeName: DEFAULT_THEME,
   setTheme: () => {},
-  isDark: true,
+  isDark: false,
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
@@ -24,7 +24,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   const value = useMemo<ThemeContextValue>(() => {
     const theme = THEMES[themeName] || THEMES[DEFAULT_THEME];
-    const isDark = themeName !== 'light_green';
+    const isDark = themeName !== 'light_green' && themeName !== 'glass_white';
     return {
       theme,
       colors: theme.colors,

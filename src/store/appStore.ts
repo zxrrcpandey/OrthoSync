@@ -25,7 +25,7 @@ const useAppStore = create<AppStore>()(
     (set) => ({
       language: 'en',
       isOnline: true,
-      themeName: 'green_glass' as ThemeName,
+      themeName: 'glass_white' as ThemeName,
 
       setLanguage: (language: Language) => {
         i18n.changeLanguage(language);

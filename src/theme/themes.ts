@@ -1,9 +1,9 @@
 // ==========================================
 // OrthoSync - Multi-Theme System
-// 5 Themes: Green Glass, Ocean Blue, Dark Neon, Purple Haze, Light Green
+// 6 Themes: Glass White, Green Glass, Ocean Blue, Dark Neon, Purple Haze, Light Green
 // ==========================================
 
-export type ThemeName = 'green_glass' | 'ocean_blue' | 'dark_neon' | 'purple_haze' | 'light_green';
+export type ThemeName = 'glass_white' | 'green_glass' | 'ocean_blue' | 'dark_neon' | 'purple_haze' | 'light_green';
 
 export interface ThemeColors {
   // Primary palette
@@ -66,7 +66,53 @@ export interface ThemeConfig {
   colors: ThemeColors;
 }
 
-// ─── 1. GREEN GLASS (Original) ───────────────────────────
+// ─── 1. GLASS WHITE (Default) ────────────────────────────
+
+const glassWhite: ThemeConfig = {
+  name: 'glass_white',
+  label: 'Glass White',
+  labelHi: 'ग्लास व्हाइट',
+  emoji: '🤍',
+  description: 'Clean frosted glass with soft neutrals',
+  colors: {
+    primary: {
+      50: '#FAFAFA', 100: '#F5F5F5', 200: '#EEEEEE', 300: '#E0E0E0', 400: '#BDBDBD',
+      500: '#9E9E9E', 600: '#757575', 700: '#616161', 800: '#424242', 900: '#212121',
+    },
+    accent: { light: '#B2EBF2', main: '#26C6DA', dark: '#00ACC1' },
+    glass: {
+      white: 'rgba(255,255,255,0.55)', whiteMedium: 'rgba(255,255,255,0.70)',
+      whiteStrong: 'rgba(255,255,255,0.85)', whiteSolid: 'rgba(255,255,255,0.95)',
+      dark: 'rgba(0,0,0,0.03)', darkMedium: 'rgba(0,0,0,0.06)',
+      tint: 'rgba(38,198,218,0.10)', tintMedium: 'rgba(38,198,218,0.18)', tintStrong: 'rgba(38,198,218,0.30)',
+      border: 'rgba(255,255,255,0.70)', borderLight: 'rgba(255,255,255,0.50)',
+    },
+    gradient: {
+      primary: ['#E8EAF0', '#DEE2E8', '#D5DAE1'] as const,
+      light: ['#FAFAFA', '#F5F5F5', '#EEEEEE'] as const,
+      accent: ['#00ACC1', '#26C6DA', '#B2EBF2'] as const,
+    },
+    success: '#2E7D32', warning: '#E65100', error: '#C62828', info: '#1565C0',
+    status: {
+      scheduled: '#1565C0', completed: '#2E7D32', missed: '#C62828',
+      cancelled: '#757575', hold: '#E65100', inProgress: '#00838F',
+      pending: '#F9A825', paid: '#2E7D32', overdue: '#C62828',
+    },
+    text: {
+      primary: '#1A1A2E', secondary: 'rgba(26,26,46,0.65)', tertiary: 'rgba(26,26,46,0.45)',
+      dark: '#1A1A2E', darkSecondary: '#424242', onGlass: '#1A1A2E', onLight: '#1A1A2E',
+    },
+    background: {
+      primary: '#E8EAF0', secondary: '#F5F5F5',
+      card: 'rgba(255,255,255,0.60)', input: 'rgba(255,255,255,0.50)',
+    },
+    white: '#FFFFFF', black: '#000000', transparent: 'transparent',
+    tabBar: { background: 'rgba(255,255,255,0.85)', active: '#00ACC1', inactive: 'rgba(26,26,46,0.40)' },
+    blurTint: 'default',
+  },
+};
+
+// ─── 2. GREEN GLASS ──────────────────────────────────────
 
 const greenGlass: ThemeConfig = {
   name: 'green_glass',
@@ -299,6 +345,7 @@ const lightGreen: ThemeConfig = {
 // ─── Exports ─────────────────────────────────────────────
 
 export const THEMES: Record<ThemeName, ThemeConfig> = {
+  glass_white: glassWhite,
   green_glass: greenGlass,
   ocean_blue: oceanBlue,
   dark_neon: darkNeon,
@@ -308,4 +355,4 @@ export const THEMES: Record<ThemeName, ThemeConfig> = {
 
 export const THEME_LIST: ThemeConfig[] = Object.values(THEMES);
 
-export const DEFAULT_THEME: ThemeName = 'green_glass';
+export const DEFAULT_THEME: ThemeName = 'glass_white';
