@@ -438,6 +438,27 @@ OrthoSync/ (77 source files)
 
 ---
 
+## Visual Mockups
+
+All mockups use the Glass White default theme and can be opened in any browser.
+
+| File | Screens | Platform | Description |
+|------|---------|----------|-------------|
+| `mockups/ios-mockups.html` | 34 | iOS | iPhone frames with notch, safe area, tab bar |
+| `mockups/android-mockups.html` | 34 | Android | Punch-hole camera, Material Design 3, Android nav bar |
+| `mockups/web-mockups.html` | 10 | Web | Desktop admin panel with sidebar, tables, charts |
+| `mockups/theme-mockups.html` | 20 | iOS × 5 themes | Side-by-side comparison of all 6 themes |
+
+### How to View
+```bash
+open mockups/ios-mockups.html        # iOS mockups
+open mockups/android-mockups.html    # Android mockups
+open mockups/web-mockups.html        # Web admin panel
+open mockups/theme-mockups.html      # Theme comparison gallery
+```
+
+---
+
 ## Security Audit Results
 
 ### Last Audit: 2026-03-16
@@ -563,6 +584,11 @@ const firebaseConfig = {
 ## Git History
 
 ```
+59b54f1 feat: Add Android mockups (34 screens) with Glass White theme
+251dea5 fix: Convert web mockups to Glass White theme with proper contrast
+3ee237e fix: Update all mockups with improved Glass White contrast
+78e83e3 fix: Improve Glass White theme contrast and readability
+77e1142 docs: Update README and Project Documentation
 0856324 docs: Update Setup Guide v2.0
 6ee5b81 fix: Resolve all dependency issues and security vulnerabilities
 87ef73b feat: Add theme gallery mockup showing all 5 themes across 4 screens

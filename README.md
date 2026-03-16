@@ -373,7 +373,7 @@ OrthoSync is packed with everything a dental practice needs. Click any feature t
 
 | 🦷 Default Treatments | 📱 Screens | 🌐 Languages | 🏥 Target Scale |
 |:----------------------:|:----------:|:------------:|:---------------:|
-| **12** | **30+** | **2** (EN + HI) | **89+ clinics** |
+| **12** | **34** | **2** (EN + HI) | **89+ clinics** |
 
 </div>
 
@@ -525,7 +525,8 @@ Contributions are welcome! Here's how you can help:
 |:---------|:------------|
 | 📖 [Setup Guide](SETUP_GUIDE.md) | Complete beginner-friendly setup instructions — from installing Homebrew to deploying to app stores |
 | 📋 [Project Documentation](PROJECT_DOCUMENTATION.md) | Full technical docs — features, architecture, build phases, known issues, and solutions |
-| 🎨 [iOS Mockups](mockups/ios-mockups.html) | 34 iPhone-framed screen mockups with glassmorphism theme |
+| 🍎 [iOS Mockups](mockups/ios-mockups.html) | 34 iPhone-framed screen mockups (Glass White theme) |
+| 🤖 [Android Mockups](mockups/android-mockups.html) | 34 Android screen mockups (Material Design 3, Glass White) |
 | 🖥️ [Web Mockups](mockups/web-mockups.html) | 10 full-width web admin panel section mockups |
 | 🌈 [Theme Gallery](mockups/theme-mockups.html) | All 6 themes compared across 4 key screens |
 
