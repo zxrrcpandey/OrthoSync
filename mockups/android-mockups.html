@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>OrthoSync — Android Mockups</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0A0A0A;font-family:'Roboto',sans-serif;color:#fff;padding:32px 24px 64px}
+h1{text-align:center;font-size:32px;font-weight:800;margin-bottom:6px}
+.subtitle{text-align:center;font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:48px}
+#grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1100px;margin:0 auto}
+@media(max-width:900px){#grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){#grid{grid-template-columns:1fr}}
+.row-label{grid-column:1/-1;font-size:20px;font-weight:700;color:rgba(255,255,255,0.85);border-bottom:1px solid rgba(255,255,255,0.1);padding:24px 0 8px;margin-top:16px}
+.mockup-wrapper{display:flex;flex-direction:column;align-items:center}
+.screen-label{margin-top:10px;font-size:13px;font-weight:500;color:rgba(255,255,255,0.6)}
+
+/* Android Frame */
+.android-frame{width:300px;height:650px;border-radius:24px;border:3px solid #222;background:linear-gradient(180deg,#BCC5D3,#C8CFD9,#D5DAE1);position:relative;overflow:hidden;display:flex;flex-direction:column}
+.punch-hole{width:8px;height:8px;background:#222;border-radius:50%;position:absolute;top:6px;left:50%;transform:translateX(-50%);z-index:10}
+.status-bar{display:flex;justify-content:space-between;align-items:center;padding:4px 14px;font-size:10px;font-weight:500;color:#1A1A2E;flex-shrink:0;height:24px}
+.status-bar span:last-child{font-size:9px}
+.screen-content{flex:1;overflow-y:auto;padding:2px 0 0;position:relative}
+.screen-content.with-tabs{padding-bottom:0}
+.android-nav{display:flex;justify-content:center;gap:40px;padding:8px 0;font-size:16px;color:rgba(26,26,46,0.35);flex-shrink:0;height:32px;align-items:center}
+
+/* Tab Bar */
+.tab-bar{display:flex;background:rgba(255,255,255,0.92);border-top:1px solid rgba(0,0,0,0.06);flex-shrink:0}
+.tab-bar .tb{flex:1;text-align:center;padding:6px 0 4px;font-size:9px;color:rgba(26,26,46,0.45);font-weight:500}
+.tab-bar .tb.active{color:#00838F;font-weight:700}
+.tab-bar .tb div:first-child{font-size:16px;margin-bottom:1px}
+
+/* Glass Components */
+.card{background:rgba(255,255,255,0.72);border:1px solid rgba(0,0,0,0.08);border-radius:12px;padding:12px;margin:8px 14px}
+.input{background:rgba(255,255,255,0.85);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:8px 10px;font-size:11px;color:rgba(26,26,46,0.50);margin:6px 0}
+.btn-accent{background:linear-gradient(135deg,#00838F,#0097A7);color:#fff;border:none;border-radius:24px;padding:10px;text-align:center;font-size:12px;font-weight:700;margin-top:10px;width:100%}
+.btn-outline{border:1.5px solid #0097A7;color:#0097A7;border-radius:24px;padding:8px;text-align:center;font-size:11px;font-weight:600;margin-top:8px}
+.chip{display:inline-block;padding:4px 10px;border-radius:16px;font-size:10px;background:rgba(255,255,255,0.6);color:rgba(26,26,46,0.70);margin:2px 3px;border:1px solid rgba(0,0,0,0.06)}
+.chip.active{background:#00838F;color:#fff;border-color:#00838F}
+.stat-box{background:rgba(255,255,255,0.72);border:1px solid rgba(0,0,0,0.08);border-radius:10px;padding:10px;text-align:center;flex:1}
+.stat-box .num{font-size:20px;font-weight:800;color:#1A1A2E}
+.stat-box .lbl{font-size:9px;color:rgba(26,26,46,0.50);margin-top:2px}
+.tabs{display:flex;gap:0;margin-bottom:10px}
+.tab{flex:1;text-align:center;padding:6px;font-size:11px;font-weight:500;color:rgba(26,26,46,0.50);border-bottom:2px solid transparent}
+.tab.active{color:#00838F;border-bottom-color:#00838F;font-weight:700}
+.badge-blue{display:inline-block;padding:2px 8px;border-radius:10px;font-size:9px;background:rgba(0,151,167,0.15);color:#00838F}
+.badge-green{display:inline-block;padding:2px 8px;border-radius:10px;font-size:9px;background:rgba(46,125,50,0.15);color:#2E7D32}
+.badge-orange{display:inline-block;padding:2px 8px;border-radius:10px;font-size:9px;background:rgba(245,124,0,0.15);color:#F57C00}
+.badge-red{display:inline-block;padding:2px 8px;border-radius:10px;font-size:9px;background:rgba(211,47,47,0.15);color:#D32F2F}
+.list-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.05);font-size:11px;color:#1A1A2E}
+.list-item:last-child{border-bottom:none}
+.fab{position:absolute;bottom:12px;right:14px;width:44px;height:44px;background:linear-gradient(135deg,#00838F,#0097A7);border-radius:22px;color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(0,0,0,0.2)}
+.hdr{padding:10px 14px;font-size:16px;font-weight:700;color:#1A1A2E;display:flex;justify-content:space-between;align-items:center}
+.hdr .back{font-size:18px;margin-right:8px;color:rgba(26,26,46,0.6)}
+.sec{font-size:10px;font-weight:600;color:rgba(26,26,46,0.50);padding:8px 14px 4px;text-transform:uppercase;letter-spacing:0.5px}
+.avatar{width:32px;height:32px;border-radius:16px;background:#0097A7;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.row{display:flex;gap:8px;padding:0 14px;margin:6px 0}
+.t1{font-size:13px;font-weight:700;color:#1A1A2E}
+.t2{font-size:11px;color:rgba(26,26,46,0.70)}
+.t3{font-size:10px;color:rgba(26,26,46,0.50)}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 14px}
+.photo-box{aspect-ratio:1;background:rgba(255,255,255,0.6);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;border:1px solid rgba(0,0,0,0.06)}
+.toggle-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:11px;color:#1A1A2E}
+.toggle{width:34px;height:18px;background:#0097A7;border-radius:9px;position:relative}
+.toggle::after{content:'';width:14px;height:14px;background:#fff;border-radius:50%;position:absolute;top:2px;right:2px}
+.menu-item{display:flex;align-items:center;gap:10px;padding:12px 14px;font-size:12px;color:#1A1A2E;border-bottom:1px solid rgba(0,0,0,0.04)}
+.menu-item span:first-child{font-size:18px}
+</style>
+</head>
+<body>
+<h1>🤖 OrthoSync — Android Mockups</h1>
+<p class="subtitle">Glass White Theme &bull; Material Design 3</p>
+<div id="grid"></div>
+
+<script>
+const tabIcons = [
+  {icon:'📊',label:'Dashboard'},
+  {icon:'👥',label:'Patients'},
+  {icon:'📅',label:'Calendar'},
+  {icon:'💰',label:'Billing'}
+];
+
+const screens = [
+  // ── AUTH ──
+  {type:'label',text:'Authentication'},
+  {name:'Login',hasTabBar:false,content:`
+    <div style="text-align:center;padding-top:60px">
+      <div style="font-size:36px">🦷</div>
+      <div class="t1" style="font-size:24px;margin:8px 0">OrthoSync</div>
+      <div class="t3">Built by Dr. Pooja Gangare</div>
+    </div>
+    <div class="card" style="margin:24px 14px">
+      <div class="tabs"><span class="tab active">Email</span><span class="tab">Phone</span></div>
+      <div class="input">✉️ Email Address</div>
+      <div class="input">🔒 Password</div>
+      <div class="btn-accent">Login</div>
+    </div>
+    <div style="text-align:center;margin-top:16px" class="t3">Don't have an account? <span style="color:#0097A7;font-weight:600">Sign Up</span></div>
+  `},
+  {name:'Register',hasTabBar:false,content:`
+    <div style="text-align:center;padding-top:32px">
+      <div style="font-size:28px">🦷</div>
+      <div class="t1" style="font-size:18px;margin:6px 0">Create Account</div>
+      <div class="t3">Join OrthoSync today</div>
+    </div>
+    <div class="card" style="margin:16px 14px">
+      <div class="input">👤 Full Name</div>
+      <div class="input">📱 Phone Number</div>
+      <div class="input">✉️ Email Address</div>
+      <div class="input">🔒 Create Password</div>
+      <div class="input">🔒 Confirm Password</div>
+      <div class="btn-accent">Create Account</div>
+    </div>
+    <div style="text-align:center;margin-top:10px" class="t3">Already registered? <span style="color:#0097A7;font-weight:600">Login</span></div>
+  `},
+  {name:'OTP Verification',hasTabBar:false,content:`
+    <div style="text-align:center;padding-top:60px">
+      <div style="font-size:36px">📱</div>
+      <div class="t1" style="font-size:18px;margin:10px 0">Verify OTP</div>
+      <div class="t3">Sent to +91 98765 43210</div>
+    </div>
+    <div class="card" style="margin:24px 14px;text-align:center">
+      <div style="display:flex;gap:10px;justify-content:center;margin:12px 0">
+        <div class="input" style="width:40px;text-align:center;font-size:18px;font-weight:700;color:#1A1A2E">4</div>
+        <div class="input" style="width:40px;text-align:center;font-size:18px;font-weight:700;color:#1A1A2E">7</div>
+        <div class="input" style="width:40px;text-align:center;font-size:18px;font-weight:700;color:#1A1A2E">2</div>
+        <div class="input" style="width:40px;text-align:center;font-size:18px;font-weight:700;color:#1A1A2E">—</div>
+      </div>
+      <div class="btn-accent">Verify</div>
+      <div class="t3" style="margin-top:12px">Resend in <span style="color:#0097A7;font-weight:600">00:28</span></div>
+    </div>
+  `},
+  {name:'Forgot Password',hasTabBar:false,content:`
+    <div style="text-align:center;padding-top:60px">
+      <div style="font-size:36px">🔑</div>
+      <div class="t1" style="font-size:18px;margin:10px 0">Reset Password</div>
+      <div class="t3">Enter your registered email</div>
+    </div>
+    <div class="card" style="margin:24px 14px">
+      <div class="input">✉️ Email Address</div>
+      <div class="btn-accent">Send Reset Link</div>
+    </div>
+    <div style="text-align:center;margin-top:16px" class="t3">Remember password? <span style="color:#0097A7;font-weight:600">Login</span></div>
+  `},
+
+  // ── DOCTOR SETUP ──
+  {type:'label',text:'Doctor Setup & Profile'},
+  {name:'Setup Step 1',hasTabBar:false,content:`
+    <div class="hdr"><span>👤 Doctor Setup</span><span class="t3">Step 1/3</span></div>
+    <div style="height:4px;background:rgba(0,0,0,0.06);margin:0 14px;border-radius:2px"><div style="width:33%;height:100%;background:#0097A7;border-radius:2px"></div></div>
+    <div class="card" style="margin:16px 14px">
+      <div class="t2" style="margin-bottom:8px;font-weight:600">Personal Information</div>
+      <div class="input">Dr. Pooja Gangare</div>
+      <div class="input">MDS — Orthodontics & Dentofacial Orthopaedics</div>
+      <div class="input">MH/12345 (Registration No.)</div>
+      <div class="input">+91 98765 43210</div>
+      <div class="btn-accent">Continue</div>
+    </div>
+  `},
+  {name:'Setup Step 2',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Clinic Details</span><span class="t3">Step 2/3</span></div>
+    <div style="height:4px;background:rgba(0,0,0,0.06);margin:0 14px;border-radius:2px"><div style="width:66%;height:100%;background:#0097A7;border-radius:2px"></div></div>
+    <div class="card" style="margin:16px 14px">
+      <div class="input">🏥 Primary Clinic Name</div>
+      <div class="input">📍 Address Line 1</div>
+      <div class="input">🏙️ City, State</div>
+      <div class="input">📞 Clinic Phone</div>
+      <div class="toggle-row"><span>Enable GST?</span><div class="toggle"></div></div>
+      <div class="input">GST Number (Optional)</div>
+      <div class="btn-accent">Continue</div>
+    </div>
+  `},
+  {name:'Setup Step 3',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Treatments</span><span class="t3">Step 3/3</span></div>
+    <div style="height:4px;background:rgba(0,0,0,0.06);margin:0 14px;border-radius:2px"><div style="width:100%;height:100%;background:#0097A7;border-radius:2px"></div></div>
+    <div class="card" style="margin:16px 14px">
+      <div class="t2" style="margin-bottom:8px;font-weight:600">Select Default Treatments</div>
+      <div><span class="chip active">Metal Braces</span><span class="chip active">Ceramic Braces</span><span class="chip">Aligners</span><span class="chip active">Retainer</span><span class="chip">RCT</span><span class="chip">Extraction</span><span class="chip active">Scaling</span><span class="chip">Implant</span></div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="t2" style="font-weight:600;margin-bottom:6px">Working Days</div>
+      <div><span class="chip active">Mon</span><span class="chip active">Tue</span><span class="chip active">Wed</span><span class="chip">Thu</span><span class="chip active">Fri</span><span class="chip active">Sat</span><span class="chip">Sun</span></div>
+    </div>
+    <div style="padding:0 14px"><div class="btn-accent">Finish Setup</div></div>
+  `},
+  {name:'Doctor Profile',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>My Profile</span><span style="font-size:12px;color:#0097A7">Edit</span></div>
+    <div style="text-align:center;padding:12px">
+      <div class="avatar" style="width:56px;height:56px;font-size:20px;border-radius:28px;margin:0 auto">PG</div>
+      <div class="t1" style="margin-top:8px">Dr. Pooja Gangare</div>
+      <div class="t3">MDS — Orthodontics</div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="list-item"><span>📱 Phone</span><span>+91 98765 43210</span></div>
+      <div class="list-item"><span>✉️ Email</span><span>dr.pooja@ortho.in</span></div>
+      <div class="list-item"><span>🏥 Locations</span><span class="badge-blue">89</span></div>
+      <div class="list-item"><span>📋 Reg. No.</span><span>MH/12345</span></div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="toggle-row"><span>🌙 Dark Mode</span><div class="toggle"></div></div>
+      <div class="toggle-row"><span>🔔 Notifications</span><div class="toggle"></div></div>
+      <div class="toggle-row"><span>🌐 Hindi Language</span><div class="toggle"></div></div>
+    </div>
+  `},
+
+  // ── MAIN TABS ──
+  {type:'label',text:'Main Tabs'},
+  {name:'Dashboard',hasTabBar:true,activeTab:0,content:`
+    <div class="hdr"><span>👋 Hi, Dr. Pooja</span><span>🔔</span></div>
+    <div class="row">
+      <div class="stat-box"><div class="num">1,247</div><div class="lbl">Total Patients</div></div>
+      <div class="stat-box"><div class="num">8</div><div class="lbl">Today's Appts</div></div>
+      <div class="stat-box"><div class="num">₹4.2L</div><div class="lbl">This Month</div></div>
+    </div>
+    <div class="sec">TODAY'S SCHEDULE</div>
+    <div class="card" style="margin:4px 14px">
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Rahul Sharma</div><div class="t3">10:00 AM • Metal Braces Adjustment</div></div><span class="badge-blue">Scheduled</span></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Priya Patel</div><div class="t3">10:30 AM • Ceramic Braces Check</div></div><span class="badge-green">Completed</span></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Amit Kumar</div><div class="t3">11:00 AM • Aligner Fitting</div></div><span class="badge-orange">Waiting</span></div>
+    </div>
+    <div class="sec">PENDING PAYMENTS</div>
+    <div class="card" style="margin:4px 14px">
+      <div class="list-item"><span>Sneha Deshmukh</span><span style="color:#D32F2F;font-weight:600">₹12,500</span></div>
+      <div class="list-item"><span>Vikram Joshi</span><span style="color:#D32F2F;font-weight:600">₹8,000</span></div>
+    </div>
+  `},
+  {name:'Patients List',hasTabBar:true,activeTab:1,content:`
+    <div class="hdr"><span>Patients</span><span class="t3">1,247 total</span></div>
+    <div style="padding:0 14px"><div class="input">🔍 Search patients...</div></div>
+    <div style="padding:4px 14px"><span class="chip active">All</span><span class="chip">Active</span><span class="chip">Completed</span></div>
+    <div class="card" style="margin:8px 14px">
+      <div class="list-item"><div style="display:flex;gap:8px;align-items:center"><div class="avatar">RS</div><div><div class="t2" style="font-weight:600">Rahul Sharma</div><div class="t3">PT-1001 • Metal Braces</div></div></div><span class="badge-blue">Active</span></div>
+      <div class="list-item"><div style="display:flex;gap:8px;align-items:center"><div class="avatar" style="background:#F57C00">PP</div><div><div class="t2" style="font-weight:600">Priya Patel</div><div class="t3">PT-1002 • Aligners</div></div></div><span class="badge-green">Done</span></div>
+      <div class="list-item"><div style="display:flex;gap:8px;align-items:center"><div class="avatar" style="background:#7B1FA2">AK</div><div><div class="t2" style="font-weight:600">Amit Kumar</div><div class="t3">PT-1003 • Ceramic Braces</div></div></div><span class="badge-blue">Active</span></div>
+      <div class="list-item"><div style="display:flex;gap:8px;align-items:center"><div class="avatar" style="background:#C62828">SD</div><div><div class="t2" style="font-weight:600">Sneha Deshmukh</div><div class="t3">PT-1004 • Retainer</div></div></div><span class="badge-orange">Pending</span></div>
+    </div>
+    <div class="fab">+</div>
+  `},
+  {name:'Calendar',hasTabBar:true,activeTab:2,content:`
+    <div class="hdr"><span>Calendar</span><span style="font-size:12px;color:#0097A7">+ New</span></div>
+    <div class="card" style="margin:4px 14px;text-align:center">
+      <div class="t2" style="font-weight:700;margin-bottom:6px">March 2026</div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;font-size:9px;color:rgba(26,26,46,0.50)"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;font-size:10px;color:#1A1A2E;margin-top:4px">
+        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+        <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+        <span>15</span><span style="background:#0097A7;color:#fff;border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;margin:0 auto">16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
+      </div>
+    </div>
+    <div class="sec">TODAY — 16 MAR</div>
+    <div class="card" style="margin:4px 14px">
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Rahul Sharma</div><div class="t3">10:00 AM • City Dental, Pune</div></div><span class="badge-blue">Scheduled</span></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Priya Patel</div><div class="t3">10:30 AM • Smile Clinic</div></div><span class="badge-green">Done</span></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Meera Singh</div><div class="t3">11:30 AM • Dental Hub</div></div><span class="badge-blue">Scheduled</span></div>
+    </div>
+    <div class="fab">+</div>
+  `},
+  {name:'Billing',hasTabBar:true,activeTab:3,content:`
+    <div class="hdr"><span>Billing</span><span style="font-size:12px;color:#0097A7">+ New</span></div>
+    <div class="row">
+      <div class="stat-box"><div class="num">₹4.2L</div><div class="lbl">This Month</div></div>
+      <div class="stat-box"><div class="num">₹1.8L</div><div class="lbl">Pending</div></div>
+    </div>
+    <div style="padding:6px 14px"><span class="chip active">All</span><span class="chip">Paid</span><span class="chip">Pending</span><span class="chip">Partial</span></div>
+    <div class="card" style="margin:6px 14px">
+      <div class="list-item"><div><div class="t2" style="font-weight:600">INV-2601</div><div class="t3">Rahul Sharma • Metal Braces</div></div><div style="text-align:right"><div class="t2" style="font-weight:700">₹45,000</div><span class="badge-green">Paid</span></div></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">INV-2602</div><div class="t3">Priya Patel • Aligners</div></div><div style="text-align:right"><div class="t2" style="font-weight:700">₹1,20,000</div><span class="badge-orange">Partial</span></div></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">INV-2603</div><div class="t3">Sneha Deshmukh • Retainer</div></div><div style="text-align:right"><div class="t2" style="font-weight:700">₹8,000</div><span class="badge-red">Unpaid</span></div></div>
+    </div>
+    <div class="fab">+</div>
+  `},
+
+  // ── PATIENT ──
+  {type:'label',text:'Patient Management'},
+  {name:'Add Patient',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Add Patient</span></div>
+    <div class="card" style="margin:8px 14px">
+      <div class="input">👤 Full Name</div>
+      <div class="input">📱 Phone (+91)</div>
+      <div style="display:flex;gap:6px"><div class="input" style="flex:1">🎂 Age</div><div class="input" style="flex:1">⚧ Gender</div></div>
+      <div class="input">📍 Location / Clinic</div>
+      <div class="input">🦷 Chief Complaint</div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="t2" style="font-weight:600;margin-bottom:6px">Treatment</div>
+      <div><span class="chip active">Metal Braces</span><span class="chip">Ceramic</span><span class="chip">Aligners</span><span class="chip">Retainer</span></div>
+      <div class="input" style="margin-top:8px">₹ Estimated Fee</div>
+    </div>
+    <div style="padding:0 14px"><div class="btn-accent">Save Patient</div></div>
+  `},
+  {name:'Patient Overview',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Patient Detail</span><span>✏️</span></div>
+    <div style="text-align:center;padding:8px">
+      <div class="avatar" style="width:48px;height:48px;font-size:18px;border-radius:24px;margin:0 auto">RS</div>
+      <div class="t1" style="margin-top:6px">Rahul Sharma</div>
+      <div class="t3">PT-1001 • Male, 24y • +91 87654 32100</div>
+    </div>
+    <div class="tabs" style="padding:0 14px"><span class="tab active">Overview</span><span class="tab">Photos</span><span class="tab">Treatments</span></div>
+    <div class="row">
+      <div class="stat-box"><div class="num">₹45K</div><div class="lbl">Total Fee</div></div>
+      <div class="stat-box"><div class="num">₹30K</div><div class="lbl">Paid</div></div>
+      <div class="stat-box"><div class="num">₹15K</div><div class="lbl">Due</div></div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="list-item"><span>Treatment</span><span class="badge-blue">Metal Braces</span></div>
+      <div class="list-item"><span>Location</span><span class="t2">City Dental, Pune</span></div>
+      <div class="list-item"><span>Started</span><span class="t2">15 Jan 2026</span></div>
+      <div class="list-item"><span>Next Visit</span><span class="t2">22 Mar 2026</span></div>
+    </div>
+  `},
+  {name:'Patient Photos',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Patient Detail</span><span>📷</span></div>
+    <div style="text-align:center;padding:4px">
+      <div class="t1">Rahul Sharma</div>
+      <div class="t3">PT-1001</div>
+    </div>
+    <div class="tabs" style="padding:0 14px"><span class="tab">Overview</span><span class="tab active">Photos</span><span class="tab">Treatments</span></div>
+    <div class="sec">BEFORE — 15 JAN 2026</div>
+    <div class="photo-grid">
+      <div class="photo-box">🦷</div><div class="photo-box">😁</div><div class="photo-box">📸</div>
+    </div>
+    <div class="sec">PROGRESS — 16 FEB 2026</div>
+    <div class="photo-grid">
+      <div class="photo-box">🦷</div><div class="photo-box">😁</div><div class="photo-box">📸</div>
+    </div>
+    <div class="fab">📷</div>
+  `},
+  {name:'Patient Treatments',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Patient Detail</span></div>
+    <div style="text-align:center;padding:4px"><div class="t1">Rahul Sharma</div><div class="t3">PT-1001</div></div>
+    <div class="tabs" style="padding:0 14px"><span class="tab">Overview</span><span class="tab">Photos</span><span class="tab active">Treatments</span></div>
+    <div class="card" style="margin:8px 14px">
+      <div style="display:flex;justify-content:space-between"><div class="t2" style="font-weight:700">Metal Braces</div><span class="badge-blue">Active</span></div>
+      <div class="t3" style="margin:4px 0">Started 15 Jan 2026 • City Dental, Pune</div>
+      <div style="height:4px;background:rgba(0,0,0,0.06);border-radius:2px;margin:6px 0"><div style="width:60%;height:100%;background:#0097A7;border-radius:2px"></div></div>
+      <div class="t3">Visit 6 of 10 completed</div>
+    </div>
+    <div class="sec">VISIT HISTORY</div>
+    <div class="card" style="margin:4px 14px">
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Visit 6 — Wire Change</div><div class="t3">10 Mar 2026 • Dr. Pooja</div></div><span class="badge-green">Done</span></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Visit 5 — Adjustment</div><div class="t3">12 Feb 2026 • Dr. Pooja</div></div><span class="badge-green">Done</span></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Visit 4 — Elastic Change</div><div class="t3">15 Jan 2026 • Dr. Pooja</div></div><span class="badge-green">Done</span></div>
+    </div>
+  `},
+
+  // ── LOCATION ──
+  {type:'label',text:'Location Management'},
+  {name:'Location List',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Locations</span><span class="t3">89 total</span></div>
+    <div style="padding:0 14px"><div class="input">🔍 Search locations...</div></div>
+    <div class="card" style="margin:8px 14px">
+      <div class="list-item"><div><div class="t2" style="font-weight:600">🏥 City Dental Clinic</div><div class="t3">MG Road, Pune</div></div><span class="badge-green">Active</span></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">🏥 Smile Care Hospital</div><div class="t3">FC Road, Pune</div></div><span class="badge-green">Active</span></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">🏥 Dental Hub</div><div class="t3">JM Road, Pune</div></div><span class="badge-green">Active</span></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">🏥 OrthoCare Centre</div><div class="t3">Kothrud, Pune</div></div><span class="badge-orange">Inactive</span></div>
+    </div>
+    <div class="fab">+</div>
+  `},
+  {name:'Add Location',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Add Location</span></div>
+    <div class="card" style="margin:8px 14px">
+      <div class="input">🏥 Clinic / Hospital Name</div>
+      <div class="input">👤 Owner Name</div>
+      <div class="input">📍 Address</div>
+      <div class="input">🏙️ City</div>
+      <div class="input">📞 Phone</div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="t2" style="font-weight:600;margin-bottom:6px">Commission Model</div>
+      <div><span class="chip active">% of Fee</span><span class="chip">Fixed Amount</span></div>
+      <div class="input" style="margin-top:8px">Commission Rate (%)</div>
+      <div class="toggle-row"><span>GST Applicable</span><div class="toggle"></div></div>
+    </div>
+    <div style="padding:0 14px"><div class="btn-accent">Save Location</div></div>
+  `},
+  {name:'Location Detail',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>City Dental Clinic</span><span>✏️</span></div>
+    <div class="row">
+      <div class="stat-box"><div class="num">142</div><div class="lbl">Patients</div></div>
+      <div class="stat-box"><div class="num">₹6.8L</div><div class="lbl">Revenue</div></div>
+      <div class="stat-box"><div class="num">30%</div><div class="lbl">Commission</div></div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="list-item"><span>📍 Address</span><span class="t2">MG Road, Pune</span></div>
+      <div class="list-item"><span>👤 Owner</span><span class="t2">Dr. Mehta</span></div>
+      <div class="list-item"><span>📞 Phone</span><span class="t2">+91 20 1234567</span></div>
+      <div class="list-item"><span>💰 Pending</span><span style="color:#D32F2F;font-weight:600">₹45,200</span></div>
+    </div>
+    <div class="sec">RECENT PATIENTS</div>
+    <div class="card" style="margin:4px 14px">
+      <div class="list-item"><div style="display:flex;gap:6px;align-items:center"><div class="avatar" style="width:24px;height:24px;font-size:9px">RS</div><span class="t2">Rahul Sharma</span></div><span class="t3">16 Mar</span></div>
+      <div class="list-item"><div style="display:flex;gap:6px;align-items:center"><div class="avatar" style="width:24px;height:24px;font-size:9px;background:#F57C00">PP</div><span class="t2">Priya Patel</span></div><span class="t3">15 Mar</span></div>
+    </div>
+  `},
+
+  // ── TREATMENT ──
+  {type:'label',text:'Treatment Management'},
+  {name:'Add Treatment',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Add Treatment</span></div>
+    <div class="card" style="margin:8px 14px">
+      <div class="t2" style="font-weight:600;margin-bottom:6px">Patient: Rahul Sharma (PT-1001)</div>
+      <div class="input">🦷 Treatment Type ▾</div>
+      <div class="input">📍 Location ▾</div>
+      <div style="display:flex;gap:6px"><div class="input" style="flex:1">₹ Total Fee</div><div class="input" style="flex:1">Visits Est.</div></div>
+      <div class="input">📅 Start Date</div>
+      <div class="input">📝 Notes</div>
+      <div class="btn-accent">Start Treatment</div>
+    </div>
+  `},
+  {name:'Treatment Detail',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Treatment Detail</span><span>✏️</span></div>
+    <div class="card" style="margin:8px 14px">
+      <div style="display:flex;justify-content:space-between"><div class="t1">Metal Braces</div><span class="badge-blue">Active</span></div>
+      <div class="t3">Rahul Sharma • PT-1001</div>
+      <div style="height:4px;background:rgba(0,0,0,0.06);border-radius:2px;margin:10px 0"><div style="width:60%;height:100%;background:#0097A7;border-radius:2px"></div></div>
+      <div style="display:flex;justify-content:space-between" class="t3"><span>60% Complete</span><span>6/10 Visits</span></div>
+    </div>
+    <div class="row">
+      <div class="stat-box"><div class="num">₹45K</div><div class="lbl">Total Fee</div></div>
+      <div class="stat-box"><div class="num">₹30K</div><div class="lbl">Collected</div></div>
+    </div>
+    <div class="sec">VISITS</div>
+    <div class="card" style="margin:4px 14px">
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Visit 6</div><div class="t3">Wire Change • 10 Mar</div></div><span class="badge-green">Done</span></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Visit 7</div><div class="t3">Adjustment • 22 Mar</div></div><span class="badge-blue">Next</span></div>
+    </div>
+    <div style="padding:0 14px;margin-top:8px"><div class="btn-accent">+ Add Visit</div></div>
+  `},
+  {name:'Add Visit',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Add Visit</span></div>
+    <div class="card" style="margin:8px 14px">
+      <div class="t2" style="font-weight:600">Rahul Sharma — Metal Braces</div>
+      <div class="t3" style="margin-bottom:8px">Visit 7 of 10</div>
+      <div class="input">📅 Visit Date</div>
+      <div class="input">🦷 Procedure Done ▾</div>
+      <div class="input">📍 Location ▾</div>
+      <div class="input" style="height:50px">📝 Notes...</div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="t2" style="font-weight:600;margin-bottom:6px">Payment Collected</div>
+      <div class="input">₹ Amount</div>
+      <div><span class="chip active">Cash</span><span class="chip">UPI</span></div>
+    </div>
+    <div style="padding:0 14px"><div class="btn-accent">Save Visit</div></div>
+  `},
+
+  // ── BILLING ──
+  {type:'label',text:'Billing & Invoices'},
+  {name:'Fees Master',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Fees Master</span><span style="font-size:12px;color:#0097A7">+ Add</span></div>
+    <div style="padding:0 14px"><div class="input">🔍 Search treatments...</div></div>
+    <div class="card" style="margin:8px 14px">
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Metal Braces</div><div class="t3">10 visits avg.</div></div><span class="t1">₹35,000–50,000</span></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Ceramic Braces</div><div class="t3">10 visits avg.</div></div><span class="t1">₹45,000–65,000</span></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Clear Aligners</div><div class="t3">14 visits avg.</div></div><span class="t1">₹1,00,000–1,50,000</span></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Retainer</div><div class="t3">2 visits avg.</div></div><span class="t1">₹5,000–10,000</span></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Scaling & Polishing</div><div class="t3">1 visit</div></div><span class="t1">₹1,500–3,000</span></div>
+    </div>
+  `},
+  {name:'Create Bill',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Create Bill</span></div>
+    <div class="card" style="margin:8px 14px">
+      <div class="input">👤 Select Patient ▾</div>
+      <div class="input">🦷 Treatment ▾</div>
+      <div class="input">📍 Location ▾</div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="t2" style="font-weight:600;margin-bottom:6px">Fee Breakdown</div>
+      <div class="list-item"><span>Treatment Fee</span><span>₹45,000</span></div>
+      <div class="list-item"><span>Discount</span><span style="color:#2E7D32">- ₹5,000</span></div>
+      <div class="list-item"><span>GST (18%)</span><span>₹7,200</span></div>
+      <div class="list-item" style="font-weight:700;border-top:2px solid rgba(0,0,0,0.08)"><span>Total</span><span>₹47,200</span></div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="t2" style="font-weight:600;margin-bottom:6px">Payment</div>
+      <div class="input">₹ Amount Received</div>
+      <div><span class="chip active">Cash</span><span class="chip">UPI</span></div>
+    </div>
+    <div style="padding:0 14px"><div class="btn-accent">Generate Invoice</div></div>
+  `},
+  {name:'Bill Detail',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>INV-2601</span><span style="font-size:12px;color:#0097A7">📥 PDF</span></div>
+    <div class="card" style="margin:8px 14px;text-align:center">
+      <div class="t1" style="font-size:18px">₹45,000</div>
+      <span class="badge-green" style="font-size:11px;padding:4px 12px">Paid</span>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="list-item"><span>Patient</span><span class="t2">Rahul Sharma</span></div>
+      <div class="list-item"><span>Treatment</span><span class="t2">Metal Braces</span></div>
+      <div class="list-item"><span>Location</span><span class="t2">City Dental, Pune</span></div>
+      <div class="list-item"><span>Date</span><span class="t2">16 Mar 2026</span></div>
+      <div class="list-item"><span>Payment</span><span class="t2">UPI</span></div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="t3" style="margin-bottom:4px">PAYMENT HISTORY</div>
+      <div class="list-item"><div><div class="t2">₹20,000</div><div class="t3">Cash • 15 Jan 2026</div></div><span class="badge-green">Received</span></div>
+      <div class="list-item"><div><div class="t2">₹15,000</div><div class="t3">UPI • 12 Feb 2026</div></div><span class="badge-green">Received</span></div>
+      <div class="list-item"><div><div class="t2">₹10,000</div><div class="t3">Cash • 16 Mar 2026</div></div><span class="badge-green">Received</span></div>
+    </div>
+  `},
+
+  // ── COMMISSION ──
+  {type:'label',text:'Commission & Settlements'},
+  {name:'Commission Dashboard',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Commissions</span></div>
+    <div class="row">
+      <div class="stat-box"><div class="num">₹2.1L</div><div class="lbl">Total Due</div></div>
+      <div class="stat-box"><div class="num">₹8.4L</div><div class="lbl">Total Settled</div></div>
+    </div>
+    <div style="padding:6px 14px"><span class="chip active">All</span><span class="chip">Pending</span><span class="chip">Settled</span></div>
+    <div class="card" style="margin:6px 14px">
+      <div class="list-item"><div><div class="t2" style="font-weight:600">City Dental Clinic</div><div class="t3">30% • Dr. Mehta</div></div><div style="text-align:right"><div style="color:#D32F2F;font-weight:600;font-size:12px">₹45,200</div><span class="badge-red">Due</span></div></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Smile Care Hospital</div><div class="t3">25% • Dr. Shah</div></div><div style="text-align:right"><div style="color:#D32F2F;font-weight:600;font-size:12px">₹32,800</div><span class="badge-red">Due</span></div></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Dental Hub</div><div class="t3">35% • Dr. Jain</div></div><div style="text-align:right"><div style="color:#2E7D32;font-weight:600;font-size:12px">₹0</div><span class="badge-green">Settled</span></div></div>
+    </div>
+  `},
+  {name:'Commission Detail',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>City Dental Clinic</span><span style="font-size:12px;color:#0097A7">📥 PDF</span></div>
+    <div class="card" style="margin:8px 14px;text-align:center">
+      <div class="t1" style="font-size:20px;color:#D32F2F">₹45,200</div>
+      <div class="t3">Pending Commission</div>
+    </div>
+    <div class="row">
+      <div class="stat-box"><div class="num">₹6.8L</div><div class="lbl">Revenue</div></div>
+      <div class="stat-box"><div class="num">30%</div><div class="lbl">Rate</div></div>
+      <div class="stat-box"><div class="num">₹1.6L</div><div class="lbl">Settled</div></div>
+    </div>
+    <div class="sec">UNSETTLED PATIENTS</div>
+    <div class="card" style="margin:4px 14px">
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Rahul Sharma</div><div class="t3">₹45,000 × 30%</div></div><span style="font-weight:600;font-size:11px">₹13,500</span></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">Priya Patel</div><div class="t3">₹1,20,000 × 30%</div></div><span style="font-weight:600;font-size:11px">₹36,000</span></div>
+    </div>
+    <div style="padding:8px 14px"><div class="btn-accent">+ Record Settlement</div></div>
+  `},
+  {name:'Add Settlement',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Record Settlement</span></div>
+    <div class="card" style="margin:8px 14px">
+      <div class="t2" style="font-weight:600">City Dental Clinic</div>
+      <div class="t3">Owner: Dr. Mehta • Pending: ₹45,200</div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="input">₹ Settlement Amount</div>
+      <div class="input">📅 Settlement Date</div>
+      <div><span class="chip active">Cash</span><span class="chip">UPI</span><span class="chip">Bank Transfer</span></div>
+      <div class="input" style="margin-top:8px">📝 Reference / Notes</div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="t3" style="margin-bottom:4px">SELECT PATIENTS TO SETTLE</div>
+      <div class="list-item"><div style="display:flex;gap:6px;align-items:center"><span>☑️</span><span class="t2">Rahul Sharma</span></div><span class="t2">₹13,500</span></div>
+      <div class="list-item"><div style="display:flex;gap:6px;align-items:center"><span>☑️</span><span class="t2">Priya Patel</span></div><span class="t2">₹36,000</span></div>
+    </div>
+    <div style="padding:0 14px"><div class="btn-accent">Confirm Settlement — ₹45,200</div></div>
+  `},
+
+  // ── CALENDAR EXTRAS ──
+  {type:'label',text:'Appointments'},
+  {name:'Add Appointment',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>New Appointment</span></div>
+    <div class="card" style="margin:8px 14px">
+      <div class="input">👤 Select Patient ▾</div>
+      <div class="input">📍 Location ▾</div>
+      <div class="input">📅 Date</div>
+      <div style="display:flex;gap:6px"><div class="input" style="flex:1">🕐 Start Time</div><div class="input" style="flex:1">🕐 End Time</div></div>
+      <div class="input">🦷 Procedure ▾</div>
+      <div class="input">📝 Notes</div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="toggle-row"><span>🔁 Recurring Appointment</span><div class="toggle"></div></div>
+      <div class="t3" style="margin-top:4px">Repeat every 4 weeks</div>
+    </div>
+    <div style="padding:0 14px"><div class="btn-accent">Schedule Appointment</div></div>
+  `},
+  {name:'Appointment Detail',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Appointment</span><span>✏️</span></div>
+    <div class="card" style="margin:8px 14px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><div class="t1">Rahul Sharma</div><span class="badge-blue">Scheduled</span></div>
+      <div class="t3">PT-1001</div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="list-item"><span>📅 Date</span><span class="t2">22 Mar 2026</span></div>
+      <div class="list-item"><span>🕐 Time</span><span class="t2">10:00 — 10:30 AM</span></div>
+      <div class="list-item"><span>📍 Location</span><span class="t2">City Dental, Pune</span></div>
+      <div class="list-item"><span>🦷 Procedure</span><span class="t2">Wire Adjustment</span></div>
+      <div class="list-item"><span>🔁 Recurring</span><span class="t2">Every 4 weeks</span></div>
+    </div>
+    <div style="padding:0 14px;display:flex;gap:8px">
+      <div class="btn-accent" style="flex:1">✓ Complete</div>
+      <div class="btn-outline" style="flex:1">✕ Cancel</div>
+    </div>
+    <div style="padding:8px 14px;display:flex;gap:8px">
+      <div class="btn-outline" style="flex:1;color:#F57C00;border-color:#F57C00">⏸ Hold</div>
+      <div class="btn-outline" style="flex:1;color:#D32F2F;border-color:#D32F2F">✕ Missed</div>
+    </div>
+  `},
+
+  // ── NOTIFICATIONS & MORE ──
+  {type:'label',text:'Notifications & More'},
+  {name:'Notifications',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Notifications</span><span class="t3">Mark all read</span></div>
+    <div class="card" style="margin:8px 14px">
+      <div class="list-item" style="background:rgba(0,151,167,0.05);border-radius:8px;padding:10px;margin:-2px"><div><div class="t2" style="font-weight:600">🔔 Appointment Reminder</div><div class="t3">Rahul Sharma — Tomorrow 10:00 AM</div></div><div class="t3">2m ago</div></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">💰 Payment Received</div><div class="t3">₹10,000 from Priya Patel via UPI</div></div><div class="t3">1h ago</div></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">❌ Missed Appointment</div><div class="t3">Amit Kumar missed 3:00 PM slot</div></div><div class="t3">3h ago</div></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">📋 Settlement Due</div><div class="t3">City Dental — ₹45,200 pending</div></div><div class="t3">1d ago</div></div>
+      <div class="list-item"><div><div class="t2" style="font-weight:600">🦷 Treatment Complete</div><div class="t3">Sneha Deshmukh — Retainer done</div></div><div class="t3">2d ago</div></div>
+    </div>
+  `},
+  {name:'Send Notification',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Send Reminder</span></div>
+    <div class="card" style="margin:8px 14px">
+      <div class="t2" style="font-weight:600;margin-bottom:6px">Send To</div>
+      <div><span class="chip active">Single Patient</span><span class="chip">All Tomorrow</span><span class="chip">Custom</span></div>
+      <div class="input" style="margin-top:8px">👤 Select Patient ▾</div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="t2" style="font-weight:600;margin-bottom:6px">Channel</div>
+      <div><span class="chip active">WhatsApp</span><span class="chip">SMS</span><span class="chip">Push</span></div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="t2" style="font-weight:600;margin-bottom:6px">Template</div>
+      <div><span class="chip active">Appointment Reminder</span><span class="chip">Payment Due</span><span class="chip">Follow-up</span></div>
+      <div class="input" style="margin-top:8px;height:60px">Hi Rahul, this is a reminder for your appointment tomorrow at 10:00 AM at City Dental Clinic. — Dr. Pooja</div>
+    </div>
+    <div style="padding:0 14px"><div class="btn-accent">Send via WhatsApp</div></div>
+  `},
+  {name:'Reports',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>Reports</span></div>
+    <div class="card" style="margin:8px 14px">
+      <div class="t2" style="font-weight:600;margin-bottom:8px">Quick Stats — March 2026</div>
+      <div class="row" style="padding:0;margin:0;gap:6px">
+        <div class="stat-box"><div class="num">156</div><div class="lbl">Appointments</div></div>
+        <div class="stat-box"><div class="num">23</div><div class="lbl">New Patients</div></div>
+      </div>
+      <div class="row" style="padding:0;margin:6px 0 0;gap:6px">
+        <div class="stat-box"><div class="num">₹4.2L</div><div class="lbl">Revenue</div></div>
+        <div class="stat-box"><div class="num">₹1.8L</div><div class="lbl">Pending</div></div>
+      </div>
+    </div>
+    <div class="sec">EXPORT REPORTS</div>
+    <div class="card" style="margin:4px 14px">
+      <div class="menu-item"><span>📊</span>Revenue Report<span style="margin-left:auto;color:#0097A7">PDF</span></div>
+      <div class="menu-item"><span>👥</span>Patient Report<span style="margin-left:auto;color:#0097A7">Excel</span></div>
+      <div class="menu-item"><span>💰</span>Commission Report<span style="margin-left:auto;color:#0097A7">PDF</span></div>
+      <div class="menu-item"><span>📅</span>Appointment Report<span style="margin-left:auto;color:#0097A7">Excel</span></div>
+      <div class="menu-item"><span>🦷</span>Treatment Report<span style="margin-left:auto;color:#0097A7">PDF</span></div>
+    </div>
+  `},
+  {name:'More Menu',hasTabBar:false,content:`
+    <div class="hdr"><span><span class="back">←</span>More</span></div>
+    <div style="text-align:center;padding:16px">
+      <div class="avatar" style="width:48px;height:48px;font-size:18px;border-radius:24px;margin:0 auto">PG</div>
+      <div class="t1" style="margin-top:6px">Dr. Pooja Gangare</div>
+      <div class="t3">MDS — Orthodontics</div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="menu-item"><span>👤</span>My Profile</div>
+      <div class="menu-item"><span>🏥</span>Locations (89)</div>
+      <div class="menu-item"><span>💰</span>Commissions</div>
+      <div class="menu-item"><span>💵</span>Fees Master</div>
+      <div class="menu-item"><span>📊</span>Reports</div>
+    </div>
+    <div class="card" style="margin:8px 14px">
+      <div class="menu-item"><span>⚙️</span>Settings</div>
+      <div class="menu-item"><span>🌐</span>Language</div>
+      <div class="menu-item"><span>📱</span>Subscription</div>
+      <div class="menu-item"><span>❓</span>Help & Support</div>
+    </div>
+    <div style="padding:12px 14px"><div class="btn-outline" style="color:#D32F2F;border-color:#D32F2F">🚪 Logout</div></div>
+  `}
+];
+
+function renderTabBar(active) {
+  return '<div class="tab-bar">' + tabIcons.map((t, i) =>
+    `<div class="tb${i === active ? ' active' : ''}"><div>${t.icon}</div>${t.label}</div>`
+  ).join('') + '</div>';
+}
+
+function renderScreens() {
+  const grid = document.getElementById('grid');
+  let html = '';
+  screens.forEach(s => {
+    if (s.type === 'label') {
+      html += `<div class="row-label">${s.text}</div>`;
+      return;
+    }
+    html += `
+      <div class="mockup-wrapper">
+        <div class="android-frame">
+          <div class="status-bar"><span>12:30</span><span>📶 🔋</span></div>
+          <div class="punch-hole"></div>
+          <div class="screen-content${s.hasTabBar ? ' with-tabs' : ''}">${s.content}</div>
+          ${s.hasTabBar ? renderTabBar(s.activeTab || 0) : ''}
+          <div class="android-nav"><span>◁</span><span>○</span><span>□</span></div>
+        </div>
+        <div class="screen-label">${s.name}</div>
+      </div>`;
+  });
+  grid.innerHTML = html;
+}
+
+renderScreens();
+</script>
+</body>
+</html>
