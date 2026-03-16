@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OrthoSync — Theme Gallery</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0A0A0A;
+    color: #fff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .page-header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+  }
+  .page-header h1 {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .page-header p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+  }
+
+  .theme-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 40px 40px 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    overflow-x: auto;
+  }
+  .theme-row:last-child { border-bottom: none; }
+
+  .theme-label {
+    min-width: 180px;
+    max-width: 180px;
+    padding-top: 40px;
+    position: sticky;
+    left: 40px;
+    z-index: 2;
+  }
+  .theme-label .emoji { font-size: 48px; display: block; margin-bottom: 12px; }
+  .theme-label .name { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  .theme-label .desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.5; }
+
+  .phones-row {
+    display: flex;
+    gap: 32px;
+    flex-shrink: 0;
+  }
+
+  /* iPhone Frame */
+  .iphone {
+    width: 280px;
+    height: 600px;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
+  }
+  .iphone-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 30px;
+    background: #000;
+    border-radius: 0 0 18px 18px;
+    z-index: 10;
+  }
+  .notch::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+  }
+  .status-bar {
+    height: 48px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 24px 4px;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 5;
+  }
+  .screen-label {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    margin-top: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .screen-label.dark-text { color: rgba(0,0,0,0.35); }
+
+  /* Screen content area */
+  .screen-content {
+    flex: 1;
+    overflow: hidden;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Tab bar */
+  .tab-bar {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 8px;
+    flex-shrink: 0;
+    font-size: 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .tab-bar .tab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    font-size: 18px;
+    opacity: 0.5;
+  }
+  .tab-bar .tab-item.active { opacity: 1; }
+  .tab-bar .tab-item .tab-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    margin-top: 1px;
+  }
+
+  /* Glass card generic */
+  .glass-card {
+    border-radius: 16px;
+    padding: 14px;
+    margin-bottom: 10px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Login screen */
+  .login-logo { text-align: center; margin-top: 60px; margin-bottom: 6px; font-size: 36px; font-weight: 800; }
+  .login-subtitle { text-align: center; font-size: 12px; margin-bottom: 36px; }
+  .login-card { padding: 20px 16px; }
+  .login-input {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.08);
+    margin-bottom: 12px;
+    padding: 0 12px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    display: flex;
+    align-items: center;
+  }
+  .login-input.dark-input {
+    border-color: rgba(0,0,0,0.12);
+    background: rgba(255,255,255,0.45);
+    color: rgba(27,94,32,0.5);
+  }
+  .login-btn {
+    width: 100%;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 4px;
+    color: #fff;
+  }
+  .login-bottom { text-align: center; font-size: 11px; margin-top: 24px; }
+
+  /* Dashboard */
+  .dash-header { margin-bottom: 14px; }
+  .dash-greeting { font-size: 13px; margin-bottom: 2px; }
+  .dash-name { font-size: 18px; font-weight: 700; }
+  .dash-bell { position: absolute; right: 16px; top: 56px; font-size: 18px; }
+  .dash-badge {
+    position: absolute;
+    top: -4px; right: -6px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: #FF3B30;
+    font-size: 9px;
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+  .stat-card { border-radius: 14px; padding: 12px; backdrop-filter: blur(20px); }
+  .stat-number { font-size: 20px; font-weight: 800; }
+  .stat-label { font-size: 10px; margin-top: 2px; }
+  .quick-actions-label { font-size: 11px; font-weight: 600; margin-bottom: 8px; }
+  .quick-actions { display: flex; gap: 8px; }
+  .quick-action { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 18px; backdrop-filter: blur(10px); }
+
+  /* Calendar */
+  .cal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .cal-title { font-size: 18px; font-weight: 700; }
+  .cal-add { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: #fff; }
+  .cal-month { text-align: center; font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+  .cal-grid { margin-bottom: 10px; }
+  .cal-days { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-size: 9px; font-weight: 600; margin-bottom: 4px; }
+  .cal-days span { padding: 3px 0; }
+  .cal-week { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-size: 10px; margin-bottom: 2px; }
+  .cal-week span { padding: 4px 0; position: relative; display: flex; flex-direction: column; align-items: center; }
+  .cal-today {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    color: #fff !important;
+    font-weight: 700;
+  }
+  .cal-dot { width: 3px; height: 3px; border-radius: 50%; margin-top: 1px; }
+  .appt-card { border-radius: 12px; padding: 10px 12px; margin-bottom: 8px; backdrop-filter: blur(15px); display: flex; justify-content: space-between; align-items: center; }
+  .appt-time { font-size: 10px; font-weight: 600; }
+  .appt-name { font-size: 12px; font-weight: 600; margin-top: 1px; }
+  .appt-loc { font-size: 9px; margin-top: 1px; }
+  .appt-badge { font-size: 8px; font-weight: 700; padding: 3px 8px; border-radius: 8px; }
+
+  /* Billing */
+  .bill-title { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+  .bill-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+  .bill-stat { border-radius: 14px; padding: 12px; backdrop-filter: blur(15px); }
+  .bill-stat-label { font-size: 10px; margin-bottom: 4px; }
+  .bill-stat-amt { font-size: 18px; font-weight: 800; }
+  .bill-menu-item {
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 8px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .bill-menu-emoji { font-size: 22px; }
+  .bill-menu-text { flex: 1; }
+  .bill-menu-title { font-size: 13px; font-weight: 600; }
+  .bill-menu-sub { font-size: 10px; margin-top: 1px; }
+  .bill-menu-chev { font-size: 14px; }
+
+  .phone-wrapper { display: flex; flex-direction: column; align-items: center; }
+
+  /* Footer */
+  .page-footer {
+    text-align: center;
+    padding: 40px 20px 60px;
+    color: rgba(255,255,255,0.25);
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>&#x1F9B7; OrthoSync &#x2014; Theme Gallery</h1>
+  <p>5 beautiful themes to customize your experience</p>
+</div>
+
+<script>
+const themes = [
+  {
+    name: 'Green Glass',
+    emoji: '&#x1F7E2;',
+    desc: 'Professional medical green with frosted glass elements',
+    gradient: ['#1B5E20','#2E7D32','#43A047'],
+    accent: '#00E676',
+    glassBorder: 'rgba(255,255,255,0.18)',
+    glassBg: 'rgba(255,255,255,0.15)',
+    text: ['#FFFFFF','rgba(255,255,255,0.80)','rgba(255,255,255,0.60)'],
+    tabBar: 'rgba(27,94,32,0.95)',
+    tabActive: '#00E676',
+    isLight: false
+  },
+  {
+    name: 'Ocean Blue',
+    emoji: '&#x1F535;',
+    desc: 'Deep ocean blue with crystalline glass overlay',
+    gradient: ['#0D47A1','#1565C0','#1E88E5'],
+    accent: '#40C4FF',
+    glassBorder: 'rgba(255,255,255,0.20)',
+    glassBg: 'rgba(255,255,255,0.15)',
+    text: ['#FFFFFF','rgba(255,255,255,0.82)','rgba(255,255,255,0.62)'],
+    tabBar: 'rgba(13,71,161,0.95)',
+    tabActive: '#40C4FF',
+    isLight: false
+  },
+  {
+    name: 'Dark Neon',
+    emoji: '&#x1F311;',
+    desc: 'Ultra-dark with vibrant neon pink accents',
+    gradient: ['#1A0A2E','#2D1B4E','#4A148C'],
+    accent: '#FF4081',
+    glassBorder: 'rgba(255,255,255,0.08)',
+    glassBg: 'rgba(255,255,255,0.08)',
+    text: ['#FFFFFF','rgba(255,255,255,0.75)','rgba(255,255,255,0.50)'],
+    tabBar: 'rgba(26,10,46,0.95)',
+    tabActive: '#FF4081',
+    isLight: false
+  },
+  {
+    name: 'Purple Haze',
+    emoji: '&#x1F49C;',
+    desc: 'Rich purple gradients with soft glass elements',
+    gradient: ['#311B92','#4527A0','#5E35B1'],
+    accent: '#7C4DFF',
+    glassBorder: 'rgba(255,255,255,0.16)',
+    glassBg: 'rgba(255,255,255,0.14)',
+    text: ['#FFFFFF','rgba(255,255,255,0.80)','rgba(255,255,255,0.58)'],
+    tabBar: 'rgba(49,27,146,0.95)',
+    tabActive: '#7C4DFF',
+    isLight: false
+  },
+  {
+    name: 'Light Green',
+    emoji: '&#x1F33F;',
+    desc: 'Fresh, light green theme with dark text for readability',
+    gradient: ['#C8E6C9','#A5D6A7','#81C784'],
+    accent: '#69F0AE',
+    glassBorder: 'rgba(255,255,255,0.40)',
+    glassBg: 'rgba(255,255,255,0.50)',
+    text: ['#1B5E20','rgba(27,94,32,0.75)','rgba(27,94,32,0.55)'],
+    tabBar: 'rgba(200,230,201,0.95)',
+    tabActive: '#2E7D32',
+    isLight: true
+  }
+];
+
+function gradientCSS(g) {
+  return `linear-gradient(180deg, ${g[0]} 0%, ${g[1]} 50%, ${g[2]} 100%)`;
+}
+
+function statusBar(t) {
+  const c = t.text[0];
+  return `<div class="status-bar" style="color:${c}"><span>9:41</span><span style="font-size:10px">&#9679;&#9679;&#9679;&#9679;&#9675; &#x1F50B;</span></div>`;
+}
+
+function tabBar(t, activeIdx) {
+  const tabs = ['&#x1F3E0;','&#x1F465;','&#x1F4C5;','&#x1F4B0;','&#x2630;'];
+  let html = `<div class="tab-bar" style="background:${t.tabBar};border-color:${t.glassBorder}">`;
+  tabs.forEach((icon, i) => {
+    const isActive = i === activeIdx;
+    const color = isActive ? t.tabActive : t.text[2];
+    html += `<div class="tab-item${isActive?' active':''}" style="color:${color}">${icon}<div class="tab-dot" style="background:${isActive?t.tabActive:'transparent'}"></div></div>`;
+  });
+  html += '</div>';
+  return html;
+}
+
+function loginScreen(t) {
+  const inputClass = t.isLight ? 'login-input dark-input' : 'login-input';
+  const inputBorder = t.isLight ? 'rgba(0,0,0,0.12)' : t.glassBorder;
+  const inputBg = t.isLight ? 'rgba(255,255,255,0.45)' : 'rgba(255,255,255,0.08)';
+  const inputColor = t.isLight ? 'rgba(27,94,32,0.5)' : 'rgba(255,255,255,0.5)';
+  const notchBg = t.isLight ? t.gradient[0] : '#000';
+
+  return `
+    <div class="iphone" style="background:#000">
+      <div class="notch" style="background:${notchBg}"></div>
+      <div class="iphone-inner" style="background:${gradientCSS(t.gradient)}">
+        ${statusBar(t)}
+        <div class="screen-content">
+          <div class="login-logo" style="color:${t.text[0]}">&#x1F9B7; OrthoSync</div>
+          <div class="login-subtitle" style="color:${t.text[2]}">Built by Dr. Pooja Gangare</div>
+          <div class="login-card glass-card" style="background:${t.glassBg};border:1px solid ${t.glassBorder}">
+            <div style="background:${inputBg};border:1px solid ${inputBorder};border-radius:10px;height:40px;display:flex;align-items:center;padding:0 12px;margin-bottom:12px;color:${inputColor};font-size:12px">&#x2709;&#xFE0F; &nbsp;Email address</div>
+            <div style="background:${inputBg};border:1px solid ${inputBorder};border-radius:10px;height:40px;display:flex;align-items:center;padding:0 12px;margin-bottom:12px;color:${inputColor};font-size:12px">&#x1F512; &nbsp;Password</div>
+            <div class="login-btn" style="background:${t.accent};color:${t.isLight?'#fff':'#000'};font-weight:700">Login</div>
+          </div>
+          <div class="login-bottom" style="color:${t.text[2]}">Don't have an account? <span style="color:${t.accent};font-weight:600">Sign Up</span></div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function dashScreen(t) {
+  const notchBg = t.isLight ? t.gradient[0] : '#000';
+  return `
+    <div class="iphone" style="background:#000">
+      <div class="notch" style="background:${notchBg}"></div>
+      <div class="iphone-inner" style="background:${gradientCSS(t.gradient)}">
+        ${statusBar(t)}
+        <div class="screen-content" style="position:relative">
+          <div style="position:relative;display:inline-block;float:right;margin-top:2px;font-size:18px">&#x1F514;<div class="dash-badge">3</div></div>
+          <div class="dash-header">
+            <div class="dash-greeting" style="color:${t.text[1]}">Good Morning &#x1F44B;</div>
+            <div class="dash-name" style="color:${t.text[0]}">Dr. Pooja Gangare</div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card" style="background:${t.glassBg};border:1px solid ${t.glassBorder}">
+              <div class="stat-number" style="color:${t.text[0]}">156</div>
+              <div class="stat-label" style="color:${t.text[2]}">Patients</div>
+            </div>
+            <div class="stat-card" style="background:${t.glassBg};border:1px solid ${t.glassBorder}">
+              <div class="stat-number" style="color:${t.accent}">8</div>
+              <div class="stat-label" style="color:${t.text[2]}">Appointments</div>
+            </div>
+            <div class="stat-card" style="background:${t.glassBg};border:1px solid ${t.glassBorder}">
+              <div class="stat-number" style="color:${t.text[0]}">&#x20B9;45K</div>
+              <div class="stat-label" style="color:${t.text[2]}">Pending</div>
+            </div>
+            <div class="stat-card" style="background:${t.glassBg};border:1px solid ${t.glassBorder}">
+              <div class="stat-number" style="color:${t.accent}">&#x20B9;2.35L</div>
+              <div class="stat-label" style="color:${t.text[2]}">Monthly</div>
+            </div>
+          </div>
+          <div class="quick-actions-label" style="color:${t.text[1]}">Quick Actions</div>
+          <div class="quick-actions">
+            <div class="quick-action" style="background:${t.glassBg};border:1px solid ${t.glassBorder}">&#x1F464;</div>
+            <div class="quick-action" style="background:${t.glassBg};border:1px solid ${t.glassBorder}">&#x1F4C5;</div>
+            <div class="quick-action" style="background:${t.glassBg};border:1px solid ${t.glassBorder}">&#x1F4B3;</div>
+            <div class="quick-action" style="background:${t.glassBg};border:1px solid ${t.glassBorder}">&#x1F4CA;</div>
+          </div>
+        </div>
+        ${tabBar(t, 0)}
+      </div>
+    </div>`;
+}
+
+function calScreen(t) {
+  const notchBg = t.isLight ? t.gradient[0] : '#000';
+  const days = ['S','M','T','W','T','F','S'];
+  const weeks = [
+    [1,2,3,4,5,6,7],
+    [8,9,10,11,12,13,14],
+    [15,16,17,18,19,20,21]
+  ];
+  const dotDays = [3,7,10,15,18,20];
+
+  let calDaysHTML = '<div class="cal-days" style="color:'+t.text[2]+'">' + days.map(d => `<span>${d}</span>`).join('') + '</div>';
+  let weeksHTML = weeks.map(w => {
+    return '<div class="cal-week" style="color:'+t.text[1]+'">' + w.map(d => {
+      if (d === 15) {
+        return `<span><span class="cal-today" style="background:${t.accent};color:${t.isLight?'#fff':'#000'}">${d}</span></span>`;
+      }
+      const hasDot = dotDays.includes(d);
+      return `<span>${d}${hasDot?`<span class="cal-dot" style="background:${t.accent}"></span>`:''}</span>`;
+    }).join('') + '</div>';
+  }).join('');
+
+  return `
+    <div class="iphone" style="background:#000">
+      <div class="notch" style="background:${notchBg}"></div>
+      <div class="iphone-inner" style="background:${gradientCSS(t.gradient)}">
+        ${statusBar(t)}
+        <div class="screen-content">
+          <div class="cal-header">
+            <div class="cal-title" style="color:${t.text[0]}">Calendar</div>
+            <div class="cal-add" style="background:${t.accent}">+</div>
+          </div>
+          <div class="cal-month" style="color:${t.text[1]}">&#x25C0; &nbsp;March 2026&nbsp; &#x25B6;</div>
+          <div class="cal-grid" style="background:${t.glassBg};border:1px solid ${t.glassBorder};border-radius:14px;padding:10px">
+            ${calDaysHTML}
+            ${weeksHTML}
+          </div>
+          <div class="appt-card" style="background:${t.glassBg};border:1px solid ${t.glassBorder}">
+            <div>
+              <div class="appt-time" style="color:${t.accent}">10:00 AM</div>
+              <div class="appt-name" style="color:${t.text[0]}">Ananya Sharma</div>
+              <div class="appt-loc" style="color:${t.text[2]}">&#x1F4CD; Clinic A</div>
+            </div>
+            <div class="appt-badge" style="background:${t.accent};color:${t.isLight?'#fff':'#000'}">Confirmed</div>
+          </div>
+          <div class="appt-card" style="background:${t.glassBg};border:1px solid ${t.glassBorder}">
+            <div>
+              <div class="appt-time" style="color:${t.accent}">2:30 PM</div>
+              <div class="appt-name" style="color:${t.text[0]}">Rahul Patel</div>
+              <div class="appt-loc" style="color:${t.text[2]}">&#x1F4CD; Clinic B</div>
+            </div>
+            <div class="appt-badge" style="background:rgba(255,193,7,0.25);color:#FFD54F">Pending</div>
+          </div>
+        </div>
+        ${tabBar(t, 2)}
+      </div>
+    </div>`;
+}
+
+function billScreen(t) {
+  const notchBg = t.isLight ? t.gradient[0] : '#000';
+  return `
+    <div class="iphone" style="background:#000">
+      <div class="notch" style="background:${notchBg}"></div>
+      <div class="iphone-inner" style="background:${gradientCSS(t.gradient)}">
+        ${statusBar(t)}
+        <div class="screen-content">
+          <div class="bill-title" style="color:${t.text[0]}">Billing</div>
+          <div class="bill-stats">
+            <div class="bill-stat" style="background:${t.glassBg};border:1px solid ${t.glassBorder}">
+              <div class="bill-stat-label" style="color:${t.text[2]}">Collected</div>
+              <div class="bill-stat-amt" style="color:${t.accent}">&#x20B9;4,50,000</div>
+            </div>
+            <div class="bill-stat" style="background:${t.glassBg};border:1px solid ${t.glassBorder}">
+              <div class="bill-stat-label" style="color:${t.text[2]}">Pending</div>
+              <div class="bill-stat-amt" style="color:${t.text[0]}">&#x20B9;78,000</div>
+            </div>
+          </div>
+          <div class="bill-menu-item" style="background:${t.glassBg};border:1px solid ${t.glassBorder}">
+            <div class="bill-menu-emoji">&#x1F4CB;</div>
+            <div class="bill-menu-text">
+              <div class="bill-menu-title" style="color:${t.text[0]}">Fees Master</div>
+              <div class="bill-menu-sub" style="color:${t.text[2]}">Manage treatment pricing</div>
+            </div>
+            <div class="bill-menu-chev" style="color:${t.text[2]}">&#x203A;</div>
+          </div>
+          <div class="bill-menu-item" style="background:${t.glassBg};border:1px solid ${t.glassBorder}">
+            <div class="bill-menu-emoji">&#x1F4B3;</div>
+            <div class="bill-menu-text">
+              <div class="bill-menu-title" style="color:${t.text[0]}">Create Bill</div>
+              <div class="bill-menu-sub" style="color:${t.text[2]}">Generate patient invoices</div>
+            </div>
+            <div class="bill-menu-chev" style="color:${t.text[2]}">&#x203A;</div>
+          </div>
+          <div class="bill-menu-item" style="background:${t.glassBg};border:1px solid ${t.glassBorder}">
+            <div class="bill-menu-emoji">&#x1F3E6;</div>
+            <div class="bill-menu-text">
+              <div class="bill-menu-title" style="color:${t.text[0]}">Commission</div>
+              <div class="bill-menu-sub" style="color:${t.text[2]}">Track referral payments</div>
+            </div>
+            <div class="bill-menu-chev" style="color:${t.text[2]}">&#x203A;</div>
+          </div>
+        </div>
+        ${tabBar(t, 3)}
+      </div>
+    </div>`;
+}
+
+// Render all theme rows
+const container = document.createElement('div');
+
+themes.forEach(t => {
+  const row = document.createElement('div');
+  row.className = 'theme-row';
+  row.innerHTML = `
+    <div class="theme-label">
+      <span class="emoji">${t.emoji}</span>
+      <div class="name">${t.name}</div>
+      <div class="desc">${t.desc}</div>
+    </div>
+    <div class="phones-row">
+      <div class="phone-wrapper">
+        ${loginScreen(t)}
+        <div class="screen-label${t.isLight?' dark-text':''}">Login</div>
+      </div>
+      <div class="phone-wrapper">
+        ${dashScreen(t)}
+        <div class="screen-label">Dashboard</div>
+      </div>
+      <div class="phone-wrapper">
+        ${calScreen(t)}
+        <div class="screen-label">Calendar</div>
+      </div>
+      <div class="phone-wrapper">
+        ${billScreen(t)}
+        <div class="screen-label">Billing</div>
+      </div>
+    </div>
+  `;
+  container.appendChild(row);
+});
+
+const footer = document.createElement('div');
+footer.className = 'page-footer';
+footer.innerHTML = 'OrthoSync &mdash; Built with &#x2764;&#xFE0F; by Dr. Pooja Gangare &bull; Theme Gallery Preview';
+container.appendChild(footer);
+
+document.body.appendChild(container);
+</script>
+
+</body>
+</html>
