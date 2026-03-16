@@ -56,6 +56,7 @@ export type MoreStackParamList = {
   Notifications: undefined;
   SendNotification: undefined;
   Reports: undefined;
+  ThemeSettings: undefined;
   Settings: undefined;
   Subscription: undefined;
 };

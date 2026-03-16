@@ -2,17 +2,20 @@ import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import i18n from '../i18n';
+import type { ThemeName } from '../theme/themes';
 
 type Language = 'en' | 'hi';
 
 interface AppState {
   language: Language;
   isOnline: boolean;
+  themeName: ThemeName;
 }
 
 interface AppActions {
   setLanguage: (language: Language) => void;
   setOnline: (isOnline: boolean) => void;
+  setTheme: (themeName: ThemeName) => void;
 }
 
 type AppStore = AppState & AppActions;
@@ -20,24 +23,25 @@ type AppStore = AppState & AppActions;
 const useAppStore = create<AppStore>()(
   persist(
     (set) => ({
-      // State
       language: 'en',
       isOnline: true,
+      themeName: 'green_glass' as ThemeName,
 
-      // Actions
       setLanguage: (language: Language) => {
         i18n.changeLanguage(language);
         set({ language });
       },
 
-      setOnline: (isOnline: boolean) =>
-        set({ isOnline }),
+      setOnline: (isOnline: boolean) => set({ isOnline }),
+
+      setTheme: (themeName: ThemeName) => set({ themeName }),
     }),
     {
       name: 'orthosync-app-storage',
       storage: createJSONStorage(() => AsyncStorage),
       partialize: (state) => ({
         language: state.language,
+        themeName: state.themeName,
       }),
       onRehydrateStorage: () => (state) => {
         if (state?.language) {

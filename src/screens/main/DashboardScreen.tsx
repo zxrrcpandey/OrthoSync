@@ -21,6 +21,8 @@ import {
   useNotificationStore,
 } from '../../store';
 import { Colors, Spacing, BorderRadius, FontSize, FontWeight } from '../../theme';
+import { useTheme } from '../../theme';
+import type { ThemeColors } from '../../theme';
 
 // ─── Helpers ────────────────────────────────────────────────
 
@@ -72,16 +74,18 @@ const StatCard = ({
   title,
   value,
   emoji,
+  colors,
 }: {
   title: string;
   value: string;
   emoji: string;
+  colors: ThemeColors;
 }) => (
   <View style={styles.statCard}>
-    <BlurView intensity={20} tint="light" style={styles.statCardBlur}>
+    <BlurView intensity={20} tint="light" style={[styles.statCardBlur, { borderColor: colors.glass.borderLight }]}>
       <Text style={styles.statEmoji}>{emoji}</Text>
-      <Text style={styles.statValue}>{value}</Text>
-      <Text style={styles.statTitle}>{title}</Text>
+      <Text style={[styles.statValue, { color: colors.text.primary }]}>{value}</Text>
+      <Text style={[styles.statTitle, { color: colors.text.secondary }]}>{title}</Text>
     </BlurView>
   </View>
 );
@@ -90,15 +94,17 @@ const QuickAction = ({
   title,
   emoji,
   onPress,
+  colors,
 }: {
   title: string;
   emoji: string;
   onPress: () => void;
+  colors: ThemeColors;
 }) => (
   <TouchableOpacity style={styles.quickAction} onPress={onPress} activeOpacity={0.7}>
-    <BlurView intensity={15} tint="light" style={styles.quickActionBlur}>
+    <BlurView intensity={15} tint="light" style={[styles.quickActionBlur, { borderColor: colors.glass.borderLight }]}>
       <Text style={styles.quickActionEmoji}>{emoji}</Text>
-      <Text style={styles.quickActionText}>{title}</Text>
+      <Text style={[styles.quickActionText, { color: colors.text.primary }]}>{title}</Text>
     </BlurView>
   </TouchableOpacity>
 );
@@ -109,6 +115,7 @@ export default function DashboardScreen() {
   const insets = useSafeAreaInsets();
   const { t } = useTranslation();
   const navigation = useNavigation();
+  const { colors } = useTheme();
 
   // Store data
   const patients = usePatientStore((s) => s.patients);
@@ -206,7 +213,7 @@ export default function DashboardScreen() {
   // ─── Render ───
 
   return (
-    <LinearGradient colors={Colors.gradient.primary} style={styles.container}>
+    <LinearGradient colors={colors.gradient.primary} style={styles.container}>
       <ScrollView
         contentContainerStyle={[
           styles.content,
@@ -217,14 +224,14 @@ export default function DashboardScreen() {
         {/* ── Header ── */}
         <View style={styles.header}>
           <View>
-            <Text style={styles.greeting}>
+            <Text style={[styles.greeting, { color: colors.text.secondary }]}>
               {getGreeting()} {'\uD83D\uDC4B'}
             </Text>
-            <Text style={styles.doctorName}>Dr. Pooja Gangare</Text>
+            <Text style={[styles.doctorName, { color: colors.text.primary }]}>Dr. Pooja Gangare</Text>
           </View>
           <TouchableOpacity style={styles.notifButton} activeOpacity={0.7}>
-            <BlurView intensity={20} tint="light" style={styles.notifBlur}>
-              <Ionicons name="notifications-outline" size={24} color={Colors.text.primary} />
+            <BlurView intensity={20} tint="light" style={[styles.notifBlur, { borderColor: colors.glass.borderLight }]}>
+              <Ionicons name="notifications-outline" size={24} color={colors.text.primary} />
               {unreadCount > 0 && (
                 <View style={styles.badge}>
                   <Text style={styles.badgeText}>
@@ -237,35 +244,39 @@ export default function DashboardScreen() {
         </View>
 
         {/* ── Today's Overview ── */}
-        <Text style={styles.sectionTitle}>Today's Overview</Text>
+        <Text style={[styles.sectionTitle, { color: colors.text.primary }]}>Today's Overview</Text>
         <View style={styles.statsGrid}>
           <StatCard
             emoji={'\uD83D\uDC65'}
             title="Total Patients"
             value={String(patients.length)}
+            colors={colors}
           />
           <StatCard
             emoji={'\uD83D\uDCC5'}
             title="Today's Appointments"
             value={String(todayAppointments.length)}
+            colors={colors}
           />
           <StatCard
             emoji={'\u23F3'}
             title="Pending Payments"
             value={formatCurrency(pendingPayments)}
+            colors={colors}
           />
           <StatCard
             emoji={'\uD83D\uDCB0'}
             title="Monthly Earnings"
             value={formatCurrency(monthlyEarnings)}
+            colors={colors}
           />
         </View>
 
         {/* ── Today's Appointments ── */}
         <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>Today's Appointments</Text>
+          <Text style={[styles.sectionTitle, { color: colors.text.primary }]}>Today's Appointments</Text>
           {todayAppointments.length > 0 && (
-            <View style={styles.countBadge}>
+            <View style={[styles.countBadge, { backgroundColor: colors.accent.main }]}>
               <Text style={styles.countBadgeText}>{todayAppointments.length}</Text>
             </View>
           )}
@@ -280,12 +291,12 @@ export default function DashboardScreen() {
             contentContainerStyle={styles.apptListContent}
             renderItem={({ item }) => (
               <TouchableOpacity activeOpacity={0.8} style={styles.apptCard}>
-                <BlurView intensity={18} tint="light" style={styles.apptCardBlur}>
-                  <Text style={styles.apptTime}>{item.startTime}</Text>
-                  <Text style={styles.apptPatient} numberOfLines={1}>
+                <BlurView intensity={18} tint="light" style={[styles.apptCardBlur, { borderColor: colors.glass.borderLight }]}>
+                  <Text style={[styles.apptTime, { color: colors.accent.main }]}>{item.startTime}</Text>
+                  <Text style={[styles.apptPatient, { color: colors.text.primary }]} numberOfLines={1}>
                     {item.patientName}
                   </Text>
-                  <Text style={styles.apptLocation} numberOfLines={1}>
+                  <Text style={[styles.apptLocation, { color: colors.text.tertiary }]} numberOfLines={1}>
                     {item.locationName}
                   </Text>
                   <View style={styles.statusRow}>
@@ -295,7 +306,7 @@ export default function DashboardScreen() {
                         { backgroundColor: statusColor(item.status) },
                       ]}
                     />
-                    <Text style={styles.statusText}>{item.status}</Text>
+                    <Text style={[styles.statusText, { color: colors.text.secondary }]}>{item.status}</Text>
                   </View>
                 </BlurView>
               </TouchableOpacity>
@@ -303,8 +314,8 @@ export default function DashboardScreen() {
           />
         ) : (
           <View style={styles.glassCard}>
-            <BlurView intensity={15} tint="light" style={styles.glassCardBlur}>
-              <Text style={styles.emptyText}>
+            <BlurView intensity={15} tint="light" style={[styles.glassCardBlur, { borderColor: colors.glass.borderLight }]}>
+              <Text style={[styles.emptyText, { color: colors.text.secondary }]}>
                 {'\uD83D\uDCC6'} No appointments today
               </Text>
             </BlurView>
@@ -312,78 +323,82 @@ export default function DashboardScreen() {
         )}
 
         {/* ── Quick Actions ── */}
-        <Text style={styles.sectionTitle}>Quick Actions</Text>
+        <Text style={[styles.sectionTitle, { color: colors.text.primary }]}>Quick Actions</Text>
         <View style={styles.quickActionsGrid}>
           <QuickAction
             emoji={'\u2795'}
             title="Add Patient"
             onPress={() => console.log('Add Patient')}
+            colors={colors}
           />
           <QuickAction
             emoji={'\uD83D\uDCC5'}
             title="New Appointment"
             onPress={() => console.log('New Appointment')}
+            colors={colors}
           />
           <QuickAction
             emoji={'\uD83D\uDCB3'}
             title="Create Bill"
             onPress={() => console.log('Create Bill')}
+            colors={colors}
           />
           <QuickAction
             emoji={'\uD83C\uDFE5'}
             title="Add Location"
             onPress={() => console.log('Add Location')}
+            colors={colors}
           />
         </View>
 
         {/* ── Recent Activity ── */}
-        <Text style={styles.sectionTitle}>Recent Activity</Text>
+        <Text style={[styles.sectionTitle, { color: colors.text.primary }]}>Recent Activity</Text>
         <View style={styles.glassCard}>
-          <BlurView intensity={15} tint="light" style={styles.glassCardBlur}>
+          <BlurView intensity={15} tint="light" style={[styles.glassCardBlur, { borderColor: colors.glass.borderLight }]}>
             {recentActivity.length > 0 ? (
               recentActivity.map((item) => (
                 <View key={item.id} style={styles.activityRow}>
                   <Text style={styles.activityEmoji}>{item.emoji}</Text>
                   <View style={styles.activityContent}>
-                    <Text style={styles.activityDesc} numberOfLines={1}>
+                    <Text style={[styles.activityDesc, { color: colors.text.primary }]} numberOfLines={1}>
                       {item.description}
                     </Text>
-                    <Text style={styles.activityTime}>{item.time}</Text>
+                    <Text style={[styles.activityTime, { color: colors.text.tertiary }]}>{item.time}</Text>
                   </View>
                 </View>
               ))
             ) : (
               <View style={styles.emptyCenter}>
-                <Text style={styles.emptyText}>Start by adding patients and appointments</Text>
+                <Text style={[styles.emptyText, { color: colors.text.secondary }]}>Start by adding patients and appointments</Text>
               </View>
             )}
           </BlurView>
         </View>
 
         {/* ── Upcoming Appointments ── */}
-        <Text style={styles.sectionTitle}>Upcoming</Text>
+        <Text style={[styles.sectionTitle, { color: colors.text.primary }]}>Upcoming</Text>
         <View style={styles.glassCard}>
-          <BlurView intensity={15} tint="light" style={styles.glassCardBlur}>
+          <BlurView intensity={15} tint="light" style={[styles.glassCardBlur, { borderColor: colors.glass.borderLight }]}>
             {upcomingAppointments.length > 0 ? (
               upcomingAppointments.map((appt) => (
                 <View key={appt.id} style={styles.upcomingRow}>
-                  <View style={styles.upcomingDateBox}>
-                    <Text style={styles.upcomingDateDay}>
+                  <View style={[styles.upcomingDateBox, { backgroundColor: colors.glass.tintMedium }]}>
+                    <Text style={[styles.upcomingDateDay, { color: colors.text.primary }]}>
                       {new Date(appt.date).toLocaleDateString('en-IN', {
                         day: '2-digit',
                       })}
                     </Text>
-                    <Text style={styles.upcomingDateMonth}>
+                    <Text style={[styles.upcomingDateMonth, { color: colors.text.secondary }]}>
                       {new Date(appt.date).toLocaleDateString('en-IN', {
                         month: 'short',
                       })}
                     </Text>
                   </View>
                   <View style={styles.upcomingInfo}>
-                    <Text style={styles.upcomingPatient} numberOfLines={1}>
+                    <Text style={[styles.upcomingPatient, { color: colors.text.primary }]} numberOfLines={1}>
                       {appt.patientName}
                     </Text>
-                    <Text style={styles.upcomingMeta}>
+                    <Text style={[styles.upcomingMeta, { color: colors.text.tertiary }]}>
                       {appt.startTime} - {appt.locationName}
                     </Text>
                   </View>
@@ -391,7 +406,7 @@ export default function DashboardScreen() {
               ))
             ) : (
               <View style={styles.emptyCenter}>
-                <Text style={styles.emptyText}>No upcoming appointments</Text>
+                <Text style={[styles.emptyText, { color: colors.text.secondary }]}>No upcoming appointments</Text>
               </View>
             )}
           </BlurView>
@@ -418,11 +433,9 @@ const styles = StyleSheet.create({
     marginBottom: Spacing.xxl,
   },
   greeting: {
-    color: Colors.text.secondary,
     fontSize: FontSize.lg,
   },
   doctorName: {
-    color: Colors.text.primary,
     fontSize: FontSize.xxxl,
     fontWeight: FontWeight.bold,
     marginTop: Spacing.xs,
@@ -439,7 +452,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: BorderRadius.round,
     borderWidth: 1,
-    borderColor: Colors.glass.borderLight,
   },
   badge: {
     position: 'absolute',
@@ -461,7 +473,6 @@ const styles = StyleSheet.create({
 
   // Sections
   sectionTitle: {
-    color: Colors.text.primary,
     fontSize: FontSize.xl,
     fontWeight: FontWeight.semibold,
     marginBottom: Spacing.md,
@@ -473,7 +484,6 @@ const styles = StyleSheet.create({
     gap: Spacing.sm,
   },
   countBadge: {
-    backgroundColor: Colors.accent.main,
     borderRadius: BorderRadius.round,
     minWidth: 24,
     height: 24,
@@ -506,16 +516,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: BorderRadius.lg,
     borderWidth: 1,
-    borderColor: Colors.glass.borderLight,
   },
   statEmoji: { fontSize: 24, marginBottom: Spacing.xs },
   statValue: {
-    color: Colors.text.primary,
     fontSize: FontSize.xxl,
     fontWeight: FontWeight.bold,
   },
   statTitle: {
-    color: Colors.text.secondary,
     fontSize: FontSize.sm,
     marginTop: 2,
   },
@@ -534,21 +541,17 @@ const styles = StyleSheet.create({
     padding: Spacing.md,
     borderRadius: BorderRadius.lg,
     borderWidth: 1,
-    borderColor: Colors.glass.borderLight,
     gap: Spacing.xs,
   },
   apptTime: {
-    color: Colors.accent.main,
     fontSize: FontSize.lg,
     fontWeight: FontWeight.bold,
   },
   apptPatient: {
-    color: Colors.text.primary,
     fontSize: FontSize.md,
     fontWeight: FontWeight.medium,
   },
   apptLocation: {
-    color: Colors.text.tertiary,
     fontSize: FontSize.sm,
   },
   statusRow: {
@@ -563,7 +566,6 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   statusText: {
-    color: Colors.text.secondary,
     fontSize: FontSize.xs,
     textTransform: 'capitalize',
   },
@@ -587,12 +589,10 @@ const styles = StyleSheet.create({
     padding: Spacing.lg,
     borderRadius: BorderRadius.lg,
     borderWidth: 1,
-    borderColor: Colors.glass.borderLight,
     gap: Spacing.md,
   },
   quickActionEmoji: { fontSize: 22 },
   quickActionText: {
-    color: Colors.text.primary,
     fontSize: FontSize.md,
     fontWeight: FontWeight.medium,
     flex: 1,
@@ -607,7 +607,6 @@ const styles = StyleSheet.create({
     padding: Spacing.lg,
     borderRadius: BorderRadius.lg,
     borderWidth: 1,
-    borderColor: Colors.glass.borderLight,
   },
 
   // Activity
@@ -620,12 +619,10 @@ const styles = StyleSheet.create({
   activityEmoji: { fontSize: 20 },
   activityContent: { flex: 1 },
   activityDesc: {
-    color: Colors.text.primary,
     fontSize: FontSize.md,
     fontWeight: FontWeight.medium,
   },
   activityTime: {
-    color: Colors.text.tertiary,
     fontSize: FontSize.sm,
     marginTop: 2,
   },
@@ -641,29 +638,24 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: BorderRadius.md,
-    backgroundColor: Colors.glass.greenMedium,
     justifyContent: 'center',
     alignItems: 'center',
   },
   upcomingDateDay: {
-    color: Colors.text.primary,
     fontSize: FontSize.lg,
     fontWeight: FontWeight.bold,
     lineHeight: 20,
   },
   upcomingDateMonth: {
-    color: Colors.text.secondary,
     fontSize: FontSize.xs,
     textTransform: 'uppercase',
   },
   upcomingInfo: { flex: 1 },
   upcomingPatient: {
-    color: Colors.text.primary,
     fontSize: FontSize.md,
     fontWeight: FontWeight.medium,
   },
   upcomingMeta: {
-    color: Colors.text.tertiary,
     fontSize: FontSize.sm,
     marginTop: 2,
   },
@@ -674,7 +666,6 @@ const styles = StyleSheet.create({
     paddingVertical: Spacing.lg,
   },
   emptyText: {
-    color: Colors.text.secondary,
     fontSize: FontSize.md,
     fontWeight: FontWeight.medium,
     textAlign: 'center',

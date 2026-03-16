@@ -9,6 +9,7 @@ import LocationDetailScreen from '../screens/location/LocationDetailScreen';
 import NotificationsScreen from '../screens/notification/NotificationsScreen';
 import SendNotificationScreen from '../screens/notification/SendNotificationScreen';
 import ReportsDashboardScreen from '../screens/reports/ReportsDashboardScreen';
+import ThemeSettingsScreen from '../screens/settings/ThemeSettingsScreen';
 
 const Stack = createNativeStackNavigator<MoreStackParamList>();
 
@@ -28,6 +29,7 @@ export default function MoreNavigator() {
       <Stack.Screen name="Notifications" component={NotificationsScreen} />
       <Stack.Screen name="SendNotification" component={SendNotificationScreen} />
       <Stack.Screen name="Reports" component={ReportsDashboardScreen} />
+      <Stack.Screen name="ThemeSettings" component={ThemeSettingsScreen} />
     </Stack.Navigator>
   );
 }

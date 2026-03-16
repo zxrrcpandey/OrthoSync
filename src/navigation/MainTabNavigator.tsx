@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BlurView } from 'expo-blur';
 import { MainTabParamList } from './types';
 import { Colors, FontSize, Spacing } from '../theme';
+import { useTheme } from '../theme';
 
 // Placeholder screens - will be replaced with actual screens
 import DashboardScreen from '../screens/main/DashboardScreen';
@@ -14,7 +15,7 @@ import MoreNavigator from './MoreNavigator';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
-const TabIcon = ({ name, focused }: { name: string; focused: boolean }) => {
+const TabIcon = ({ name, focused, activeColor }: { name: string; focused: boolean; activeColor: string }) => {
   const icons: Record<string, string> = {
     Dashboard: '🏠',
     Patients: '👥',
@@ -23,26 +24,28 @@ const TabIcon = ({ name, focused }: { name: string; focused: boolean }) => {
     More: '☰',
   };
   return (
-    <View style={[styles.iconContainer, focused && styles.iconContainerActive]}>
+    <View style={[styles.iconContainer, focused && { backgroundColor: activeColor }]}>
       <Text style={styles.iconText}>{icons[name] || '•'}</Text>
     </View>
   );
 };
 
 export default function MainTabNavigator() {
+  const { colors } = useTheme();
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarIcon: ({ focused }) => <TabIcon name={route.name} focused={focused} />,
-        tabBarActiveTintColor: Colors.accent.main,
-        tabBarInactiveTintColor: Colors.text.secondary,
-        tabBarStyle: styles.tabBar,
+        tabBarIcon: ({ focused }) => <TabIcon name={route.name} focused={focused} activeColor={colors.glass.tintMedium} />,
+        tabBarActiveTintColor: colors.tabBar.active,
+        tabBarInactiveTintColor: colors.tabBar.inactive,
+        tabBarStyle: [styles.tabBar, Platform.OS === 'ios' ? undefined : { backgroundColor: colors.tabBar.background }],
         tabBarBackground: () =>
           Platform.OS === 'ios' ? (
             <BlurView intensity={80} tint="dark" style={StyleSheet.absoluteFill} />
           ) : (
-            <View style={[StyleSheet.absoluteFill, styles.tabBarAndroid]} />
+            <View style={[StyleSheet.absoluteFill, { backgroundColor: colors.tabBar.background }]} />
           ),
         tabBarLabelStyle: styles.tabBarLabel,
       })}
@@ -64,10 +67,7 @@ const styles = StyleSheet.create({
     height: Platform.OS === 'ios' ? 88 : 65,
     paddingBottom: Platform.OS === 'ios' ? 28 : 8,
     paddingTop: 8,
-    backgroundColor: Platform.OS === 'ios' ? 'transparent' : Colors.primary[900],
-  },
-  tabBarAndroid: {
-    backgroundColor: 'rgba(27, 94, 32, 0.95)',
+    backgroundColor: Platform.OS === 'ios' ? 'transparent' : undefined,
   },
   tabBarLabel: {
     fontSize: FontSize.xs,
@@ -80,9 +80,6 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  iconContainerActive: {
-    backgroundColor: Colors.glass.greenMedium,
   },
   iconText: {
     fontSize: 18,
