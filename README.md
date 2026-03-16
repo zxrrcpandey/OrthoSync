@@ -26,7 +26,7 @@
 
 ## 📸 Screenshots
 
-> 📷 *Screenshots coming soon — the app features a beautiful **green glassmorphism** UI theme*
+> 📷 *Screenshots coming soon — the app features a beautiful **Glass White** default theme with 5 more selectable themes*
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
@@ -44,7 +44,7 @@
 └─────────────┴─────────────┴─────────────┴──────────────────────────┘
 ```
 
-> 💡 **Theme:** Dark green gradient background + frosted glass cards + white text = Premium dental app look
+> 💡 **Default Theme:** Glass White — soft grey gradient + frosted white glass cards + dark text + cyan accent = Clean, premium Apple Vision Pro-inspired look
 
 ---
 
@@ -316,6 +316,31 @@ OrthoSync is packed with everything a dental practice needs. Click any feature t
 
 </details>
 
+### 🎨 Multi-Theme System (6 Themes)
+
+> Choose your style — 6 beautiful themes with instant switching and live preview.
+
+<details>
+<summary><b>▶ View all sub-features</b></summary>
+<br/>
+
+- ✅ **6 selectable themes:**
+  - 🤍 **Glass White** (DEFAULT) — soft grey gradient, frosted white glass, cyan accent, dark text
+  - 🟢 **Green Glass** — dark green gradient, white text, green accent
+  - 🔵 **Ocean Blue** — deep blue gradient, ice glass, cyan accent
+  - 🌑 **Dark Neon** — dark purple background, neon pink accents
+  - 💜 **Purple Haze** — deep purple gradient, soft glass, violet accent
+  - 🌿 **Light Green** — light green background, clean glass, dark text
+- ✅ ThemeProvider React Context with `useTheme()` hook
+- ✅ Theme persisted across app restarts
+- ✅ Theme Settings screen with visual gallery (mini phone mockups)
+- ✅ Live Preview section with sample UI elements
+- ✅ StatusBar adapts to dark/light themes
+- ✅ Tab bar and navigation colors update per theme
+- ✅ Easy to add custom themes
+
+</details>
+
 ---
 
 ## 🛠️ Tech Stack
@@ -326,7 +351,7 @@ OrthoSync is packed with everything a dental practice needs. Click any feature t
 | 🧰 Platform | Expo SDK | 55 | Managed workflow, OTA updates |
 | 📝 Language | TypeScript | 5.9 | Type safety & developer experience |
 | 🗃️ State | Zustand | 5.0 | Lightweight stores with persistence |
-| 💾 Storage | AsyncStorage | 3.0 | Local data & offline support |
+| 💾 Storage | AsyncStorage | 2.2 | Local data & offline support |
 | 🧭 Navigation | React Navigation | v7 | Stack + Tab navigation |
 | 🎨 UI Effects | expo-blur, expo-linear-gradient | — | Glassmorphism design system |
 | 📷 Camera | expo-image-picker | — | Photo capture & gallery access |
@@ -344,7 +369,7 @@ OrthoSync is packed with everything a dental practice needs. Click any feature t
 
 | 📁 Source Files | 📝 Lines of Code | 🏗️ Build Phases | 🗃️ Zustand Stores |
 |:---------------:|:-----------------:|:----------------:|:------------------:|
-| **74** | **~27,746** | **11** | **7** |
+| **77** | **~29,007** | **12** | **7** |
 
 | 🦷 Default Treatments | 📱 Screens | 🌐 Languages | 🏥 Target Scale |
 |:----------------------:|:----------:|:------------:|:---------------:|
@@ -403,12 +428,13 @@ OrthoSync/
 │   │   ├── calendar/                # 📅 3 calendar screens
 │   │   ├── notification/            # 🔔 2 notification screens
 │   │   ├── reports/                 # 📊 1 reports screen
+│   │   ├── settings/               # ⚙️ 1 settings screen (Theme selector)
 │   │   └── web/                     # 🖥️ 1 web admin panel
 │   ├── navigation/                  # 🧭 8 navigation files
 │   ├── store/                       # 🗃️ 7 Zustand stores
 │   ├── services/                    # ⚙️ 2 services (notifications, sync)
 │   ├── hooks/                       # 🪝 1 custom hook (useNetworkStatus)
-│   ├── theme/                       # 🎨 Theme system (colors, spacing)
+│   ├── theme/                       # 🎨 6 themes (Glass White default) + ThemeProvider
 │   ├── i18n/                        # 🌐 Translations (en.ts, hi.ts)
 │   ├── types/                       # 📝 TypeScript definitions
 │   └── config/                      # ⚙️ Firebase configuration
@@ -434,6 +460,7 @@ OrthoSync/
 | 9 | 🔔 Notifications | 2 | Notification center, send notification |
 | 10 | 📊 Reports | 1 | Analytics dashboard with shareable reports |
 | 11 | 🖥️ Web Admin | 1 | Full admin panel for desktop browsers |
+| 12 | 🎨 Theme System | 3 | Theme provider, 6 palettes, theme settings with live preview |
 
 ---
 
@@ -486,7 +513,7 @@ Contributions are welcome! Here's how you can help:
 
 - 🔷 TypeScript strict mode
 - 📁 Feature-based folder structure
-- 🎨 Green glassmorphism design language
+- 🎨 Glass White glassmorphism default (6 themes available)
 - 🗃️ Zustand for all state management
 - 🌐 All user-facing strings must be in `i18n/en.ts` and `i18n/hi.ts`
 
@@ -498,6 +525,9 @@ Contributions are welcome! Here's how you can help:
 |:---------|:------------|
 | 📖 [Setup Guide](SETUP_GUIDE.md) | Complete beginner-friendly setup instructions — from installing Homebrew to deploying to app stores |
 | 📋 [Project Documentation](PROJECT_DOCUMENTATION.md) | Full technical docs — features, architecture, build phases, known issues, and solutions |
+| 🎨 [iOS Mockups](mockups/ios-mockups.html) | 34 iPhone-framed screen mockups with glassmorphism theme |
+| 🖥️ [Web Mockups](mockups/web-mockups.html) | 10 full-width web admin panel section mockups |
+| 🌈 [Theme Gallery](mockups/theme-mockups.html) | All 6 themes compared across 4 key screens |
 
 ---
 
@@ -517,7 +547,9 @@ Contributions are welcome! Here's how you can help:
 - [x] Offline sync with auto-retry
 - [x] Web admin panel
 - [x] English + Hindi internationalization
-- [x] Green glassmorphism UI theme
+- [x] Multi-theme system (6 themes with Glass White default)
+- [x] Security audit passed (0 vulnerabilities, React 19.2.0)
+- [x] Visual HTML mockups (iOS + Web + Theme gallery)
 
 ### 🔮 Planned
 
@@ -564,7 +596,7 @@ copies or substantial portions of the Software.
 **Built by [Dr. Pooja Gangare](https://github.com/zxrrcpandey)**
 *Orthodontics & Dentofacial Orthopaedics*
 
-**Developed by Rahul Pandey**
+**Developed by [Rahul Pandey](https://github.com/zxrrcpandey)**
 
 ### Technologies That Make OrthoSync Possible
 

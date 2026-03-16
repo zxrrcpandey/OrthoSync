@@ -29,7 +29,7 @@ OrthoSync is a cross-platform (iOS, Android, Web) dental practice management app
 - **Target Users:** Doctors (not patients)
 - **Locations Scale:** 89+ hospitals/clinics
 - **Languages:** English + Hindi
-- **Theme:** Green Glassmorphism
+- **Theme:** Glass White (default) + 5 more selectable themes
 - **Repository:** https://github.com/zxrrcpandey/OrthoSync
 
 ---
@@ -224,6 +224,22 @@ These are the original features requested by the user:
 - [x] Web-optimized glassmorphism (backdropFilter, boxShadow)
 - [x] Responsive layout with sidebar + main content
 
+### Phase 12 — Multi-Theme System
+- [x] 6 selectable themes with live preview:
+  - 🤍 Glass White (DEFAULT) — soft grey gradient, frosted white glass, cyan accent, dark text (inspired by Apple Vision Pro)
+  - 🟢 Green Glass — dark green gradient, white text, green accent
+  - 🔵 Ocean Blue — deep blue gradient, ice glass, cyan accent
+  - 🌑 Dark Neon — dark purple background, neon pink accents
+  - 💜 Purple Haze — deep purple gradient, soft glass, violet accent
+  - 🌿 Light Green — light green background, clean glass, dark text
+- [x] ThemeProvider React Context with useTheme() hook
+- [x] Theme persisted in Zustand appStore (survives app restart)
+- [x] Theme Settings screen with visual gallery (mini phone mockups per theme)
+- [x] Live Preview section showing sample UI elements in real-time
+- [x] StatusBar adapts (light for dark themes, dark for light themes)
+- [x] Tab bar colors update per theme
+- [x] All key screens updated to use dynamic colors
+
 ---
 
 ## Tech Stack
@@ -234,7 +250,7 @@ These are the original features requested by the user:
 | Language | TypeScript | Type safety |
 | State Management | Zustand | Lightweight, persistent stores |
 | Persistence | AsyncStorage | Local data storage & offline support |
-| Navigation | React Navigation v6 | Stack + Tab navigation |
+| Navigation | React Navigation v7 | Stack + Tab navigation |
 | UI Effects | expo-blur, expo-linear-gradient | Glassmorphism effects |
 | Camera/Photos | expo-image-picker | Photo capture & gallery |
 | Notifications | expo-notifications | Push notifications |
@@ -248,7 +264,7 @@ These are the original features requested by the user:
 ## Project Structure
 
 ```
-OrthoSync/ (74 source files)
+OrthoSync/ (77 source files)
 ├── App.tsx                              # Entry point
 ├── src/
 │   ├── components/ui/                   # 8 reusable UI components
@@ -304,6 +320,8 @@ OrthoSync/ (74 source files)
 │   │   │   └── SendNotificationScreen.tsx
 │   │   ├── reports/                     # 1 reports screen
 │   │   │   └── ReportsDashboardScreen.tsx
+│   │   ├── settings/                    # 1 settings screen
+│   │   │   └── ThemeSettingsScreen.tsx
 │   │   └── web/                         # 1 web panel
 │   │       └── WebDashboard.tsx
 │   ├── navigation/                      # 8 navigation files
@@ -334,9 +352,11 @@ OrthoSync/ (74 source files)
 │   ├── hooks/                           # 1 custom hook
 │   │   ├── useNetworkStatus.ts
 │   │   └── index.ts
-│   ├── theme/                           # Theme system
-│   │   ├── colors.ts
-│   │   ├── spacing.ts
+│   ├── theme/                           # Theme system (6 themes)
+│   │   ├── themes.ts                    # 6 theme color palettes
+│   │   ├── ThemeProvider.tsx             # React Context + useTheme() hook
+│   │   ├── colors.ts                    # Legacy static colors
+│   │   ├── spacing.ts                   # Spacing, BorderRadius, FontSize
 │   │   └── index.ts
 │   ├── i18n/                            # Internationalization
 │   │   ├── en.ts
@@ -363,7 +383,8 @@ OrthoSync/ (74 source files)
 | 8 | `4276a82` | 7 files | ~1,954 |
 | 9 | `bfb58f7` | 3 files | ~1,158 |
 | 10 & 11 | `6459b31` | 12 files | ~2,573 |
-| **Total** | **9 commits** | **74 source files** | **~27,746 lines** |
+| 12 (Theme) | `b47a1fc` | 13 files | ~1,261 |
+| **Total** | **13+ commits** | **77 source files** | **~29,007 lines** |
 
 ---
 
@@ -414,6 +435,44 @@ OrthoSync/ (74 source files)
 | WhatsApp deep linking over API | No backend needed. Opens WhatsApp directly with pre-filled message. |
 | Text-based receipts/reports over PDF | Works everywhere without native PDF libraries. Share via any app. |
 | Platform.OS check for web vs mobile | Clean separation. Web gets admin panel, mobile gets patient-facing app. |
+
+---
+
+## Security Audit Results
+
+### Last Audit: 2026-03-16
+
+| Check | Result |
+|-------|--------|
+| `npm audit` | **0 vulnerabilities** |
+| `npx expo-doctor` | **17/17 checks passed** |
+| TypeScript (`npx tsc --noEmit`) | **0 errors** across 77 files |
+| React version | **19.2.0** (NOT vulnerable to CVE-2024-56562) |
+| React Native version | **0.83.2** (latest stable) |
+
+### CVE-2024-56562 — React.js Critical (CVSS 10.0)
+- **Affected:** React < 19.0.0 (react-dom SSR with dangerouslySetInnerHTML)
+- **Our status:** **NOT AFFECTED** — React 19.2.0 is fully patched
+- **React Native:** Not affected (no react-dom SSR)
+
+### Dependency Fixes Applied (2026-03-16)
+| Package | Was | Fixed To | Reason |
+|---------|-----|----------|--------|
+| @react-native-async-storage | 3.0.1 | 2.2.0 | SDK 55 compatibility |
+| @react-native-community/netinfo | 12.0.1 | 11.5.2 | SDK 55 compatibility |
+| react-native-safe-area-context | 5.7.0 | ~5.6.2 | SDK 55 compatibility |
+| react-native-screens | 4.24.0 | ~4.23.0 | SDK 55 compatibility |
+| expo-font | (missing) | ~55.0.4 | Missing peer dependency |
+| react-dom | (missing) | 19.2.0 | Web platform support |
+| react-native-web | (missing) | ~0.21.0 | Web platform support |
+
+### How to Run Security Audit
+```bash
+npm audit                    # Check for vulnerabilities
+npx expo-doctor              # Check Expo compatibility
+npx tsc --noEmit             # Check TypeScript compilation
+npm ls react react-dom       # Verify React versions
+```
 
 ---
 
@@ -504,6 +563,10 @@ const firebaseConfig = {
 ## Git History
 
 ```
+0856324 docs: Update Setup Guide v2.0
+6ee5b81 fix: Resolve all dependency issues and security vulnerabilities
+87ef73b feat: Add theme gallery mockup showing all 5 themes across 4 screens
+b47a1fc feat: Multi-theme system with 5 selectable themes and live preview
 6459b31 feat: Phase 10 & 11 — Offline sync, live dashboard, and web admin panel
 bfb58f7 feat: Phase 9 — Reports dashboard with analytics and export
 4276a82 feat: Phase 8 — Push notifications, WhatsApp reminders, and notification center
@@ -520,4 +583,4 @@ e7d22b9 Initial commit
 
 *Generated by OrthoSync Development Team*
 *Built by Dr. Pooja Gangare*
-*Powered by Claude Opus 4.6 (1M context)*
+*Developed by Rahul Pandey*
